@@ -26,8 +26,6 @@ const CreateToken = () => {
       toast.error("Please connect the wallet first!");
     }
 
-
-    return
     if (signer) {
       try {
         const contract = new ethers.Contract(networks.Binance.tokenFactory, abi, await signer);

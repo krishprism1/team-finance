@@ -1,0 +1,19 @@
+.container {
+    display: flex;
+    /* Use flexbox to align items horizontally */
+    justify-content: space-between;
+    /* Add space between items */
+    gap: 20px;
+    /* Additional spacing between items (optional) */
+}
+
+.item {
+    flex: 1;
+    /* Allow items to grow and shrink equally */
+    padding: 10px;
+    /* Add padding to each item (optional) */
+    text-align: center;
+    /* Center-align text within each item (optional) */
+    border: 1px solid #ccc;
+    /* Add border to each item (optional) */
+}
