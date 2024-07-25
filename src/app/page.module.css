@@ -1,19 +1,38 @@
-.container {
+.main {
     display: flex;
-    /* Use flexbox to align items horizontally */
-    justify-content: space-between;
-    /* Add space between items */
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+  }
+  
+  .main > div:first-child {
+    margin-bottom: 30px; /* Space below the ConnectButton */
+  }
+  
+  .container {
+    display: flex;
+    flex-wrap: wrap;
     gap: 20px;
-    /* Additional spacing between items (optional) */
-}
-
-.item {
-    flex: 1;
-    /* Allow items to grow and shrink equally */
-    padding: 10px;
-    /* Add padding to each item (optional) */
+    justify-content: center;
+    max-width: 600px; /* Adjust as needed */
+  }
+  
+  .item {
+    flex: 1 1 auto;
     text-align: center;
-    /* Center-align text within each item (optional) */
-    border: 1px solid #ccc;
-    /* Add border to each item (optional) */
-}
+  }
+  
+  .item button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .item button:hover {
+    background-color: #ddd;
+  }
+  

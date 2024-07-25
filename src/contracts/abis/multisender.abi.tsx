@@ -1,0 +1,1 @@
+export const multiSenderAbi = [{ "inputs": [{ "internalType": "address", "name": "token", "type": "address" }, { "internalType": "address[]", "name": "recipients", "type": "address[]" }, { "internalType": "uint256[]", "name": "amounts", "type": "uint256[]" }], "name": "multisend", "outputs": [], "stateMutability": "nonpayable", "type": "function" }]

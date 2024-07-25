@@ -1,6 +1,7 @@
 // "use client"
 import CreateToken from "@/components/CreateToken";
 import CreatingVesting from "@/components/CreatingVesting";
+import MultiSender from "@/components/MultiSender";
 import Image from "next/image";
 import styles from "./page.module.css";
 
@@ -11,11 +12,12 @@ function ConnectButton() {
 export default function Home() {
   return (
     <main className={styles.main}>
-        <div className="container">
-          <div className="item"><ConnectButton /></div>
-          <div className="item"><CreateToken /></div>
-          <div className="item"><CreatingVesting /></div>
-        </div>
+      <div><ConnectButton /></div>
+      <div className={styles.container}>
+        <div className={styles.item}><CreateToken /></div>
+        <div className={styles.item}><CreatingVesting /></div>
+        <div className={styles.item}><MultiSender /></div>
+      </div>
     </main>
   );
 }
