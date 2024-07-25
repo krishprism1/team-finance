@@ -25,6 +25,7 @@ const CreatingVesting = () => {
       }
   
       if (signer) {
+        
         try {
           const tokenInstance = contractInstance(token, tokenAbi, await signer);
           await tokenInstance.approve(networks.Binance.vestingFactory, intToBig(10000, 18))
