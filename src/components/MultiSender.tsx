@@ -5,9 +5,9 @@ import { toast } from "react-toastify";
 import { useEthersSigner } from "@/hooks/useEtherSigner";
 import { useAccount } from "wagmi";
 import {intToBig } from "@/utils/math.utils";
-import { contractInstance } from "@/utils/web3.utils";
 import { tokenAbi } from "@/contracts/abis/token.abi";
 import { multiSenderAbi } from "@/contracts/abis/multisender.abi";
+import { ethers } from "ethers";
 
 const MultiSender = () => {
     const { isConnected } = useAccount();
@@ -26,10 +26,10 @@ const MultiSender = () => {
   
       if (signer) {
         try {
-          const tokenInstance = contractInstance(token, tokenAbi, await signer);
+          const tokenInstance = new ethers.Contract(token, tokenAbi, await signer);
           const _tx = await tokenInstance.approve(networks.Binance.multiSender, totalAmount)
           await _tx.wait()
-          const multiSendInstance = contractInstance(networks.Binance.multiSender, multiSenderAbi, await signer);
+          const multiSendInstance = new ethers.Contract(networks.Binance.multiSender, multiSenderAbi, await signer);
           const tx = await multiSendInstance.multisend(token, recipients, amounts);
           const receipt = await tx.wait();
           toast.success("Transaction completed successfully!", console.log(receipt));

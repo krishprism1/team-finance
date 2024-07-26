@@ -3,10 +3,10 @@ import { networks } from "@/contracts/index";
 import React, { useState } from "react";
 import { toast } from "react-toastify";
 import { useEthersSigner } from "@/hooks/useEtherSigner";
+import { ethers } from "ethers"
 import { useAccount } from "wagmi";
 import {intToBig } from "@/utils/math.utils";
 import { vestingFactoryAbi } from "@/contracts/abis/vestingFactory.abi";
-import { contractInstance } from "@/utils/web3.utils";
 import { tokenAbi } from "@/contracts/abis/token.abi";
 
 const CreatingVesting = () => {
@@ -22,14 +22,12 @@ const CreatingVesting = () => {
       setLoad(true);
       if (!isConnected) {
         toast.error("Please connect the wallet first!");
-      }
-  
-      if (signer) {
-        
+      }  
+      if (signer) {        
         try {
-          const tokenInstance = contractInstance(token, tokenAbi, await signer);
+          const tokenInstance = new ethers.Contract(token, tokenAbi, await signer);
           await tokenInstance.approve(networks.Binance.vestingFactory, intToBig(10000, 18))
-          const vFactory = contractInstance(networks.Binance.vestingFactory, vestingFactoryAbi, await signer);
+          const vFactory = new ethers.Contract(networks.Binance.vestingFactory, vestingFactoryAbi, await signer);
           const tx = await vFactory.createVesting(token, merkleRoot, totalAmount);
           const receipt = await tx.wait();
           toast.success("Transaction completed successfully!", console.log(receipt));
