@@ -67,14 +67,6 @@ const CreateToken = () => {
     // </div>
     <>
       <div className="containter">
-        <div className={"walletInfo"}>
-          <div className={"walletDetails"}>
-            <img src="/download.png" alt="Metamask Logo" className="walletLogo" />
-            <span>0.1239 tBNB</span>
-            <span>{address ? address :'0xC7dF...32D1'}</span>
-          </div>
-          <button className={"disconnectButton"} onClick={()=>disconnect()}>{isConnected ? 'Disconnect':'Disconnected'}</button>
-        </div>
         <button className={"continueButton"} onClick={() => { nextTab('tokenInformation') }}>Continue</button>
         <div className={"formSection"}>
           <div className={"formGroup"}>
