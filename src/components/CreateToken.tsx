@@ -9,11 +9,11 @@ import { useAccount, useDisconnect } from "wagmi";
 import { intToBig } from "@/utils/math.utils";
 
 const CreateToken = () => {
-  const {disconnect} = useDisconnect();
-  const { address,isConnected } = useAccount();
+  const { disconnect } = useDisconnect();
+  const { address, isConnected } = useAccount();
   const [load, setLoad] = useState(false)
   const signer = useEthersSigner();
-  const [section, setSection] = useState('');
+  const [section, setSection] = useState('home');
   const [tokenDetail, setTokenDetail] = useState({
     name: "",
     symbol: "",
@@ -58,17 +58,15 @@ const CreateToken = () => {
   const nextTab = (text: string) => {
     setSection(text);
   }
-  const handleChange = (e:  React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setTokenDetail((prev: any) => ({ ...prev, [e.target.name]: e.target.value }))
   }
   return (
-    // <div>
-    //   <button onClick={() => creatToken()}>Create Token</button>
-    // </div>
+
     <>
       <div className="containter">
-        <button className={"continueButton"} onClick={() => { nextTab('tokenInformation') }}>Continue</button>
-        <div className={"formSection"}>
+
+        {section === 'home' && <> <div className={"formSection"}>
           <div className={"formGroup"}>
             <label className="label">Select blockchain</label>
             <select>
@@ -77,7 +75,8 @@ const CreateToken = () => {
           </div>
 
         </div>
-
+          <button className={"continueButton"} onClick={() => { nextTab('tokenInformation') }}>Continue</button>
+        </>}
         <div className={"card"}>
           {section === 'tokenInformation' && (
             <>  <div className="header" onClick={() => console.log("click")}>
