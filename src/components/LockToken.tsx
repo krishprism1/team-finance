@@ -33,7 +33,6 @@ const LockToken = () => {
         await _tx.wait()
         const lockInstance = new ethers.Contract(networks.Binance.lockToken, lockAbi, await signer);
         const fee = await lockInstance.getFeesInETH(token)
-        console.log(fee, "feess")
         const tx = await lockInstance.lockToken(token, _withdrawalAddress, totalAmount, _unlockTime, _mintNFT, referr, {
           value: fee
         });
