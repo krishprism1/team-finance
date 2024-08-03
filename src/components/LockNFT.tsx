@@ -48,7 +48,7 @@ const LockNFT = () => {
 
   return (
     <div>
-      <button onClick={() => lock()}>Lock Tokens</button>
+      <button onClick={() => lock()}>Lock NFT</button>
     </div>
   );
 }
