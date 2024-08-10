@@ -3,9 +3,20 @@ import "../../styles/header.css"
 
 const Header = () => {
   return (
-    <div>
-      <h1>Header</h1>
+    <header>
+    <div className='header-container'>
+      <div className="heading-box">
+        <img src="https://app.team.finance/Blue_TF_Logotype.svg" alt="" />
+        {/* <h2>Team Finance</h2> */}
+        </div>
+      <nav>
+        <div className='nav-div'>
+          <img src="https://app.team.finance/icons/wizard/ethereum.svg" alt="ig" />
+        <a href="#">connect wallet</a>
+        </div>
+      </nav>
     </div>
+    </header>
   )
 }
 
