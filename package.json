@@ -10,11 +10,11 @@
   },
   "dependencies": {
     "@tanstack/react-query": "^5.51.5",
+    "@types/mongoose": "^5.11.97",
     "@web3modal/wagmi": "^5.0.7",
     "ethers": "^6.13.1",
-    "mongoose": "^8.5.1",
+    "mongoose": "^8.5.2",
     "next": "14.2.5",
-    
     "react": "^18",
     "react-dom": "^18",
     "react-toastify": "^10.0.5",

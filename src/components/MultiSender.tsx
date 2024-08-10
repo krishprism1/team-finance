@@ -32,7 +32,8 @@ const MultiSender = () => {
           const multiSendInstance = new ethers.Contract(networks.Binance.multiSender, multiSenderAbi, await signer);
           const tx = await multiSendInstance.multisend(token, recipients, amounts);
           const receipt = await tx.wait();
-          toast.success("Transaction completed successfully!", console.log(receipt));
+          toast.success("Transaction completed successfully!");
+          console.log(receipt)
           setLoad(false);
         } catch (error: any) {
           toast.error(error.reason);
@@ -43,7 +44,7 @@ const MultiSender = () => {
   
     return (
       <div>
-        <button onClick={() => multiTransfer()}>Send Tokens</button>
+        <button onClick={() => multiTransfer()}>{load ? "PROCESSING..." : "Send Tokens"}</button>
       </div>
     );
 }

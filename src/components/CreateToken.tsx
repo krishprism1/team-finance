@@ -5,12 +5,11 @@ import { abi } from "@/contracts/abis/tokenFactory.abi";
 import { toast } from "react-toastify";
 import { useEthersSigner } from "@/hooks/useEtherSigner";
 import { ethers } from "ethers";
-import { useAccount, useDisconnect } from "wagmi";
+import { useAccount } from "wagmi";
 import { intToBig } from "@/utils/math.utils";
 
 const CreateToken = () => {
-  const { disconnect } = useDisconnect();
-  const { address, isConnected } = useAccount();
+  const { isConnected } = useAccount();
   const [load, setLoad] = useState(false)
   const signer = useEthersSigner();
   const [section, setSection] = useState('home');
@@ -19,30 +18,27 @@ const CreateToken = () => {
     symbol: "",
     supply: "",
     decimal: '',
-    description: "",
-    website: '',
-    twitter: '',
-    telegram: '',
     mintable: false,
     burnable: false
   })
-  let name = "Billu";
-  let symbol = "BLU";
-  let supply = intToBig(1000, 18)
-  let mintable = false;
-  let burnable = false;
-
 
   const creatToken = async () => {
     setLoad(true);
     if (!isConnected) {
-      toast.error("Please connect the wallet first!");
+      setLoad(false);
+      return toast.error("Please connect the wallet first!");
     }
 
     if (signer) {
       try {
         const contract = new ethers.Contract(networks.Binance.tokenFactory, abi, await signer);
-        const tx = await contract.createToken(tokenDetail.name, tokenDetail.symbol, tokenDetail.supply, tokenDetail.mintable, tokenDetail.burnable);
+        const tx = await contract.createToken(
+          tokenDetail.name,
+          tokenDetail.symbol,
+          intToBig(parseInt(tokenDetail.supply), 18),
+          tokenDetail.mintable,
+          tokenDetail.burnable
+        );
         const receipt = await tx.wait();
         toast.success("Transaction completed successfully!");
         setLoad(false);
@@ -127,7 +123,7 @@ const CreateToken = () => {
             </div>
           </div>
 
-          <button className={"continueButton"} onClick={() => creatToken()}>Continue</button>
+          <button className={"continueButton"} onClick={() => creatToken()}>{load ? "PROCESSING..." : "CreateToken"}</button>
         </>
         }
       </div>

@@ -21,6 +21,7 @@ const CreatingVesting = () => {
     const creatVesting = async () => {
       setLoad(true);
       if (!isConnected) {
+        setLoad(false);
         toast.error("Please connect the wallet first!");
       }  
       if (signer) {        
@@ -30,7 +31,8 @@ const CreatingVesting = () => {
           const vFactory = new ethers.Contract(networks.Binance.vestingFactory, vestingFactoryAbi, await signer);
           const tx = await vFactory.createVesting(token, merkleRoot, totalAmount);
           const receipt = await tx.wait();
-          toast.success("Transaction completed successfully!", console.log(receipt));
+          toast.success("Transaction completed successfully!");
+          console.log(receipt)
           setLoad(false);
         } catch (error: any) {
           toast.error(error.reason);
@@ -41,7 +43,7 @@ const CreatingVesting = () => {
   
     return (
       <div>
-        <button onClick={() => creatVesting()}>Create Vesting</button>
+        <button onClick={() => creatVesting()}>{load ? "PROCESSING..." : "Create Vesting"}</button>
       </div>
     );
 }

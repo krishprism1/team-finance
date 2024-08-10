@@ -1,8 +1,9 @@
 
 .container {
     max-width: 600px;
-    margin: 0 auto;
     padding: 20px;
+    margin-top: 20px !important;
+    margin-bottom: 20px !important;
     border: 1px solid #e0e0e0;
     border-radius: 8px;
     background-color: #fff;
@@ -38,8 +39,6 @@
 }
 
 .continueButton {
-    background-color: #0070f3;
-    color: #fff;
     border: none;
     padding: 10px 20px;
     border-radius: 4px;

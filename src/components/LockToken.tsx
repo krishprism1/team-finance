@@ -37,7 +37,8 @@ const LockToken = () => {
           value: fee
         });
         const receipt = await tx.wait();
-        toast.success("Transaction completed successfully!", console.log(receipt));
+        console.log(receipt)
+        toast.success("Transaction completed successfully!");
         setLoad(false);
       } catch (error: any) {
         toast.error(error.reason);
@@ -48,7 +49,7 @@ const LockToken = () => {
 
   return (
     <div>
-      <button onClick={() => lock()}>Lock Tokens</button>
+      <button onClick={() => lock()}>{load ? "PROCESSING..." : "Lock Tokens"}</button>
     </div>
   );
 }

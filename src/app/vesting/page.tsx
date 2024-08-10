@@ -18,6 +18,8 @@ export default function Vesting() {
         <div className={styles.item}><CreatingVesting /></div>
         <div className={styles.item}><MultiSender /></div>
         <div className={styles.item}><LockToken /></div>
+      </div>
+      <div className={styles.container}>
         <div className={styles.item}><LockNFT /></div>
         <div className={styles.item}><Stake /></div>
       </div>
