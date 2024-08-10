@@ -21,9 +21,6 @@ export default function Home() {
       <div className={styles.container}>
         <div className={styles.item}><CreateToken /></div>
       </div> */}
-
-      <Header />
-      <Sidebar />
       <Footer />
     </main>
   );

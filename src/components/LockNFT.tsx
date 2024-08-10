@@ -37,7 +37,8 @@ const LockNFT = () => {
           value: fee
         });
         const receipt = await tx.wait();
-        toast.success("Transaction completed successfully!", console.log(receipt));
+        console.log(receipt)
+        toast.success("Transaction completed successfully!");
         setLoad(false);
       } catch (error: any) {
         toast.error(error.reason);

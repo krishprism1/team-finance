@@ -1,15 +1,15 @@
-import { BigNumber, ethers } from "ethers"
+import { BigNumberish, ethers } from "ethers"
 
-export const bigToInt = (BigNumber: BigNumber )=>{
-    return Number(ethers.formatEther(BigNumber))
+export const bigToInt = (num: BigNumberish )=>{
+    return Number(ethers.formatEther(num))
 }
 
-export const bigToIntClean = (BigNumber: BigNumber)=>{
-    return Number(ethers.formatEther(BigNumber))
+export const bigToIntClean = (num: BigNumberish)=>{
+    return Number(ethers.formatEther(num))
 }
 
 export const intToBig = (num: Number, decimal: Number )=>{
-    return ethers.parseEther(num.toString(), decimal)
+    return ethers.parseUnits(num.toString(), decimal.toString())
 }
 
 export function fixDec(num: number, dec: number = 2) {
