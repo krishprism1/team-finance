@@ -136,3 +136,16 @@ header{
     display: flex;
     flex-direction: column;
 }
+.footer{
+    width: 100%;
+    height: 60%;
+    background-color: #f3f7fa;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+.section{
+    width: 100%;
+    height: 100vh;
+    background-color: green;
+}

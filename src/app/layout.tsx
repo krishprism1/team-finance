@@ -8,6 +8,7 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Header from '@/components/dashboard/Header'
 import Sidebar from '@/components/dashboard/Sidebar'
+import Section from '@/components/dashboard/Section'
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -26,6 +27,7 @@ export default function RootLayout({
         <Web3ModalProvider initialState={initialState}>
           <Header />
           <Sidebar />
+          <Section/>
           {children}
         </Web3ModalProvider>
         <ToastContainer />

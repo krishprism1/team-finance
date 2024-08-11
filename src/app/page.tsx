@@ -1,7 +1,6 @@
 // "use client"
 import CreateToken from "@/components/CreateToken";
 import Footer from "@/components/dashboard/Footer";
-
 function ConnectButton() {
   return <w3m-button />;
 }
@@ -9,9 +8,7 @@ function ConnectButton() {
 export default function Home() {
   return (
     <main>
-      <h1>+++++++++++++DashBoard </h1>
       {/* <div><ConnectButton /></div> */}
-
       <Footer />
     </main>
   );

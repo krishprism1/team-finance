@@ -23,7 +23,7 @@
     text-decoration: none;
     color: #63676d;
     font-size: 1.1vw;
-    /* position: relative; */
+    transition: all 0.4s ease;
 }
 .link-box1 ul li .icon{
     color: #05050688;
@@ -64,9 +64,18 @@
     width: 0.9em;
     height: 1em;
     margin-left: 0.4vw;
+    padding-top: 1px;
 }
 .link-box1 ul li:first-child:before{
     content: '';
     position: relative;
     margin-left: -1.2vw;
 }
+.link-box1 ul li a:hover,.link-box2 ul li a:hover{
+    color: black;
+}
+.link-box1 ul li:hover,.link-box2 ul li:hover{
+    background-color: #e4eef7;
+    border-radius: 10px;
+}
+
