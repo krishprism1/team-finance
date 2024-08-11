@@ -1,0 +1,89 @@
+.creat-token-container{
+    width: 100%;
+    height: 100%;
+    background-color: #f3f7fa;
+}
+.back-home-box{
+    width: 100%;
+    height: 11vh;
+    align-items: center;
+    border-bottom: 0.1px solid rgba(0, 0, 0, 0.153);
+}
+.back-home-box img{
+    width: 159px;
+    height: 40px;
+    margin-right: 1vw;
+    padding-right: 1vw;
+    border-right: 1px solid rgba(0, 0, 0, 0.379);
+}
+
+.back-home-box .image-container{
+    height: 100%;
+    width: 55%;
+    margin-left: 1vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.back-home-box .image-container a{
+    text-decoration: none;
+    text-align: center;
+    align-items: center;
+    color: blue;
+    position: relative;
+}
+
+.back-home-box .image-container a span{
+    font-size: 1.3vw;
+    font-weight: 500;
+    margin-left: 3.2vw;
+}
+.left-icon{
+    position: absolute;
+    left: 8%;
+    top: 10%;
+    transform: translate(-50%,0);
+    height: 1.2em;
+    width: 1.2em;
+    opacity: 0.8;
+}
+
+/*  */
+.creat-token-column{
+    width: 100%;
+    height: 100%;
+    padding: 0 1vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.creat-token-column .content1{
+    padding: 2vw 0;
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.creat-token-column .content1 h1{
+    font-size: 2.4vw;
+    font-weight: 600;
+}
+.creat-token-column .content1 a{
+    text-decoration: none;
+    padding: 0.5vw 1.6vw;
+    border: 0.1px solid rgba(0, 0, 0, 0.153) ;
+    border-radius: 5px;
+    font-size: 1.5vw;
+    color: blue;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.content1 .vd-icon{
+    /* padding-top: 10px; */
+    height: 1.2em;
+    width: 2em;
+    color: rgba(0, 0, 255, 0.694);
+}
