@@ -8,9 +8,6 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Header from '@/components/dashboard/Header'
 import Sidebar from '@/components/dashboard/Sidebar'
-// import Section from '@/components/dashboard/Section'
-// import Page from "./token-creation/page";
-import Mint from './mint/page'
 
 
 export const metadata: Metadata = {
@@ -28,11 +25,6 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <Web3ModalProvider initialState={initialState}>
-          {/* <Header /> */}
-          {/* <Sidebar /> */}
-          {/* <Page/> */}
-          <Mint/>
-          {/* <Section/> */}
           {children}
         </Web3ModalProvider>
         <ToastContainer />

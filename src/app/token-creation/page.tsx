@@ -1,10 +1,11 @@
-import Footer from '@/components/dashboard/Footer'
+import DashboardLayout from '@/containers/DashboardLayout'
+import Link from 'next/link'
 import React from 'react'
 import "../../styles/tokenCreation.css"
 
 export default function tokenCreation() {
     return (
-        <>
+        <DashboardLayout>
             <div className='token-creation-home-page'>
                 <div className="token-creation-content-box">
                     <h2>Token Creation</h2>
@@ -18,7 +19,7 @@ export default function tokenCreation() {
                         </div>
                         <div className="creat-token-links">
                             <div>
-                                <a href="#">Create token <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" className="token-icon" xmlns="http://www.w3.org/2000/svg"><path d="M19 11h-6V5h-2v6H5v2h6v6h2v-6h6z"></path></svg></a>
+                                <Link href="/mint">Create token <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" className="token-icon" xmlns="http://www.w3.org/2000/svg"><path d="M19 11h-6V5h-2v6H5v2h6v6h2v-6h6z"></path></svg></Link>
                             </div>
                             <p>Takes about 5 minutes</p>
                         </div>
@@ -26,7 +27,7 @@ export default function tokenCreation() {
                     <div className="token-information-box">
                         <div className="box1">
                             <div className='help-heading'>
-                            <h3>Why can’t I see my token?</h3><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" className="up-down-arrow" height="24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M16.293 9.293 12 13.586 7.707 9.293l-1.414 1.414L12 16.414l5.707-5.707z"></path></svg>
+                                <h3>Why can’t I see my token?</h3><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" className="up-down-arrow" height="24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M16.293 9.293 12 13.586 7.707 9.293l-1.414 1.414L12 16.414l5.707-5.707z"></path></svg>
                             </div>
                             <div className='help-praragraph1'>
                                 <p>Connect your wallet to see any created tokens associated with your wallet address. If you still can’t see your token, make sure to check whether you have the correct wallet address connected. From time to time, there may also be a small time delay between creating your token and it appearing in the Team Finance dashboard.</p>
@@ -35,8 +36,8 @@ export default function tokenCreation() {
                         </div>
                         <div className="box1">
                             <div className='help-heading'>
-                            <h3>Is an audit report generated for minted tokens?
-                            </h3><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" className="up-down-arrow" height="24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M16.293 9.293 12 13.586 7.707 9.293l-1.414 1.414L12 16.414l5.707-5.707z"></path></svg>
+                                <h3>Is an audit report generated for minted tokens?
+                                </h3><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" className="up-down-arrow" height="24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M16.293 9.293 12 13.586 7.707 9.293l-1.414 1.414L12 16.414l5.707-5.707z"></path></svg>
                             </div>
                             <div className='help-praragraph2'>
                                 <p>Yes, you can download the Audit report by clicking on the desired minted token on the “My Mints” webpage.</p>
@@ -44,8 +45,8 @@ export default function tokenCreation() {
                         </div>
                         <div className="box1">
                             <div className='help-heading'>
-                            <h3>Where can I learn more about token creation?
-                            </h3><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" className="up-down-arrow" height="24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M16.293 9.293 12 13.586 7.707 9.293l-1.414 1.414L12 16.414l5.707-5.707z"></path></svg>
+                                <h3>Where can I learn more about token creation?
+                                </h3><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" className="up-down-arrow" height="24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M16.293 9.293 12 13.586 7.707 9.293l-1.414 1.414L12 16.414l5.707-5.707z"></path></svg>
                             </div>
                             <div className='help-praragraph3'>
                                 <p>Check out <a href="#">our docs</a> and the <a href="#">Team Finance website</a> for more info.</p>
@@ -57,8 +58,7 @@ export default function tokenCreation() {
                     </div>
                 </div>
             </div>
-            <Footer />
-        </>
+        </DashboardLayout>
     )
 }
 
