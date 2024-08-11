@@ -9,6 +9,7 @@ export default function Home() {
   return (
     <main>
       {/* <div><ConnectButton /></div> */}
+      <h1>dashboard</h1>
       <Footer />
     </main>
   );

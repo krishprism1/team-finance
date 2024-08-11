@@ -1,11 +1,11 @@
 import Footer from '@/components/dashboard/Footer'
 import React from 'react'
-import "../../styles/tokenCreation.css"
+import "../../styles/mint.css"
 
-export default function TokenCreation() {
+export default function Mint() {
     return (
         <div>
-            <h1>+++++++++++++Token Creation</h1>
+            <h1>+++++++++++++Mint</h1>
             <Footer />
         </div>
     )
