@@ -82,8 +82,201 @@
     align-items: center;
 }
 .content1 .vd-icon{
-    /* padding-top: 10px; */
     height: 1.2em;
     width: 2em;
     color: rgba(0, 0, 255, 0.694);
+}
+/*  */
+.token-creation-bar{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    margin-top: 1vw;
+}
+.token-creation-bar .column{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1vw;
+    gap: 0.2vw;
+    margin-right: 2vw;
+}
+/* button radio bar */
+.token-creation-bar .column .btn-radio1{
+    width: 120%;
+    height: 5px ;
+    outline: none;
+    border: none;
+    background-color: rgb(0, 0, 255);
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+.token-creation-bar .column .btn-radio2{
+    width: 120%;
+    height: 5px ;
+    outline: none;
+    border: none;
+    background-color: #d1d5db;
+}
+.token-creation-bar .column .btn-radio3{
+    width: 120%;
+    height: 5px ;
+    outline: none;
+    border: none;
+    background-color: #d1d5db;
+}
+.token-creation-bar .column .btn-radio4{
+    width: 120%;
+    height: 5px ;
+    outline: none;
+    border: none;
+    background-color: #d1d5db;
+}
+.token-creation-bar .column .btn-radio5{
+    width: 120%;
+    height: 5px ;
+    outline: none;
+    border: none;
+    background-color: #d1d5db;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+.token-creation-bar .column .content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: .2vw;
+}
+/* text color */
+.token-creation-bar .column .content .span1{
+    font-size: 1.4vw;
+    font-weight: 400;
+    color:black;
+    margin-left: 0.4vw;
+}
+.token-creation-bar .column .content .span2{
+    font-size: 1.4vw;
+    font-weight: 400;
+    color: #b0b7c1;
+    margin-left: 0.4vw;
+}
+.token-creation-bar .column .content .span3{
+    font-size: 1.4vw;
+    font-weight: 400;
+    color: #b0b7c1;
+    margin-left: 0.4vw;
+}
+.token-creation-bar .column .content .span4{
+    font-size: 1.4vw;
+    font-weight: 400;
+    color: #b0b7c1;
+    margin-left: 0.4vw;
+}
+.token-creation-bar .column .content .span5{
+    font-size: 1.4vw;
+    font-weight: 400;
+    color: #b0b7c1;
+    margin-left: 0.4vw;
+}
+.token-creation-bar .column .content .radio-bar2{
+    color: #b0b7c1;
+}
+.token-creation-bar .column .content .radio-bar3{
+    color: #b0b7c1;
+}
+.token-creation-bar .column .content .radio-bar4{
+    color: #b0b7c1;
+}
+.token-creation-bar .column .content .radio-bar5{
+    color: #b0b7c1;
+}
+/*  */
+
+.select-wallet-box{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.select-wallet{
+    width: 80%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #fff;
+    border-radius: 2px;
+    padding-top: 2vw;
+    padding-left: 2vw;
+    padding-bottom: 2vw;
+}
+.select-wallet h1{
+    font-size: 2.2vw;
+    font-weight: 500;
+    color: black;
+    padding-bottom: 1vw;
+}
+.select-wallet p{
+    font-size: 1.5vw;
+    color: #363739;
+}
+.select-wallet div{
+    margin-top: 2.2vw;
+    margin-bottom: 1vw;
+}
+.select-wallet a{
+    text-decoration: none;
+    padding: 0.7vw 1.7vw;
+    font-size: 1.5vw;
+    color: white;
+    font-weight: 500;
+    background-color: rgba(0, 0, 255, 0.742);
+    border-radius: 8px;
+}
+.select-wallet a:hover{
+    background-color: rgb(0, 0, 255);
+}
+/*  */
+
+.select-blockchain-box{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 1vw;
+}
+.select-blockchain-box .select-right-arrow{
+    font-size: 1.8vw;
+    margin-right: 1vw;
+}
+.select-blockchain{
+    margin-top: 0.5vw;
+    width: 80%;
+    height: 100%;
+    background-color: #f8fafc;
+    padding: 2vw 2vw;
+}
+.select-blockchain .select-box1{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #b0b7c1;
+}
+.select-blockchain .select-box1 div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.select-blockchain .select-box1 div span{
+    font-size: 1.4vw;
+    font-weight: 400;
+    margin-left: 0.6vw;
 }
