@@ -1,3 +1,4 @@
+"use client"
 import ActionLayout from '@/containers/ActionLayout'
 import React from 'react'
 import "../../styles/mint.css"

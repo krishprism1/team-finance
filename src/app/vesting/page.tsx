@@ -1,4 +1,4 @@
-// "use client"
+"use client"
 import CreatingVesting from "@/components/CreatingVesting";
 import LockNFT from "@/components/LockNFT";
 import LockToken from "@/components/LockToken";

@@ -1,7 +1,5 @@
 "use client"
 import DashboardLayout from "@/containers/DashboardLayout";
-import Image from "next/image";
-
 import "../styles/Dashboard.css"
 
 export default function Home() {

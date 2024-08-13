@@ -1,3 +1,4 @@
+"use client"
 import DashboardLayout from '@/containers/DashboardLayout'
 import Link from 'next/link'
 import React from 'react'
