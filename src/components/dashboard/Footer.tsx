@@ -17,6 +17,7 @@ const Footer = () => {
           </div>
         </div>
         <div className="footer-colum2">
+          <div className="responsive-use">
           <div className="row">
             <h3>Services</h3>
             <div className="links">
@@ -54,7 +55,8 @@ const Footer = () => {
               </ul>
             </div>
           </div>
-          <div className="row">
+        </div>
+          <div className="row row3">
             <h3>Legal</h3>
             <div className="links">
               <ul>

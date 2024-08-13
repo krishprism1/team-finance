@@ -27,8 +27,8 @@ export default function Home() {
                 <div className="content">
                   <div>
                     <h3>Token Creation</h3>
-                    <p>Create your own fully-audited token in 5 minutes with no</p>
-                    <p>programming experience.</p>
+                    <p>Create your own fully-audited token in 5 minutes with no
+                    programming experience.</p>
                   </div>
                   <div className="circle1">
                     <div className="circle2">
@@ -45,8 +45,8 @@ export default function Home() {
                 <div className="content">
                   <div>
                     <h3>Token Vesting</h3>
-                    <p>Let your investors, advisors and employees get paid automatically,</p>
-                    <p>without you having to lift a finger.</p>
+                    <p>Let your investors, advisors and employees get paid automatically,
+                   without you having to lift a finger.</p>
                   </div>
                   <div className="circle1">
                     <div className="circle2">
@@ -63,8 +63,8 @@ export default function Home() {
                 <div className="content">
                   <div>
                     <h3>Team Token Locks</h3>
-                    <p>Improve security and build trust in your token by locking your team</p>
-                    <p>Tokens.</p>
+                    <p>Improve security and build trust in your token by locking your team
+                    Tokens.</p>
                   </div>
                   <div className="circle1">
                     <div className="circle2">
@@ -98,8 +98,8 @@ export default function Home() {
                 <div className="content">
                   <div>
                     <h3>Liquidity Locks</h3>
-                    <p>Prevent rug pulls and increase community trust by locking LP</p>
-                    <p>tokens.</p>
+                    <p>Prevent rug pulls and increase community trust by locking LP
+                    tokens.</p>
                   </div>
                   <div className="circle1">
                     <div className="circle2">
@@ -116,8 +116,8 @@ export default function Home() {
                 <div className="content">
                   <div>
                     <h3>Staking</h3>
-                    <p>Create a staking pool in seconds. Better rewards and tokenomics,</p>
-                    <p>without the hassle.</p>
+                    <p>Create a staking pool in seconds. Better rewards and tokenomics,
+                    without the hassle.</p>
                   </div>
                   <div className="circle1">
                     <div className="circle2">

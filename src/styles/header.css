@@ -70,3 +70,55 @@
     height: 34px;
     background-color: black;
 }
+.nav-open-container{
+    display: none;
+}
+/*  */
+
+@media only screen and (max-width:480px){
+    .nav-open-container{
+        display: flex;
+        width: 100%;
+        height: 100%;
+        justify-content: center;
+        align-items: center;
+    }
+    .nav-open-container button{
+        width: 100%;
+        height: 100%;
+        outline: none;
+        border: none;
+        background-color: transparent;
+    }
+    .nav-open-icon{
+        width: 2.5em;
+        height: 2.5em;
+        cursor: pointer;
+    }
+    .heading-box img{
+        width: 9.2em;
+        padding: 6px;
+        margin: 0;
+        cursor: pointer;
+    }
+    .header-container nav .nav-div{
+        width: 140px;
+        border-radius: 6px;
+        z-index: 99;
+    }
+    .header-container nav a{
+        font-size: 0.8em;
+        padding: 0;
+        font-weight: 600;
+        position: relative;
+    }
+    .header-container nav a::before{
+        content: "";
+        position: absolute;
+        top: -30%;
+        left: -0.7vw;
+        width: 0.8px;
+        height: 30px;
+        background-color: black;
+    }
+}
