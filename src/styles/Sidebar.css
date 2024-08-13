@@ -24,6 +24,8 @@
     color: #63676d;
     font-size: 1.1vw;
     transition: all 0.4s ease;
+    z-index: 99;
+    position: relative;
 }
 .link-box1 ul li .icon{
     color: #05050688;
@@ -32,6 +34,7 @@
    width: 1.5em;
    left: -2.6vw;
    bottom: 27%;
+   z-index: 99;
 }
 .link-box2 ul li .icon{
     color: #050506b1;
@@ -41,12 +44,14 @@
    left: -2vw;
    margin-right: -1vw;
    bottom: 27%;
+   z-index: 99;
 }
 .link-box2 ul li{
     padding: 1vw 0.5vw;
     list-style-type: none;;
     margin-left: 1.8vw;
-    position: relative;
+    /* position: relative; */
+    z-index: 99;
 }
 .link-box1 ul li::before{
     content: '';
@@ -58,6 +63,7 @@
     top: 50%;
     left: 0;
     transform: translate(-50%,0%);
+    z-index: 99;
 }
 .link-box2 ul li a .second-icon{
     padding-left: -1vw;
@@ -65,6 +71,7 @@
     height: 1em;
     margin-left: 0.4vw;
     padding-top: 1px;
+    z-index: 99;
 }
 .link-box1 ul li:first-child:before{
     content: '';
@@ -74,8 +81,19 @@
 .link-box1 ul li a:hover,.link-box2 ul li a:hover{
     color: black;
 }
-.link-box1 ul li:hover,.link-box2 ul li:hover{
+.link-box1 ul li:hover span{
     background-color: #e4eef7;
-    border-radius: 10px;
 }
-
+.link-box1 ul li span{
+    position: absolute;
+    left: -24%;
+    top: 0;
+    width: 120%;
+    height: 45px;
+    border-radius: 6px;
+    opacity: 1;
+    z-index: 1;
+}
+.link-box1 ul li a:active>span{
+    background-color:#e4eef7 ;
+}

@@ -170,7 +170,7 @@
     padding-top: 2vw;
     padding-left: 2vw;
     padding-bottom: 2vw;
-    display: none;
+    /* display: none; */
 }
 .select-wallet h1{
     font-size: 2.2vw;
@@ -349,7 +349,7 @@
     padding: 0 1vw;
     cursor: pointer;
     background-color: #fff;
-    /* display: none; */
+    display: none;
 }
 .connected-wallet-hide-box:hover{
     background-color:#eef6fe ;
@@ -401,9 +401,9 @@
     background-color: #f8fafc;
     padding: 2vw 2vw;
 }
-.select-blockchain:nth-child(1){
+/* .select-blockchain:nth-child(1){
     display: none;
-}
+} */
 /* .select-blockchain:nth-child(2){
     display: none;
 }
@@ -439,6 +439,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    display: none;
 }
 .blockchain-cards{
     margin-top: 1vw;
