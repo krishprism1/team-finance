@@ -1,9 +1,7 @@
-// "use client"
+"use client"
 import DashboardLayout from "@/containers/DashboardLayout";
 import Image from "next/image";
-// function ConnectButton() {
-//   return <w3m-button />;
-// }
+
 import "../styles/Dashboard.css"
 
 export default function Home() {
@@ -17,7 +15,7 @@ export default function Home() {
             </div>
             <div className="column1">
               <div>
-              <Image src="https://app.team.finance/_next/static/media/wallet-ringed.9d5742db.svg" alt="Description" unoptimized />
+              <img src="https://app.team.finance/_next/static/media/wallet-ringed.9d5742db.svg" alt="Description" />
               </div>
               <div>
                 <h3>See what&apos;s under the hood</h3>

@@ -1,7 +1,17 @@
 import React from 'react'
 import "../../styles/header.css"
+import { useAccount } from 'wagmi';
+import { useWeb3Modal } from '@web3modal/wagmi/react';
+import { formatEthAddr } from '@/utils/math.utils';
 
 const Header = () => {
+
+  const {address} = useAccount()
+  const {open} = useWeb3Modal()
+  const connect = async() => {
+    await open()
+  }
+
   return (
     <header>
     <div className='header-container'>
@@ -15,7 +25,9 @@ const Header = () => {
         <div className='nav-div'>
           <div><img src="https://app.team.finance/icons/wizard/ethereum.svg" alt="ig" />
           </div>
-        <div><a href="#">connect wallet</a></div>
+        <div>
+          <a href="#" onClick={() => connect()}>{address ? formatEthAddr(address) : "connect wallet"}</a>
+        </div>
         </div>
       </nav>
     </div>

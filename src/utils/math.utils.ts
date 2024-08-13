@@ -17,6 +17,11 @@ export function fixDec(num: number, dec: number = 2) {
     return Math.trunc(num * calcDec) / calcDec;
 }
 
+export function formatEthAddr(addr: string) {
+    if (!addr || addr.length != 42) return addr; 
+    return `${addr.slice(0, 5)}...${addr.slice(-5)}`;
+}
+
 export default function formatDate(date: string): string {
     const d = new Date(date);
     const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
