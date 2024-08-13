@@ -1,5 +1,6 @@
 // "use client"
 import DashboardLayout from "@/containers/DashboardLayout";
+import Image from "next/image";
 // function ConnectButton() {
 //   return <w3m-button />;
 // }
@@ -16,10 +17,10 @@ export default function Home() {
             </div>
             <div className="column1">
               <div>
-                <img src="https://app.team.finance/_next/static/media/wallet-ringed.9d5742db.svg" alt="img" />
+              <Image src="https://app.team.finance/_next/static/media/wallet-ringed.9d5742db.svg" alt="Description" unoptimized />
               </div>
               <div>
-                <h3>See what's under the hood</h3>
+                <h3>See what&apos;s under the hood</h3>
                 <p>Connect your wallet to see all services and check your contracts.</p>
               </div>
             </div>
