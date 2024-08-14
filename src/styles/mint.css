@@ -43,6 +43,18 @@
     width: 2em;
     color: rgba(0, 0, 255, 0.694);
 }
+.content1 .vd-icon2{
+    height: 1.2em;
+    width: 2em;
+    color: rgba(0, 0, 255, 0.694);
+    display: none;
+}
+.content1 .vd-icon3{
+    height: 1.2em;
+    width: 2em;
+    color: rgba(0, 0, 255, 0.694);
+    display: none;
+}
 /*  */
 .token-creation-bar{
     width: 100%;

@@ -17,6 +17,27 @@
         padding:  1.6vw;
         font-size: 0.8em;
         border: 0.1px solid rgba(0, 0, 0, 0.495) ;
+        display: none;
+    }
+    .content1 .vd-icon2{
+        display: block;
+        width: 2.5em;
+        height: 2.5em;
+        border: 0.1px solid rgba(0, 0, 0, 0.153) ;
+        padding: 0.5em;
+        border-radius: 5px;
+    }
+    .content1 .vd-icon3{
+        display: block;
+        width: 2.5em;
+        height: 2.5em;
+        border: 0.1px solid rgba(0, 0, 0, 0.153) ;
+        padding: 0.5em;
+        background-color: blue;
+        color: white;
+        border-radius: 5px;
+        margin-left: -5em;
+        margin-right: -1em;
     }
     
     /*  */
@@ -27,27 +48,62 @@
         margin-right: 2vw;
     }
     .select-wallet{
+        width: 92%;
         border-radius: 4px;
         padding-top: 1em;
-        padding-left: 0.3em;
+        padding-left: 0.7em;
         padding-bottom: 1em;
         /* display: none; */
     }
     .select-wallet h1{
-        font-size: 1.5em;
+        font-size: 1.4em;
+        font-weight: 600;
         padding-bottom: 0.4em;
     }
     .select-wallet p{
-        font-size: 1em;
+        font-size: 1.1em;
     }
     .select-wallet div{
         margin-top: 1em;
         margin-bottom: 0.7em;
+        align-items: center;
+        text-align: center;
     }
     .select-wallet a{
-        padding: 0.5em 1.5em;
+        padding: 0.7em 1.5em;
         font-size: 1em;
         border-radius: 8px;
+    }
+    .token-creation-bar .column .content .span1,
+    .token-creation-bar .column .content .span2,
+    .token-creation-bar .column .content .span3,
+    .token-creation-bar .column .content .span4,
+    .token-creation-bar .column .content .span5{
+    display: none;
+    }
+    .token-creation-bar .column .btn-radio1{
+        width: 5.4em;
+        margin-right: -1em;
+        height: 5px;
+    }
+    .token-creation-bar .column .btn-radio2{
+        width: 5.4em;
+        height: 5px;
+        margin-right: -1em;
+    }
+    .token-creation-bar .column .btn-radio3{
+        width: 5.4em;
+        height: 5px ;
+        margin-right: -1em;
+    }
+    .token-creation-bar .column .btn-radio4{
+        width: 5.4em;
+        height: 5px ;
+        margin-right: -1em;
+    }
+    .token-creation-bar .column .btn-radio5{
+        width: 5.4em;
+        height: 5px ;
     }
     /*popup box  */
 
@@ -154,20 +210,20 @@
     }
     .select-blockchain{
         margin-top: 0.5em;
-        width: 80%;
+        width: 90%;
         height: 100%;
         background-color: #f8fafc;
-        padding: 1.8em 1em;
+        padding:0.6em 1em;
     }
     .select-blockchain .select-box1 div span{
-        font-size: 1.2em;
+        font-size: 1em;
         font-weight: 400;
         margin-left: 0.2em;
     }
     /*  */
     .blockchain-cards{
         margin-top:1em;
-        width: 80%;
+        width: 90%;
         height: 100%;
         padding: 1em 0.5em;
         background-color: #fff;
