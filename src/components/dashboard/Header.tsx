@@ -3,6 +3,8 @@ import "../../styles/header.css"
 import { useAccount } from 'wagmi';
 import { useWeb3Modal } from '@web3modal/wagmi/react';
 import { formatEthAddr } from '@/utils/math.utils';
+import { useGSAP } from '@gsap/react';
+import gsap from 'gsap';
 
 const Header = () => {
 
@@ -11,6 +13,32 @@ const Header = () => {
   const connect = async() => {
     await open()
   }
+
+  // nav open code
+  useGSAP(()=>{
+    let openIcon = document.querySelector(".nav-open-icon")
+    openIcon?.addEventListener("click",function(){
+      gsap.from(".side-container,.close-icon",{
+          display:"block",
+          x:0,
+          duration:0.8,
+          ease:"power2.inOut",
+          opacity:99
+      })
+    })
+ })
+ useGSAP(()=>{
+  let closeIcon = document.querySelector(".close-icon")
+  closeIcon?.addEventListener("click",function(){
+    gsap.to(".side-container,.close-icon",{
+      display:"none",
+      x:-500,
+      duration:0.5,
+      ease:"power2.inOut",
+      opacity:0
+    })
+  })
+ })
 
   return (
     <header>

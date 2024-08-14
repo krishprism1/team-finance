@@ -9,10 +9,12 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@gsap/react": "^2.1.1",
     "@tanstack/react-query": "^5.51.5",
     "@types/mongoose": "^5.11.97",
     "@web3modal/wagmi": "^5.0.7",
     "ethers": "^6.13.1",
+    "gsap": "^3.12.5",
     "mongoose": "^8.5.2",
     "next": "14.2.5",
     "react": "^18",

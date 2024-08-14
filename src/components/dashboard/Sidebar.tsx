@@ -1,12 +1,24 @@
 import Link from 'next/link'
 import React from 'react'
 import "../../styles/Sidebar.css"
+import { useGSAP } from '@gsap/react'
 
 const Sidebar = () => {
+
+  useGSAP(()=>{
+
+  })
   return (
     <>
+    
       <div className="side-container">
         <div className="link-box1">
+            <div className='close-icon-box'>
+                <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" className='close-icon' aria-hidden="true" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="m16.192 6.344-4.243 4.242-4.242-4.242-1.414 1.414L10.535 12l-4.242 4.242 1.414 1.414 4.242-4.242 4.243 4.242 1.414-1.414L13.364 12l4.242-4.242z"></path></svg>
+            </div>
+            <div className='team-finance'>
+            <img src="https://app.team.finance/Blue_TF_Logotype.svg" alt="" />
+            </div>
           <ul>
             <li><span></span>
               <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" className="icon" aria-hidden="true" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">

@@ -97,18 +97,43 @@
 .link-box1 ul li a:active>span{
     background-color:#e4eef7 ;
 }
+.close-icon-box{
+    display: none;
+}
+.team-finance{
+    display: none;
+}
 @media only screen and (max-width:480px){
     .side-container{
-        position: absolute;
-        left: 0;
-        width: 80%;
+        position: fixed;
+        display: none;
+        top: 0;
+        width: 87%;
         height: 100vh;
         background-color:#f3f7fa;
-        display: none;
+        z-index: 99;
+    }
+    .team-finance{
+        display: block;
+        position: absolute;
+        left: 14%;
+        top: 3%;
+    }
+    .close-icon-box{
+        display: block;
+    }
+    .close-icon-box .close-icon{
+        position: absolute;
+        right:-9%;
+        top:8%;
+        width: 2em;
+        height: 2em;
+        z-index: 199;
+        color: #63676d;
     }
     .link-box1 ul,.link-box2 ul{
         margin-left: 2.5em;
-        margin-top: 0.5em;
+        margin-top: 2.5em;
     }
     .link-box1 ul li,.link-box2 ul li{
         padding: 1em 1.2em;
@@ -118,9 +143,11 @@
     
     .link-box1 ul li:first-child{
         margin-top: 1em;
+        width: 55%;
+        border-top: 1px solid black;
     }
     .link-box1 ul li a,.link-box2 ul li a{
-        font-size: 1.1em;
+        font-size: 0.9em;
     }
     .link-box1 ul li .icon{
        height: 2em;
