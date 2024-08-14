@@ -145,3 +145,54 @@
         padding-top: 3px;
     }
 }
+
+/*  */
+
+@media only screen and (min-width: 600px) and (max-width:880px){
+    .side-container{
+        position: absolute;
+        left: 0;
+        width: 80%;
+        height: 100vh;
+        background-color:#f3f7fa;
+        display: none;
+    }
+    .link-box1 ul,.link-box2 ul{
+        margin-left: 2.5em;
+        margin-top: 0.5em;
+    }
+    .link-box1 ul li,.link-box2 ul li{
+        padding: 1em 1.2em;
+        list-style-type: none;
+        position: relative;
+    }
+    
+    .link-box1 ul li:first-child{
+        margin-top: 1em;
+    }
+    .link-box1 ul li a,.link-box2 ul li a{
+        font-size: 1.3em;
+    }
+    .link-box1 ul li .icon{
+       height: 2em;
+       width: 1.5em;
+       left: -2em;
+       bottom: 18%;
+       z-index: 99;
+    }
+    .link-box2 ul li .icon{
+       height: 2em;
+       width: 1.5em;
+       left: -3vw;
+       margin-right: -1vw;
+       bottom: 20%;
+       z-index: 99;
+    }
+    .link-box1 ul li::before{
+        top: 45%;
+    }
+    .link-box2 ul li a .second-icon{
+        margin-left: 0.4vw;
+        padding-top: 3px;
+    }
+}

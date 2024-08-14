@@ -1,0 +1,502 @@
+@media only screen and (max-width:480px){
+    .creat-token-column{
+        padding: 0 0em;
+    }
+    .creat-token-column .content1{
+        padding: 1.4em 0;
+        width: 80%;
+        display: flex;
+        justify-content:space-between;
+        align-items: center;
+    }
+    .creat-token-column .content1 h1{
+        font-size: 1.6em;
+        margin-left: -1em;
+    }
+    .creat-token-column .content1 a{
+        padding:  1.6vw;
+        font-size: 0.8em;
+        border: 0.1px solid rgba(0, 0, 0, 0.495) ;
+    }
+    
+    /*  */
+
+    .token-creation-bar .column{
+        margin-bottom: 1em;
+        gap: 0.2em;
+        margin-right: 2vw;
+    }
+    .select-wallet{
+        border-radius: 4px;
+        padding-top: 1em;
+        padding-left: 0.3em;
+        padding-bottom: 1em;
+        /* display: none; */
+    }
+    .select-wallet h1{
+        font-size: 1.5em;
+        padding-bottom: 0.4em;
+    }
+    .select-wallet p{
+        font-size: 1em;
+    }
+    .select-wallet div{
+        margin-top: 1em;
+        margin-bottom: 0.7em;
+    }
+    .select-wallet a{
+        padding: 0.5em 1.5em;
+        font-size: 1em;
+        border-radius: 8px;
+    }
+    /*popup box  */
+
+    .popup-container{
+        margin-top: 0vw;
+        margin-left: 1vw;
+        width: 80%;
+        height: 44%;
+        border-radius: 10px;
+        padding: 1em;
+    }
+    .popup-container .top-column{
+        width: 100%;
+        height: 30%;
+        display: flex;
+    }
+    .popup-container .top-column h2{
+        font-size: 1.4em;
+    }
+    .popup-container .top-column .popup-close-icon{
+        font-size: 2em;
+    }
+    .popup-container .bottom-column{
+        padding:0.4em 0.7em;
+    }
+    .popup-container .bottom-column h3{
+        padding-top: 1em;
+        font-size: 1.3em;
+        padding-bottom: 0.5em;
+    }
+    .popup-container .bottom-column .bottom-heading p{
+        font-size: 0.6em;
+        padding-bottom: 0.5em;
+    }
+    .popup-container .bottom-column .bottom-image-box{
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        margin-top: 1em;
+    }
+    .popup-container .bottom-column .bottom-image-box img{
+        width: 1.5em;
+        height: 1.5em;
+    }
+    .popup-container .bottom-column .bottom-image-box p{
+        font-size: 0.9em;
+        font-weight: 500;
+        color: #24272d;
+    }
+/* end */
+
+    /* continue code */
+
+    .continue-hide-box{
+        width: 100%;
+        height: 50px;
+        border: 0.2px solid rgba(0, 0, 0, 0.533);;
+    }
+    .continue-hide-box img{
+        width: 30px;
+        height: 30px;
+        margin-right:1em;
+    }
+    .continue-hide-box h3{
+        font-size: 1em;
+    }
+    .continue-hide-box p{
+        font-size: 0.8em;
+        line-height: 12px;
+        padding-bottom: 0.8em;
+    }
+    .continue-hide-box .a{
+        font-size: 1em;
+        color: black;
+        margin-left: 2em;
+        margin-top: -10px;
+    }
+    .continue-hide-box .ds-icon{
+        font-size: 1.7em;
+    }
+    /* end */
+    .connected-wallet-hide-box{
+        width: 98%;
+        margin-left: 0.1em;
+    }
+    .connected-wallet-hide-box .ds-icon2{
+        font-size: 1.7em;
+        margin-left: 0em;
+    }
+    .connected-wallet-hide-box div h3{
+        font-size: 0.9em;
+        margin-left: 0.2vw;
+    }
+    .connected-wallet-hide-box div p{
+        font-size: 0.7em;
+        margin-left: 0.2vw;
+    }
+    .select-blockchain-box{
+        padding-bottom:1em;
+    }
+    .select-blockchain-box .select-right-arrow{
+        font-size: 1.3em;
+        margin-right:0.3em;
+    }
+    .select-blockchain{
+        margin-top: 0.5em;
+        width: 80%;
+        height: 100%;
+        background-color: #f8fafc;
+        padding: 1.8em 1em;
+    }
+    .select-blockchain .select-box1 div span{
+        font-size: 1.2em;
+        font-weight: 400;
+        margin-left: 0.2em;
+    }
+    /*  */
+    .blockchain-cards{
+        margin-top:1em;
+        width: 80%;
+        height: 100%;
+        padding: 1em 0.5em;
+        background-color: #fff;
+    }
+    .blockchain-cards .cards-heading-box h2{
+        font-size: 1.4em;
+    }
+    .blockchain-cards .cards-heading-box p{
+        font-size: 0.8em;
+        padding-top: 0.2em;
+        padding-bottom: 1em;
+    }
+    .blockchain-cards .cards-heading-box h3{
+        font-size: 1.2em;
+        padding-bottom: 1em;
+    }
+    .cards-box-container{
+        width: 100%;
+        height: 100%;
+    }
+    .cards-box-container .column{
+        width: 100%;
+        display: flex;
+        justify-content:center;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 1vw;
+    }
+    .cards-box-container .column .cards{
+        width: 100%;
+        padding:0.5em;
+        margin-top: 1em;
+    }
+    .cards-box-container .column .cards p{
+        font-size: 1.2em;
+        font-weight: 500;
+        margin-left: 1em;
+    }
+    .cards-box-container .column .cards span{
+        font-size: 1em;
+        color: gray;
+        margin-left: 1.1em;
+    }
+    /*  */
+    .bottom-column-box{
+        margin-top: 1em;
+    }
+    .bottom-column-box h3{
+        font-size: 1.2em ;
+        padding-bottom: 1em;
+    }
+    .bottom-column-box .column{
+        flex-direction: column;
+        margin-bottom: 1em;
+    }
+    .bottom-column-box .column .cards{
+        width: 100%;
+        padding:0.5em;
+        margin-bottom: 1em;
+    }
+    .bottom-column-box .column .cards p{
+        font-size: 1.2em;
+        font-weight: 500;
+        margin-left: 1em
+    }
+    .bottom-column-box .column .cards span{
+        font-size: 1em;
+        color: gray;
+        margin-left: 1.1em;
+    }
+    .block-chain-btn{
+        padding-top: 1em;
+        padding-bottom: 1em;
+    }
+    .block-chain-btn a{
+        padding: 0.8em 1.1em;
+        background-color: blue;
+        margin-left: 1em;
+    }
+}
+/* tab view */
+
+@media only screen and (min-width: 600px) and (max-width:880px){
+        .creat-token-column{
+            padding: 0 0em;
+        }
+        .creat-token-column .content1{
+            padding: 1.4em 0;
+            width: 80%;
+            display: flex;
+            justify-content:space-between;
+            align-items: center;
+        }
+        .creat-token-column .content1 h1{
+            font-size: 1.6em;
+            margin-left: -1em;
+        }
+        .creat-token-column .content1 a{
+            padding:  1.6vw;
+            font-size: 0.8em;
+            border: 0.1px solid rgba(0, 0, 0, 0.495) ;
+        }
+        
+        /*  */
+    
+        .token-creation-bar .column{
+            margin-bottom: 1em;
+            gap: 0.2em;
+            margin-right: 2vw;
+        }
+        .select-wallet{
+            border-radius: 4px;
+            padding-top: 1em;
+            padding-left: 0.3em;
+            padding-bottom: 1em;
+            /* display: none; */
+        }
+        .select-wallet h1{
+            font-size: 1.5em;
+            padding-bottom: 0.4em;
+        }
+        .select-wallet p{
+            font-size: 1em;
+        }
+        .select-wallet div{
+            margin-top: 1em;
+            margin-bottom: 0.7em;
+        }
+        .select-wallet a{
+            padding: 0.5em 1.5em;
+            font-size: 1em;
+            border-radius: 8px;
+        }
+        /*popup box  */
+    
+        .popup-container{
+            margin-top: 0vw;
+            margin-left: 1vw;
+            width: 80%;
+            height: 44%;
+            border-radius: 10px;
+            padding: 1em;
+        }
+        .popup-container .top-column{
+            width: 100%;
+            height: 30%;
+            display: flex;
+        }
+        .popup-container .top-column h2{
+            font-size: 1.4em;
+        }
+        .popup-container .top-column .popup-close-icon{
+            font-size: 2em;
+        }
+        .popup-container .bottom-column{
+            padding:0.4em 0.7em;
+        }
+        .popup-container .bottom-column h3{
+            padding-top: 1em;
+            font-size: 1.3em;
+            padding-bottom: 0.5em;
+        }
+        .popup-container .bottom-column .bottom-heading p{
+            font-size: 0.6em;
+            padding-bottom: 0.5em;
+        }
+        .popup-container .bottom-column .bottom-image-box{
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            margin-top: 1em;
+        }
+        .popup-container .bottom-column .bottom-image-box img{
+            width: 1.5em;
+            height: 1.5em;
+        }
+        .popup-container .bottom-column .bottom-image-box p{
+            font-size: 0.9em;
+            font-weight: 500;
+            color: #24272d;
+        }
+    /* end */
+    
+        /* continue code */
+    
+        .continue-hide-box{
+            width: 100%;
+            height: 50px;
+            border: 0.2px solid rgba(0, 0, 0, 0.533);;
+        }
+        .continue-hide-box img{
+            width: 30px;
+            height: 30px;
+            margin-right:1em;
+        }
+        .continue-hide-box h3{
+            font-size: 1em;
+        }
+        .continue-hide-box p{
+            font-size: 0.8em;
+            line-height: 12px;
+            padding-bottom: 0.8em;
+        }
+        .continue-hide-box .a{
+            font-size: 1em;
+            color: black;
+            margin-left: 2em;
+            margin-top: -10px;
+        }
+        .continue-hide-box .ds-icon{
+            font-size: 1.7em;
+        }
+        /* end */
+        .connected-wallet-hide-box{
+            width: 98%;
+            margin-left: 0.1em;
+        }
+        .connected-wallet-hide-box .ds-icon2{
+            font-size: 1.7em;
+            margin-left: 0em;
+        }
+        .connected-wallet-hide-box div h3{
+            font-size: 0.9em;
+            margin-left: 0.2vw;
+        }
+        .connected-wallet-hide-box div p{
+            font-size: 0.7em;
+            margin-left: 0.2vw;
+        }
+        .select-blockchain-box{
+            padding-bottom:1em;
+        }
+        .select-blockchain-box .select-right-arrow{
+            font-size: 1.3em;
+            margin-right:0.3em;
+        }
+        .select-blockchain{
+            margin-top: 0.5em;
+            width: 80%;
+            height: 100%;
+            background-color: #f8fafc;
+            padding: 1.8em 1em;
+        }
+        .select-blockchain .select-box1 div span{
+            font-size: 1.2em;
+            font-weight: 400;
+            margin-left: 0.2em;
+        }
+        /*  */
+        .blockchain-cards{
+            margin-top:1em;
+            width: 80%;
+            height: 100%;
+            padding: 1em 0.5em;
+            background-color: #fff;
+        }
+        .blockchain-cards .cards-heading-box h2{
+            font-size: 1.4em;
+        }
+        .blockchain-cards .cards-heading-box p{
+            font-size: 0.8em;
+            padding-top: 0.2em;
+            padding-bottom: 1em;
+        }
+        .blockchain-cards .cards-heading-box h3{
+            font-size: 1.2em;
+            padding-bottom: 1em;
+        }
+        .cards-box-container{
+            width: 100%;
+            height: 100%;
+        }
+        .cards-box-container .column{
+            width: 100%;
+            display: flex;
+            justify-content:center;
+            gap: 10px;
+            align-items: center;
+            margin-bottom: 1vw;
+        }
+        .cards-box-container .column .cards{
+            width: 100%;
+            padding:0.5em;
+            margin-top: 1em;
+        }
+        .cards-box-container .column .cards p{
+            font-size: 1.2em;
+            font-weight: 500;
+            margin-left: 1em;
+        }
+        .cards-box-container .column .cards span{
+            font-size: 1em;
+            color: gray;
+            margin-left: 1.1em;
+        }
+        /*  */
+        .bottom-column-box{
+            margin-top: 1em;
+        }
+        .bottom-column-box h3{
+            font-size: 1.2em ;
+            padding-bottom: 1em;
+        }
+        .bottom-column-box .column{
+            margin-bottom: 1em;
+            gap: 10px;
+        }
+        .bottom-column-box .column .cards{
+            width: 100%;
+            padding:0.5em;
+            margin-bottom: 1em;
+        }
+        .bottom-column-box .column .cards p{
+            font-size: 1.2em;
+            font-weight: 500;
+            margin-left: 1em
+        }
+        .bottom-column-box .column .cards span{
+            font-size: 1em;
+            color: gray;
+            margin-left: 1.1em;
+        }
+        .block-chain-btn{
+            padding-top: 1em;
+            padding-bottom: 1em;
+        }
+        .block-chain-btn a{
+            padding: 0.8em 1.1em;
+            background-color: blue;
+            margin-left: 1em;
+        }
+}

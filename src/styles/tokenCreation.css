@@ -148,3 +148,240 @@
     color: blue;
     margin-left: 0.4vw;
 }
+
+/*  */
+
+@media only screen and (max-width:480px){
+
+    .token-creation-content-box{
+        padding:1.6% 2.5%;
+        width: 100%;
+        height: 100%;
+        background-color:#f3f7fa ;
+    }
+    .token-creation-content-box h2{
+        padding-top:.3em;
+        padding-bottom:.1em;
+        font-size: 1.6em;
+        font-weight: 500;
+    }
+    .creat-token-box{
+        margin-top: 1.3vw;
+        height: 100%;
+        padding: 3%;
+    }
+
+    .creat-token-box .logo-box1{
+        padding: 0.4em;
+        width: 100%;
+    }
+    .creat-token-box .logo-heading{
+        width: 100%;
+        padding: 0 0.5em;
+    }
+    .creat-token-box .logo-heading h3{
+        font-size: 1.7em;
+        font-weight: 500;
+    }
+    .creat-token-box .logo-heading p{
+        font-size: 1em;
+        padding-top: 0.2em;
+        padding-bottom: 1em;
+        word-spacing: 0.6em;
+    }
+    .creat-token-box .creat-token-links{
+        width: 100%;
+        padding:  0.5em .5em;
+    }
+    .creat-token-box .creat-token-links div{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 44px;
+    }
+    .creat-token-box .creat-token-links div:hover{
+        background-color: rgb(219 234 254 );
+    }
+    .creat-token-box .creat-token-links div a{
+        font-size: 1.3em;
+        font-weight: 600;
+        color: blue;
+    }
+    .creat-token-box .creat-token-links p{
+        font-size: 1em;
+        padding-top: 0.6em;
+    }
+    /*  */
+    .token-information-box{
+        margin-top: 1em;
+        padding: 1em 0.e3m;
+    }
+    .token-information-box .box1{
+        width: 100%;
+        height: 100%;
+        margin-top: 1em;
+    }
+
+    .box1 .help-heading h3{
+        font-size: 1em;
+        font-weight: 500;
+        padding-bottom: 0.2em;
+    }
+    .box1 .help-praragraph1{
+        width: 90%;
+        font-size: 0.8em;
+    }
+    .box1 .help-praragraph1 a,.box1 .help-praragraph3 a{
+        font-size: 0.8em;
+    }
+    .box1 .help-praragraph2{
+        width: 90%;
+        font-size: 0.8em;
+    }
+    .box1 .help-praragraph3{
+        width: 90%;
+        font-size: 0.8em;
+    }
+    .up-down-arrow{
+        width: 2em;
+        height: 2em;
+    }
+    .box2{
+        margin-top: 1em;
+        margin-bottom: 1em;
+    }
+    .box2 a{
+        padding: 0.8em 3em;
+        border: 0.1px solid rgba(0, 0, 0, 0.153);
+        text-align: center;
+        font-size: 1.1em;
+    }
+    .box2 a:hover{
+        background-color: rgb(219 234 254 )
+    }
+    .box2 .token-icon{
+        padding-top: 0.4em;
+        width: 1em;
+        height: 1.3em;
+        margin-left: 0.4em;
+    }
+    
+}
+/*  */
+@media only screen and (min-width: 600px) and (max-width:880px){
+    .token-creation-content-box{
+        padding:1.6% 2.5%;
+        width: 100%;
+        height: 100%;
+        background-color:#f3f7fa ;
+    }
+    .token-creation-content-box h2{
+        padding-top:.3em;
+        padding-bottom:.1em;
+        font-size: 1.6em;
+        font-weight: 500;
+    }
+    .creat-token-box{
+        margin-top: 1.3vw;
+        height: 100%;
+        padding: 3%;
+    }
+
+    .creat-token-box .logo-box1{
+        padding: 0.4em;
+        width: 100%;
+    }
+    .creat-token-box .logo-heading{
+        width: 100%;
+        padding: 0 0.5em;
+    }
+    .creat-token-box .logo-heading h3{
+        font-size: 1.7em;
+        font-weight: 500;
+    }
+    .creat-token-box .logo-heading p{
+        font-size: 1em;
+        padding-top: 0.2em;
+        padding-bottom: 1em;
+        word-spacing: 0.6em;
+    }
+    .creat-token-box .creat-token-links{
+        width: 100%;
+        padding:  0.5em .5em;
+    }
+    .creat-token-box .creat-token-links div{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 44px;
+    }
+    .creat-token-box .creat-token-links div:hover{
+        background-color: rgb(219 234 254 );
+    }
+    .creat-token-box .creat-token-links div a{
+        font-size: 1.3em;
+        font-weight: 600;
+        color: blue;
+    }
+    .creat-token-box .creat-token-links p{
+        font-size: 1em;
+        padding-top: 0.6em;
+    }
+    /*  */
+    .token-information-box{
+        margin-top: 1em;
+        padding: 1em 0.e3m;
+    }
+    .token-information-box .box1{
+        width: 100%;
+        height: 100%;
+        margin-top: 1em;
+    }
+
+    .box1 .help-heading h3{
+        font-size: 1em;
+        font-weight: 500;
+        padding-bottom: 0.2em;
+    }
+    .box1 .help-praragraph1{
+        width: 90%;
+        font-size: 0.8em;
+    }
+    .box1 .help-praragraph1 a,.box1 .help-praragraph3 a{
+        font-size: 0.8em;
+    }
+    .box1 .help-praragraph2{
+        width: 90%;
+        font-size: 0.8em;
+    }
+    .box1 .help-praragraph3{
+        width: 90%;
+        font-size: 0.8em;
+    }
+    .up-down-arrow{
+        width: 2em;
+        height: 2em;
+    }
+    .box2{
+        margin-top: 1em;
+        margin-bottom: 1em;
+    }
+    .box2 a{
+        padding: 0.8em 3em;
+        border: 0.1px solid rgba(0, 0, 0, 0.153);
+        text-align: center;
+        font-size: 1.1em;
+    }
+    .box2 a:hover{
+        background-color: rgb(219 234 254 )
+    }
+    .box2 .token-icon{
+        padding-top: 0.4em;
+        width: 1em;
+        height: 1.3em;
+        margin-left: 0.4em;
+    }
+
+}

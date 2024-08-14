@@ -206,3 +206,119 @@
         justify-content: space-around;
     }
 }
+
+/*  */
+
+@media only screen and (min-width: 600px) and (max-width:880px){
+
+    .footer{
+        width: 100%;
+        height: 100%;
+        background-color: #f3f7fa;
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-end;
+    }
+    .footer-section{
+        padding: 0.4%;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        padding-bottom: 4vw;
+    }
+    .footer-colum1{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 2%;
+    }
+    .footer-colum1 .box1{
+        margin-top: 0.5em;
+        padding-left: 1.5em;
+        display: flex;
+        justify-content:center;
+        flex-direction: column;
+        width: 100%;
+        height: 100%;
+        border-bottom: 0.1px solid rgba(0, 0, 0, 0.249);
+    }
+    .footer-colum1 .box1 img{
+        width: 14.2em;
+        padding-bottom: 0.5vw;
+    }
+    .footer-colum1 .box1 p{
+        padding-top: 0.5em;
+        margin-bottom: 1.5em;
+        font-size: 1.2em;
+    }
+    .footer-colum1 .box2{
+        padding-top: 1em;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        padding-left: 1.5em;
+    }
+    .footer-colum1 .box2 p{
+        font-size: 1.1em;
+        padding-right: 0.2em;
+    }
+    .footer-colum1 .box2 img{
+        width: 8em;
+    }
+    /*  */
+    .footer-colum2{
+        height: 100%;
+        width: 100%;
+        margin-top: 12%;
+        padding-left: 0em;
+        display: flex;
+        gap: 1.6vw;
+        justify-content: center;
+    }
+    .footer-colum2 .row h3{
+        font-size: 1.3em;
+        font-weight: 500;
+        padding-bottom: 0.6em;
+    }
+     .footer-colum2 .row3{
+        padding-top: 1em;
+        padding-bottom: 1em;
+        margin-left: 2em;
+     }
+    .footer-colum2 .link ul{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .footer-colum2 .row .links ul li{
+        list-style: none;
+        padding: 0.3em 0;
+    }
+    .footer-colum2 .links ul li a{
+        font-size: 1em;
+        color: #7e7f81;
+        transition: all 0.3s ease;
+    }
+    .footer-colum2 .links ul li a:hover{
+        color: black;
+    }
+    .footer-colum2 .links ul li .second-icon{
+        padding-top: 1px;
+        padding-left: -1vw;
+        width: 0.9em;
+        height: 1em;
+        margin-left: 0.4vw;
+    }
+    .responsive-use{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: space-around;
+    }
+
+}
