@@ -17,7 +17,7 @@ const Header = () => {
   // nav open code
   useGSAP(()=>{
     let openIcon = document.querySelector(".nav-open-icon")
-    openIcon.addEventListener("click",()=>{
+    openIcon?.addEventListener("click",()=>{
       gsap.from(".side-container,.close-icon",{
           display:"block",
           x:0,
@@ -29,7 +29,7 @@ const Header = () => {
  })
  useGSAP(()=>{
   let closeIcon = document.querySelector(".close-icon")
-  closeIcon.addEventListener("click",()=>{
+  closeIcon?.addEventListener("click",()=>{
     gsap.to(".side-container,.close-icon",{
       display:"none",
       x:-500,
