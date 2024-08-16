@@ -1,13 +1,9 @@
 import Link from 'next/link'
 import React from 'react'
 import "../../styles/Sidebar.css"
-import { useGSAP } from '@gsap/react'
 
 const Sidebar = () => {
 
-  useGSAP(()=>{
-
-  })
   return (
     <>
     
