@@ -257,20 +257,22 @@ export default function Mint() {
                         <p>Please provide the following information:</p>
                         <div className="token-form-column">
                             <form>
-                                <div>
+                                <div className='top-input-box'>
                                     <div>
                                         <label>Token name</label>
-                                        <input type="text" name='Token name' placeholder='e.g "Team Finance' required />
+                                        <input type="text" name='Token name' placeholder='e.g "Team Finance"' required />
                                     </div>
                                     <div>
                                         <label>Symbol</label>
-                                        <input type="text" name='Symbol' placeholder='e.g "TFC ' required/>
+                                        <input type="text" name='Symbol' placeholder='e.g "TFC"' required/>
                                     </div>
                                 </div>
-                                <div>
-                                    <label>Token image</label>
-                                    <input type="file" name='Token image' placeholder='Select image' required/>
-                                </div>
+                                <label>Image Token</label>
+                                <div className="file-upload-area">
+                                          <label  className="drop-area" title='for drag'>  Drop file her </label>
+                                          <input type="file" id="file-input" accept=".jpeg,.jpg,.png" placeholder='Image Drag here' />
+                                          <span>or select file</span>
+                                        </div>
                                 <div className="field">
                                     <label>Decimal</label>
                                     <input type="number"  name="decimals" placeholder='8-18' required />
@@ -294,6 +296,9 @@ export default function Mint() {
                                 <div className="field">
                                        <label >Telegram (optional)</label>
                                        <input type="text"  name="Telegram (optional)" placeholder='e.g "https://t.team.finance/' required />
+                                 </div>
+                                 <div className="form-continue-btn">
+                                        <a href="#">Continue</a>
                                  </div>
                             </form>
                         </div>
