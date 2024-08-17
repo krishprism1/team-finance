@@ -327,7 +327,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    display: none;
 }
 .continue-hide-box img{
     width: 25px;
@@ -470,7 +469,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    display: none;
 }
 .blockchain-cards{
     margin-top: 1vw;

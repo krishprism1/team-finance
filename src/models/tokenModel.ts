@@ -2,6 +2,7 @@
 import mongoose, { Document, Model, Schema } from 'mongoose';
 
 interface IToken extends Document {
+  wallet:string;
   name: string;
   symbol: string;
   decimal: number;
@@ -10,6 +11,10 @@ interface IToken extends Document {
 }
 
 const tokenSchema: Schema<IToken> = new mongoose.Schema({
+  wallet: {
+    type: String,
+    required: true,
+  },
   name: {
     type: String,
     required: true,
