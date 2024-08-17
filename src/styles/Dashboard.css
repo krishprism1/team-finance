@@ -100,7 +100,6 @@
 .dashboard-container .column2 .links div:nth-child(1) a{
     text-decoration: none;
     color: blue;
-    /* padding: 0.7vw 6vw; */
     width: 300px;
     height: 44px;
     border: 0.1px solid rgba(0, 0, 255, 0.205);
@@ -146,28 +145,34 @@
     display: flex;
     border-radius: 8px;
     align-items: center;
-    background-color: #4c4e70;
+    margin-top: 0.5em;
+    background: linear-gradient(to right, #020a7b, #8b51cd);
 }
 .CircularProgressbar{
-    width: 150px;
-    height: 100%;
+    width: 140px;
     display: flex;
     justify-content: center;
     align-items: center;
     margin-left: 1em;
-    position: relative;
+    /* position: relative; */
 }
 .circle-path{
     color: green;
-     stroke: rgb(4, 184, 22);
+     stroke: #4c5a98;
+     stroke-dashoffset: 57.8053px;
+     position: relative;
+}
+.circle-path2{
+    color: green;
+     stroke: rgb(0, 255, 30);
      stroke-dasharray: 289.027px, 289.027px;
      stroke-dashoffset: 57.8053px;
      position: relative;
 }
 .percent-text{
     position: absolute;
-    top: 33%;
-    left: 27%;
+    top: 34%;
+    left: 26.3%;
     font-size: 2em;
     font-weight: 600;
     color: #fff;
@@ -199,7 +204,7 @@
 .level-heading-column .first-box1 div{
     display: flex;
     align-items: center;
-    margin-top: 1em;
+    margin-top: 0.3em;
     gap: 1em;
 }
 .level-heading-column .first-box1 div h3{
@@ -208,7 +213,7 @@
 }
 .level-heading-column .first-box1 div span{
     padding: 3px 14px;
-    background-color: blue;
+    background-color: #6961cd;
     font-size: 0.8em;
     outline: none;
     border: none;
@@ -227,26 +232,156 @@
     margin-top: 0.7em;
     margin-bottom: 2em;
 }
-.second-box2 .small-box{
+.small-box{
     display: flex;
-    gap: 10px;
-    margin-bottom: 1em;
+    gap: 15px;
 }
-.second-box2 .small-box .box1,.box2,.box3{
+.small-box:first-child{
+    margin-bottom: 0.7em;
+}
+.small-box .row11,.row22,.row33{
     display: flex;
     align-items:center;
     width: 15em;
     border-radius: 5px;
     height: 38px;
-    background-color: #00a788;
     padding: 0 10px;
+    background: linear-gradient(to right, #615caa, #9766ff);
 }
-.second-box2 .small-box p{
-    font-size: 1em;
+.second-box2 .small-box .row11 p,.row22 p,.row33 p{
+    font-size: 0.9em;
     font-weight: 500;
     color: white;
     margin-left: 0.5em;
 }
+.liquid-locks-box1{
+    display: flex;
+    align-items:center;
+    justify-content: space-between;
+    width: 15em;
+    border-radius: 5px;
+    height: 38px;
+    padding: 0 10px;
+    background-color: #fff;
+    color: black;
+}
+.liquid-locks-box1 p{
+    font-size: 0.9em;
+    color: black;
+}
+.liquid-locks-box1 a{
+    text-decoration: none;
+    font-size: 0.9em;
+    font-weight: 500;
+    color: rgb(98, 54, 194);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/* end */
+
+/* admin token vesting container code here */
+
+.admin-token-vesting-container{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 8px;
+    margin-top: 0.8em;
+    margin-bottom: 0.8em;
+    background-color: #fff;
+    padding:1em 1.5em;
+    padding-bottom: 2em;
+    align-items: center;
+}
+.token-vesting-column1,.token-vesting-column2{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-items: flex-start;
+    text-align: left;
+}
+.token-vesting-column1 .token-section1{
+    display: flex;
+    gap: 25px;
+    margin-top: 0.5em;
+}
+.token-vesting-column2 .token-section2{
+    display: flex;
+    gap: 4em;
+    margin-right: 3em;
+}
+.token-vesting-column1 h3{
+    font-size: 1.3em;
+    font-weight: 500;
+}
+.token-vesting-column1 .token-section1 p{
+    font-size: 0.8em;
+}
+.token-vesting-column2 .token-section2 p{
+    font-size: 0.8em;
+    margin-bottom: 0.7em;
+    margin-top: 0.4em;
+}
+.token-vesting-column1 .token-section1 .svg-div{
+    width: 25%;
+    height: 0;
+    margin: 0;
+    padding-bottom: 5em;
+}
+.token-vesting-column1 .token-section1 div:nth-child(2) p:nth-child(1){
+    padding: 2px 4px;
+    background-color: #001884;
+    border-radius: 8px;
+    margin-bottom: 2px;
+    color: white;
+    margin-top: 0.3em;
+}
+.token-vesting-column1 .token-section1 div:nth-child(2) p:nth-child(3){
+    padding: 2px 4px;
+    background-color: blue;
+    border-radius: 8px;
+    margin-bottom: 2px;
+    color: white;
+    margin-top: 0.5em;
+}
+.token-vesting-column1 .token-section1 div:nth-child(3) p:nth-child(1){
+    padding: 2px 4px;
+    background-color: #8acbf0;
+    border-radius: 8px;
+    margin-bottom: 2px;
+    color: rgb(0, 0, 0);
+    margin-top: 0.5em;
+}
+/*  */
+.token-vesting-column2 a{
+    font-size: 1em;
+    font-weight: 500;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 11em;
+    margin-bottom: 0.5em;
+}
+.links-right-arrows{
+    margin-left: 0.5em;
+    font-size: 1.5em;
+}
+.token-vesting-column2  h4{
+    font-size: 1em;
+    font-weight: 500;
+}
+.token-vesting-column2 .token-section2 p{
+   color: gray;
+}
+.token-vesting-column2 .token-section2 div span{
+    font-size: 0.9em;
+}
+
+
+
 
 
 
