@@ -472,7 +472,7 @@
 }
 .blockchain-cards{
     margin-top: 1vw;
-    width: 80%;
+    width: 70%;
     height: 100%;
     padding: 2vw;
     background-color: #fff;
@@ -507,26 +507,30 @@
     margin-bottom: 1vw;
 }
 .cards-box-container .column .cards{
-    width: 43%;
-    padding:0.5vw 1vw;
+    width: 32%;
+    padding:0.5vw;
     display: flex;
     align-items: center;
+    justify-content: space-between;
     background-color: #ecf3f9;
     border-radius: 5px;
     border: 0.1px solid rgba(0, 0, 255, 0.4);
     cursor: pointer;
+}
+.cards-box-container .column .cards div:first-child{
+    display: flex;
 }
 .cards-box-container .column .cards img{
     width: 30px ;
     height: 30px;
 }
 .cards-box-container .column .cards p{
-    font-size: 1.4vw;
+    font-size: 1.2vw;
     font-weight: 500;
     margin-left: 1vw;
 }
 .cards-box-container .column .cards span{
-    font-size: 1.1vw;
+    font-size: 1vw;
     color: gray;
     margin-left: 1vw;
     line-height: 0;
@@ -535,7 +539,6 @@
     color: blue;
     width: 1.5em;
     height: 1.5em;
-    margin-left:15vw;
 }
 /*  */
 .bottom-column-box{
@@ -559,26 +562,30 @@
     margin-bottom: 1vw;
 }
 .bottom-column-box .column .cards{
-    width: 43%;
-    padding:0.5vw 1vw;
+    width: 32%;
+    padding:0.5vw;
     display: flex;
+    justify-content: space-between;
     align-items: center;
     background-color: #ecf3f9;
     border-radius: 5px;
     border: 0.1px solid rgba(0, 0, 255, 0.4);
     cursor: pointer;
 }
+.bottom-column-box .column .cards div:first-child{
+    display: flex;
+}
 .bottom-column-box .column .cards img{
     width: 30px ;
     height: 30px;
 }
 .bottom-column-box .column .cards p{
-    font-size: 1.4vw;
+    font-size: 1.2vw;
     font-weight: 500;
     margin-left: 1vw;
 }
 .bottom-column-box .column .cards span{
-    font-size: 1.1vw;
+    font-size: 1vw;
     color: gray;
     margin-left: 1vw;
     line-height: 0;
@@ -587,7 +594,6 @@
     color: blue;
     width: 1.5em;
     height: 1.5em;
-    margin-left:15vw;
 }
 .block-chain-btn{
     padding-top: 2vw;
@@ -598,4 +604,30 @@
     border-radius: 6px;
     text-decoration: none;
     color: white;
+}
+/* block chain code end here */
+
+/* token info form code here */
+
+.token-info-container{
+    width: 70%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    margin: 0.6em 0;
+    padding: 2vw;
+}
+.token-info-container h3{
+    font-size: 1.6em;
+    font-weight: 500;
+    color: black;
+    padding-bottom: 0.2em;
+}
+.token-info-container p{
+    font-size: 1em;
+}
+.token-form-column .field{
+    display: flex;
+    flex-direction:column;
 }

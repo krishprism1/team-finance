@@ -144,35 +144,62 @@ export default function Mint() {
                             <div className="cards-box-container">
                                 <div className="column">
                                     <div className='cards'>
+                                        <div>
                                         <img src="https://app.team.finance/icons/wizard/ethereum.svg" alt="1" />
                                         <div>
                                             <p>Ethereum</p>
                                             <span>Ethereum</span>
                                         </div>
+                                        </div>
                                         <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="m10 15.586-3.293-3.293-1.414 1.414L10 18.414l9.707-9.707-1.414-1.414z"></path></svg>
                                     </div>
                                     <div className='cards'>
+                                        <div>
                                         <img src="https://app.team.finance/icons/wizard/ethereum.svg" alt="1" />
                                         <div>
-                                            <p>Ethereum</p>
+                                            <p>X Layare</p>
                                             <span>Ethereum</span>
+                                        </div>
+                                        </div>
+                                    </div>
+                                    <div className='cards'>
+                                        <div>
+                                        <img src="https://app.team.finance/icons/wizard/ethereum.svg" alt="1" />
+                                        <div>
+                                            <p>Avalnche</p>
+                                            <span>Ethereum</span>
+                                        </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div className="column">
                                     <div className='cards'>
+                                        <div>
                                         <img src="https://app.team.finance/icons/wizard/ethereum.svg" alt="1" />
                                         <div>
                                             <p>Ethereum</p>
                                             <span>Ethereum</span>
                                         </div>
+                                        </div>
                                         <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="m10 15.586-3.293-3.293-1.414 1.414L10 18.414l9.707-9.707-1.414-1.414z"></path></svg>
                                     </div>
                                     <div className='cards'>
+                                        <div>
                                         <img src="https://app.team.finance/icons/wizard/ethereum.svg" alt="1" />
                                         <div>
                                             <p>Ethereum</p>
                                             <span>Ethereum</span>
+                                        </div>
+                                        </div>
+                                        <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="m10 15.586-3.293-3.293-1.414 1.414L10 18.414l9.707-9.707-1.414-1.414z"></path></svg>
+                                    </div>
+                                    <div className='cards'>
+                                        <div>
+                                        <img src="https://app.team.finance/icons/wizard/ethereum.svg" alt="1" />
+                                        <div>
+                                            <p>Ethereum ethicla </p>
+                                            <span>Ethereum</span>
+                                        </div>
                                         </div>
                                     </div>
                                 </div>
@@ -181,18 +208,31 @@ export default function Mint() {
                                 <h3>Testnets</h3>
                                 <div className="column">
                                     <div className='cards'>
+                                        <div>
                                         <img src="https://app.team.finance/icons/wizard/ethereum.svg" alt="1" />
                                         <div>
-                                            <p>Ethereum</p>
+                                            <p>BSC Testnet</p>
                                             <span>Ethereum</span>
+                                        </div>
                                         </div>
                                         <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="m10 15.586-3.293-3.293-1.414 1.414L10 18.414l9.707-9.707-1.414-1.414z"></path></svg>
                                     </div>
                                     <div className='cards'>
-                                        <img src="https://app.team.finance/icons/wizard/ethereum.svg" alt="1" />
+                                       <div>
+                                       <img src="https://app.team.finance/icons/wizard/ethereum.svg" alt="1" />
                                         <div>
                                             <p>Ethereum</p>
                                             <span>Ethereum</span>
+                                        </div>
+                                       </div>
+                                    </div>
+                                    <div className='cards'>
+                                        <div>
+                                        <img src="https://app.team.finance/icons/wizard/ethereum.svg" alt="1" />
+                                        <div>
+                                            <p>Ethereum </p>
+                                            <span>Ethereum</span>
+                                        </div>
                                         </div>
                                     </div>
                                 </div>
@@ -209,6 +249,53 @@ export default function Mint() {
                                 <span>Enter token info</span>
                             </div>
                             <svg stroke="currentColor" fill="none" stroke-width="0" viewBox="0 0 24 24" className='select-right-arrow' height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M6.34317 7.75732L4.92896 9.17154L12 16.2426L19.0711 9.17157L17.6569 7.75735L12 13.4142L6.34317 7.75732Z" fill="currentColor"></path></svg>
+                        </div>
+                    </div>
+                    {/*  */}
+                    <div className="token-info-container">
+                        <h3>Enter token info</h3>
+                        <p>Please provide the following information:</p>
+                        <div className="token-form-column">
+                            <form>
+                                <div>
+                                    <div>
+                                        <label>Token name</label>
+                                        <input type="text" name='Token name' placeholder='e.g "Team Finance' required />
+                                    </div>
+                                    <div>
+                                        <label>Symbol</label>
+                                        <input type="text" name='Symbol' placeholder='e.g "TFC ' required/>
+                                    </div>
+                                </div>
+                                <div>
+                                    <label>Token image</label>
+                                    <input type="file" name='Token image' placeholder='Select image' required/>
+                                </div>
+                                <div className="field">
+                                    <label>Decimal</label>
+                                    <input type="number"  name="decimals" placeholder='8-18' required />
+                                </div>
+                                <div className="field">
+                                       <label >Initial supply </label>
+                                       <input type="text"  name="initial-supply" placeholder='e.g "10 000"' required />
+                                 </div>
+                                <div className="field">
+                                       <label >Description</label>
+                                       <input type="text"  name="Description" placeholder='e.g "A Defi Yeild Farming Token"' required />
+                                 </div>
+                                <div className="field">
+                                       <label >Website (optional)</label>
+                                       <input type="text"  name="Website (optional)" placeholder='e.g "https://www.team.finance/' required />
+                                 </div>
+                                <div className="field">
+                                       <label >Twitter (optional)</label>
+                                       <input type="text"  name="Twitter (optional)" placeholder='e.g "https://twitter.team.finance/' required />
+                                 </div>
+                                <div className="field">
+                                       <label >Telegram (optional)</label>
+                                       <input type="text"  name="Telegram (optional)" placeholder='e.g "https://t.team.finance/' required />
+                                 </div>
+                            </form>
                         </div>
                     </div>
                     <div className="select-blockchain">

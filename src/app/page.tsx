@@ -93,7 +93,7 @@ export default function Home() {
                 <div className="token-section1">
                    <div className="svg-div">
                       <svg>
-                       <path cx="56" cy="56" name="In progress" stroke="#37298D" fill="#37298D" focusable="false"  d="M 107,56 A 51,51,0, 1,0, 106.99999999223226,56.00089011791847 L 88.99999999497382,56.00057595865313 A 33,33,0, 1,1, 89,56 Z" role="img" ></path>
+                       <path cx="56" cy="56" name="In progress" stroke="#8acbf0" fill="#8acbf0" focusable="false"  d="M 107,56 A 51,51,0, 1,0, 106.99999999223226,56.00089011791847 L 88.99999999497382,56.00057595865313 A 33,33,0, 1,1, 89,56 Z" role="img" ></path>
                      </svg>
                   </div>
                     <div>
@@ -112,14 +112,48 @@ export default function Home() {
                 <div className="token-section2">
                   <div>
                     <p>Asset</p>
-                    <span>0x6E61...5B38</span>
+                    <span><img src="https://storage.googleapis.com/mint-token-images/1720458330489-D_VeLpoWwAAC2Go.jpg" alt="logo" />CDS</span>
                   </div>
                   <div>
-                    <p>Allocation</p>
-                    <span>1000 CDS</span>
+                    <p>Amount</p>
+                    <span>1000</span>
                   </div>
                   <div>
-                  <p>Start date</p>
+                  <p>Unlock date</p>
+                  <span>10 Aug 2024</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="admin-token-vesting-container">
+              <div className="token-vesting-column1">
+                <h3>NFT locks</h3>
+                <div className="token-section1">
+                   <div className="svg-div">
+                      <svg>
+                       <path cx="56" cy="56" name="In progress" stroke="#8acbf0" fill="#8acbf0" focusable="false"  d="M 107,56 A 51,51,0, 1,0, 106.99999999223226,56.00089011791847 L 88.99999999497382,56.00057595865313 A 33,33,0, 1,1, 89,56 Z" role="img" ></path>
+                     </svg>
+                  </div>
+                    <div>
+                      <p>Locked</p>
+                      <span>0</span>
+                    </div>
+                    <div>
+                      <p>Unlocked</p>
+                      <span>1</span>
+                    </div>
+                </div>
+              </div>
+              <div className="token-vesting-column2">
+                <a href="#">Manage NFT locks<svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" className="links-right-arrows" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10.707 17.707 16.414 12l-5.707-5.707-1.414 1.414L13.586 12l-4.293 4.293z"></path></svg></a>
+                  <h4>Available Locks</h4>
+                <div className="token-section2">
+                  <div>
+                    <p>Asset</p>
+                    <span><img src="https://app.team.finance/tokens/bsc-token.webp"  alt="logo" />MTK</span>
+                  </div>
+                  <div>
+                  <p>Unlock date</p>
                   <span>10 Aug 2024</span>
                   </div>
                 </div>
