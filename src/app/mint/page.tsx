@@ -86,6 +86,8 @@ export default function Mint() {
 
 
                 <div className="select-blockchain-box">
+
+
                     <div className="select-blockchain">
                         <div className='select-box1'>
                             <div>
@@ -203,6 +205,19 @@ export default function Mint() {
                             </div>
                         </div>
                     </div>
+                    <div className="select-blockchain-connected-small-box">
+                        <div>
+                        <img alt="Icon" loading="lazy" width="16" height="16" decoding="async" data-nimg="1" src="https://app.team.finance/_next/static/media/check-circle.e19b6900.svg" />
+                         <p>Select blockchain</p>
+                        </div>
+                        <div>
+                            <p>Ethereum</p>
+                            <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" className="ds-icon" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10.707 17.707 16.414 12l-5.707-5.707-1.414 1.414L13.586 12l-4.293 4.293z"></path></svg>
+                        </div>
+                    </div>
+
+
+
                     <div className="select-blockchain">
                         <div className='select-box1'>
                             <div>
@@ -212,7 +227,6 @@ export default function Mint() {
                             <svg stroke="currentColor" fill="none" stroke-width="0" viewBox="0 0 24 24" className='select-right-arrow' height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M6.34317 7.75732L4.92896 9.17154L12 16.2426L19.0711 9.17157L17.6569 7.75735L12 13.4142L6.34317 7.75732Z" fill="currentColor"></path></svg>
                         </div>
                     </div>
-                    {/*  */}
                     <div className="token-info-container">
                         <h3>Enter token info</h3>
                         <p>Please provide the following information:</p>
@@ -230,9 +244,9 @@ export default function Mint() {
                                 </div>
                                 <label>Image Token</label>
                                 <div className="file-upload-area">
-                                          <label  className="drop-area" title='for drag'>  Drop file her </label>
+                                          <label  className="drop-area" title='for drag'>  Drop file here </label>
                                           <input type="file" id="file-input" accept=".jpeg,.jpg,.png" placeholder='Image Drag here' />
-                                          <span>or select file</span>
+                                          <p>.jpeg, .jpg or .png 2MB max</p>
                                         </div>
                                 <div className="field">
                                     <label>Decimal</label>
@@ -248,22 +262,36 @@ export default function Mint() {
                                  </div>
                                 <div className="field">
                                        <label >Website (optional)</label>
-                                       <input type="text"  name="Website (optional)" placeholder='e.g "https://www.team.finance/' required />
+                                       <input type="text"  name="Website (optional)" placeholder='e.g "https://www.team.finance/"' required />
                                  </div>
                                 <div className="field">
                                        <label >Twitter (optional)</label>
-                                       <input type="text"  name="Twitter (optional)" placeholder='e.g "https://twitter.team.finance/' required />
+                                       <input type="text"  name="Twitter (optional)" placeholder='e.g "https://twitter.com/team.finance/"' required />
                                  </div>
                                 <div className="field">
                                        <label >Telegram (optional)</label>
-                                       <input type="text"  name="Telegram (optional)" placeholder='e.g "https://t.team.finance/' required />
+                                       <input type="text"  name="Telegram (optional)" placeholder='e.g "https://t.me/team.finance/"' required />
                                  </div>
                                  <div className="form-continue-btn">
-                                        <a href="#">Continue</a>
+                                        <button type="submit">Continue</button>
                                  </div>
                             </form>
                         </div>
                     </div>
+                    <div className="token-info-connected-small-box">
+                        <div>
+                        <img alt="Icon" loading="lazy" width="16" height="16" decoding="async" data-nimg="1" src="https://app.team.finance/_next/static/media/check-circle.e19b6900.svg" />
+                         <p>Enter token info</p>
+                        </div>
+                        <div>
+                            <p>TFC</p>
+                            <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" className="ds-icon" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10.707 17.707 16.414 12l-5.707-5.707-1.414 1.414L13.586 12l-4.293 4.293z"></path></svg>
+                        </div>
+                    </div>
+
+                    
+
+
                     <div className="select-blockchain">
                         <div className='select-box1'>
                             <div>
@@ -273,6 +301,53 @@ export default function Mint() {
                             <svg stroke="currentColor" fill="none" stroke-width="0" viewBox="0 0 24 24" className='select-right-arrow' height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M6.34317 7.75732L4.92896 9.17154L12 16.2426L19.0711 9.17157L17.6569 7.75735L12 13.4142L6.34317 7.75732Z" fill="currentColor"></path></svg>
                         </div>
                     </div>
+                    <div className="add-feature-container">
+                        <h3>Add features</h3>
+                        <p>Choose the additional functionality you want added to your smart contract code.</p>
+                        <form>
+                            <div className="feature-box1">
+                                <div className='feature-box1-1'>
+                                    <input type="checkbox" name="Reflection" id="Reflection" title='Reflaction'/>
+                                    <div className='feature-heading'>
+                                        <h4>Reflection</h4>
+                                        <p>Charge a fee for each transation that takes place</p>
+                                    </div>   
+                                </div>
+                                <div className="feature-box1-2">
+                                    <p>Tax percentage</p>
+                                    <input type="number" name="percentage" id="Tax-percentage" placeholder='1-20' />
+                                </div>
+                            </div>
+                            <div className="feature-box2">
+                            <input type="checkbox" name="Mint" id="Mint"  title='Mint'/>
+                                <div className='feature-heading'>
+                                    <h4>Mint Function</h4>
+                                    <p>Add the ability to mint additional tokens.</p>
+                                </div>
+                            </div>
+                            <div className="feature-box3">
+                                <input type="checkbox" name="Burn" id="Burn" title='Burn' />
+                                <div className='feature-heading'>
+                                    <h4>Burn Function</h4>
+                                    <p>Add the ability to burn your tokens. This is great for creating deflation</p>
+                                </div>
+                            </div>
+                            <button type="submit" className='feature-btn'>Continue</button>
+                        </form>
+                    </div>
+                    <div className="add-feature-connected-small-box">
+                        <div>
+                        <img alt="Icon" loading="lazy" width="16" height="16" decoding="async" data-nimg="1" src="https://app.team.finance/_next/static/media/check-circle.e19b6900.svg" />
+                         <p>Add features</p>
+                        </div>
+                        <div>
+                            <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" className="ds-icon" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10.707 17.707 16.414 12l-5.707-5.707-1.414 1.414L13.586 12l-4.293 4.293z"></path></svg>
+                        </div>
+                    </div>
+
+                    
+
+
                     <div className="select-blockchain">
                         <div className='select-box1'>
                             <div>
@@ -280,6 +355,46 @@ export default function Mint() {
                                 <span>Create contract</span>
                             </div>
                             <svg stroke="currentColor" fill="none" stroke-width="0" viewBox="0 0 24 24" className='select-right-arrow' height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M6.34317 7.75732L4.92896 9.17154L12 16.2426L19.0711 9.17157L17.6569 7.75735L12 13.4142L6.34317 7.75732Z" fill="currentColor"></path></svg>
+                        </div>
+                    </div>
+                    <div className="create-contract-container">
+                        <h3>Create contract</h3>
+                        <p>Please ensure the following details are correct:</p>
+
+                        <div className="token-information-box">
+                            <div className='tk-informantion'>
+                                <p>Token</p>
+                                <div>
+                                    <img src="https://app.team.finance/tokens/ethereum-token.webp" alt="l" /><span>TFC</span>
+                                </div>
+                            </div>
+                            <div className='tk-informantion'>
+                                <p>Blockchain</p>
+                                <div>
+                                    <img src="https://app.team.finance/icons/wizard/ethereum.svg" alt="l" /><span>Ethereum</span>
+                                </div>
+                            </div>
+                            <div className='tk-informantion'>
+                                <p>Total supply</p>
+                                <div>
+                                    <span>10</span>
+                                </div>
+                            </div >
+                            <div className='tk-informantion'>
+                                <p>Service fee</p>
+                                <div>
+                                    <span>-</span>
+                                </div>
+                            </div>
+                            <div className='tk-informantion'>
+                            <p>Feature</p>
+                                <div>
+                                    <span>Burnable</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="confirm-transtion-btn">
+                            <button>Confirm transaction</button>
                         </div>
                     </div>
                 </div>
