@@ -104,7 +104,7 @@ export default function MultiSender() {
     return (
         <ActionLayout>
             <div className="creat-token-container">
-                <CreateProgress title="Create Token" />
+                <CreateProgress title="Multisender" />
                 <ConnectWallet />
                 <div className="select-blockchain-box">
                     <SelectNetwork />

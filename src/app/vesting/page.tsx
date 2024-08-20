@@ -104,7 +104,7 @@ export default function Vesting() {
     return (
         <ActionLayout>
             <div className="creat-token-container">
-                <CreateProgress title="Create Token" />
+                <CreateProgress title="Create vesting contract" />
                 <ConnectWallet />
                 <div className="select-blockchain-box">
                     <SelectNetwork />
