@@ -455,12 +455,13 @@
 }
 .history-box .history-small-box1 h5{
     font-size: 1em;
-    margin-bottom: -0.3em;
+    margin-bottom: 0em;
     font-weight: 600;
 }
 .history-box p{
     font-size: 0.8em;
     color: gray;
+    margin-bottom: 0.3em;
 }
 .history-box span{
     line-height: 12px;
@@ -672,4 +673,78 @@
         margin-bottom: 0.4em;
     }
 
+}
+
+@media only screen and (min-width: 1040px){
+    .column2-container{
+        display: flex;
+        gap: 10px;
+    }
+    .column2-container .column2{
+        width: 50%;
+    }
+    .dashboard-container .column2 .content{
+        display: flex;
+        justify-content: space-between;
+        /* align-items: center; */
+    }
+    .circle1{
+    margin-top: 1vw;
+    /* margin-left: 2em; */
+    padding: 1em;
+    width: 80px;
+    height: 80px;
+    background-color: #edf4fe;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    }
+    .circle2{
+    width: 45px;
+    height: 45px;
+    background-color: #dbeafe;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    }
+    .circle2 .logo1{
+    color: blue;
+    width: 1.3em;
+    height: 1.3em;
+    }
+    .dashboard-container .column2 .links div:nth-child(1) a{
+        text-decoration: none;
+        color: blue;
+        width: 200px;
+        height: 44px;
+        border: 0.1px solid rgba(0, 0, 255, 0.205);
+        border-radius: 5px;
+        font-size: 1.2vw;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .dashboard-container .column2 .links div:nth-child(2) a{
+        text-decoration: none;
+        color: blue;
+        padding: 0.8vw 1.6vw;
+        border: 0.1px solid rgba(0, 0, 255, 0.205);
+        border-radius: 8px;
+        font-size: 1.2vw;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .dashboard-container .column2 .content p{
+        font-size: 1.1vw;
+        margin-top: 0.3em;
+        width: 100%;
+        line-height:18px;
+        word-spacing:2px;
+    }
+    
 }
