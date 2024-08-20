@@ -16,7 +16,7 @@ import { networks } from '@/contracts'
 import { abi } from '@/contracts/abis/tokenFactory.abi'
 import { intToBig } from '@/utils/math.utils'
 
-export default function Mint() {
+export default function MultiSender() {
     const { step, setStep } = useFormStore();
     const { isConnected } = useAccount();
     const [load, setLoad] = useState(false)

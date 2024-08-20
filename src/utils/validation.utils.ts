@@ -2,8 +2,8 @@
 export interface TokenDetail {
     name: string;
     symbol: string;
-    supply: Number;
-    decimal: Number;
+    supply: number;
+    decimal: number;
     description: string;
     website: string;
     twitter: string;

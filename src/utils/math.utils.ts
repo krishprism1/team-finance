@@ -8,8 +8,8 @@ export const bigToIntClean = (num: BigNumberish)=>{
     return Number(ethers.formatEther(num))
 }
 
-export const intToBig = (num: Number, decimal: Number )=>{
-    return ethers.parseUnits(num.toString(), decimal.toString())
+export const intToBig = (num: number, decimal: number )=>{
+    return ethers.parseUnits(num.toString(), decimal)
 }
 
 export function fixDec(num: number, dec: number = 2) {
