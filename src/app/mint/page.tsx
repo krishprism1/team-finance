@@ -9,10 +9,44 @@ import ConnectWallet from '@/components/common/create/ConnectWallet'
 import SelectNetwork from '@/components/common/create/SelectNetwork'
 import CreateProgress from '@/components/common/create/CreateProgress'
 import useFormStore from '@/store/stepStore'
+import { isStepValid, TokenDetail, validateStep, ValidationErrors } from '@/utils/validation.utils'
 
 export default function Mint() {
     const { address } = useAccount()
     const { step, setStep } = useFormStore();
+
+    const [tokenDetail, setTokenDetail] = useState<TokenDetail>({
+        name: "",
+        symbol: "",
+        supply: 0,
+        decimal: 0,
+        description: "",
+        website: "",
+        twitter: "",
+        telegram: "",
+        mintable: false,
+        burnable: false,
+    });
+    const [errors, setErrors] = useState<ValidationErrors>({});
+
+    const handleNext = (e: React.MouseEvent<HTMLButtonElement>) => {
+        e.preventDefault();
+        if (step === 2) {
+            const newErrors = validateStep(step, tokenDetail);
+            setErrors(newErrors);
+            if (isStepValid(newErrors)) {
+                setStep(step + 1);
+            }
+        }
+    };
+
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const { name, value, type, checked } = e.target;
+        setTokenDetail({
+            ...tokenDetail,
+            [name]: type === 'checkbox' ? checked : value,
+        });
+    };
 
     return (
         <ActionLayout>
@@ -43,11 +77,11 @@ export default function Mint() {
                                     <div className='top-input-box'>
                                         <div>
                                             <label>Token name</label>
-                                            <input type="text" name='Token name' placeholder='e.g "Team Finance"' required />
+                                            <input type="text" name='name' onChange={handleChange} placeholder='e.g "Team Finance"' required />
                                         </div>
                                         <div>
                                             <label>Symbol</label>
-                                            <input type="text" name='Symbol' placeholder='e.g "TFC"' required />
+                                            <input type="text" name='symbol'  onChange={handleChange} placeholder='e.g "TFC"' required />
                                         </div>
                                     </div>
                                     <label>Image Token</label>
@@ -58,30 +92,30 @@ export default function Mint() {
                                     </div>
                                     <div className="field">
                                         <label>Decimal</label>
-                                        <input type="number" name="decimals" placeholder='8-18' required />
+                                        <input type="number" name="decimal"  onChange={handleChange} placeholder='8-18' required />
                                     </div>
                                     <div className="field">
                                         <label >Initial supply </label>
-                                        <input type="text" name="initial-supply" placeholder='e.g "10 000"' required />
+                                        <input type="number" name="supply"  onChange={handleChange} placeholder='e.g "10 000"' required />
                                     </div>
                                     <div className="field">
                                         <label >Description</label>
-                                        <input type="text" name="Description" placeholder='e.g "A Defi Yeild Farming Token"' required />
+                                        <input type="text" name="description"  onChange={handleChange} placeholder='e.g "A Defi Yeild Farming Token"' required />
                                     </div>
                                     <div className="field">
                                         <label >Website (optional)</label>
-                                        <input type="text" name="Website (optional)" placeholder='e.g "https://www.team.finance/"' required />
+                                        <input type="text" name="Website (optional)" placeholder='e.g "https://www.team.finance/"' />
                                     </div>
                                     <div className="field">
                                         <label >Twitter (optional)</label>
-                                        <input type="text" name="Twitter (optional)" placeholder='e.g "https://twitter.com/team.finance/"' required />
+                                        <input type="text" name="Twitter (optional)" placeholder='e.g "https://twitter.com/team.finance/"' />
                                     </div>
                                     <div className="field">
                                         <label >Telegram (optional)</label>
-                                        <input type="text" name="Telegram (optional)" placeholder='e.g "https://t.me/team.finance/"' required />
+                                        <input type="text" name="Telegram (optional)" placeholder='e.g "https://t.me/team.finance/"' />
                                     </div>
-                                    <div className="form-continue-btn" onClick={() => setStep(step + 1)}>
-                                        <button type="submit">Continue</button>
+                                    <div className="form-continue-btn">
+                                        <button type="submit" onClick={handleNext}>Continue</button>
                                     </div>
                                 </form>
                             </div>
@@ -119,13 +153,6 @@ export default function Mint() {
                             <p>Choose the additional functionality you want added to your smart contract code.</p>
                             <form>
                                 <div className="feature-box1">
-                                    <div className='feature-box1-1'>
-                                        <input type="checkbox" name="Reflection" id="Reflection" title='Reflaction' />
-                                        <div className='feature-heading'>
-                                            <h4>Reflection</h4>
-                                            <p>Charge a fee for each transation that takes place</p>
-                                        </div>
-                                    </div>
                                     <div className="feature-box1-2">
                                         <p>Tax percentage</p>
                                         <input type="number" name="percentage" id="Tax-percentage" placeholder='1-20' />
@@ -145,12 +172,12 @@ export default function Mint() {
                                         <p>Add the ability to burn your tokens. This is great for creating deflation</p>
                                     </div>
                                 </div>
-                                <button type="submit" className='feature-btn' onClick={() => setStep(step +1)}>Continue</button>
+                                <button type="submit" className='feature-btn' onClick={() => setStep(step + 1)}>Continue</button>
                             </form>
                         </div>
                     )}
                     {step > 3 && (
-                        <div className="add-feature-connected-small-box"  onClick={() => setStep(3)}>
+                        <div className="add-feature-connected-small-box" onClick={() => setStep(3)}>
                             <div>
                                 <img alt="Icon" loading="lazy" width="16" height="16" decoding="async" data-nimg="1" src="https://app.team.finance/_next/static/media/check-circle.e19b6900.svg" />
                                 <p>Add features</p>
@@ -173,46 +200,48 @@ export default function Mint() {
                             </div>
                         </div>
                     )}
-                    <div className="create-contract-container">
-                        <h3>Create contract</h3>
-                        <p>Please ensure the following details are correct:</p>
+                    {step == 4 && (
+                        <div className="create-contract-container">
+                            <h3>Create contract</h3>
+                            <p>Please ensure the following details are correct:</p>
 
-                        <div className="token-information-box">
-                            <div className='tk-informantion'>
-                                <p>Token</p>
-                                <div>
-                                    <img src="https://app.team.finance/tokens/ethereum-token.webp" alt="l" /><span>TFC</span>
+                            <div className="token-information-box">
+                                <div className='tk-informantion'>
+                                    <p>Token</p>
+                                    <div>
+                                        <img src="https://app.team.finance/tokens/ethereum-token.webp" alt="l" /><span>TFC</span>
+                                    </div>
+                                </div>
+                                <div className='tk-informantion'>
+                                    <p>Blockchain</p>
+                                    <div>
+                                        <img src="https://app.team.finance/icons/wizard/ethereum.svg" alt="l" /><span>Ethereum</span>
+                                    </div>
+                                </div>
+                                <div className='tk-informantion'>
+                                    <p>Total supply</p>
+                                    <div>
+                                        <span>10</span>
+                                    </div>
+                                </div >
+                                <div className='tk-informantion'>
+                                    <p>Service fee</p>
+                                    <div>
+                                        <span>-</span>
+                                    </div>
+                                </div>
+                                <div className='tk-informantion'>
+                                    <p>Feature</p>
+                                    <div>
+                                        <span>Burnable</span>
+                                    </div>
                                 </div>
                             </div>
-                            <div className='tk-informantion'>
-                                <p>Blockchain</p>
-                                <div>
-                                    <img src="https://app.team.finance/icons/wizard/ethereum.svg" alt="l" /><span>Ethereum</span>
-                                </div>
-                            </div>
-                            <div className='tk-informantion'>
-                                <p>Total supply</p>
-                                <div>
-                                    <span>10</span>
-                                </div>
-                            </div >
-                            <div className='tk-informantion'>
-                                <p>Service fee</p>
-                                <div>
-                                    <span>-</span>
-                                </div>
-                            </div>
-                            <div className='tk-informantion'>
-                                <p>Feature</p>
-                                <div>
-                                    <span>Burnable</span>
-                                </div>
+                            <div className="confirm-transtion-btn">
+                                <button>Confirm transaction</button>
                             </div>
                         </div>
-                        <div className="confirm-transtion-btn">
-                            <button>Confirm transaction</button>
-                        </div>
-                    </div>
+                    )}
                 </div>
             </div>
         </ActionLayout>

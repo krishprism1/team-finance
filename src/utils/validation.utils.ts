@@ -36,9 +36,6 @@ export const validateStep = (step: number, data: TokenDetail): ValidationErrors 
             if (!data.description) {
                 errors.description = 'Description is required';
             }
-            if (!data.website) {
-                errors.website = 'Website is required';
-            }
             break;
         default:
             break;
