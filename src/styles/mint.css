@@ -500,7 +500,7 @@
     /* display: none; */
 }
 .connected-wallet-hide-box:hover{
-    background-color:#eef6fe ;
+    background-color:#e9eef9;
 }
 .connected-wallet-hide-box .ds-icon2{
     transform: rotate(90deg);
