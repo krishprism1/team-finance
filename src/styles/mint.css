@@ -537,7 +537,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding-bottom: 1vw;
+    padding-bottom: 0.7vw;
 }
 .select-blockchain-box .select-right-arrow{
     font-size: 1.8vw;
@@ -576,7 +576,7 @@
     align-items: center;
 }
 .select-blockchain .select-box1 div span{
-    font-size: 1.4vw;
+    font-size: 1.2vw;
     font-weight: 400;
     margin-left: 0.6vw;
 }

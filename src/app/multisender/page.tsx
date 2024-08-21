@@ -114,8 +114,8 @@ export default function MultiSender() {
                             <div className="select-blockchain">
                                 <div className='select-box1'>
                                     <div>
-                                        <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path fill="none" d="M0 0h24v24H0z"></path><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg>
-                                        <span>Enter token info</span>
+                                    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24"  height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path fill="none" d="M0 0h24v24H0z"></path><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg>  
+                                    <span>Enter token address</span>
                                     </div>
                                     <svg stroke="currentColor" fill="none" stroke-width="0" viewBox="0 0 24 24" className='select-right-arrow' height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M6.34317 7.75732L4.92896 9.17154L12 16.2426L19.0711 9.17157L17.6569 7.75735L12 13.4142L6.34317 7.75732Z" fill="currentColor"></path></svg>
                                 </div>
@@ -124,50 +124,50 @@ export default function MultiSender() {
                     }
                     {step == 2 && (
                         <div className="token-info-container">
-                            <h3>Enter token info</h3>
-                            <p>Please provide the following information:</p>
+                            <h3>Enter token address</h3>
+                            <p className='token-address-p'>Enter the token address for the token you are sending, or select from the tokens listed below from your wallet.</p>
                             <div className="token-form-column">
                                 <form>
                                     <div className='top-input-box'>
                                         <div>
-                                            <label>Token name</label>
-                                            <input type="text" name='name' onChange={handleChange} placeholder='e.g "Team Finance"' required />
-                                        </div>
-                                        <div>
-                                            <label>Symbol</label>
-                                            <input type="text" name='symbol'  onChange={handleChange} placeholder='e.g "TFC"' required />
+                                            <label className='heading-of-token-address'>Token address</label>
+                                            <input type="text" name='name' onChange={handleChange} placeholder='Enter address....' className='token-address-input' required />
                                         </div>
                                     </div>
-                                    <label>Image Token</label>
-                                    <div className="file-upload-area">
-                                        <label className="drop-area" title='for drag'>  Drop file here </label>
-                                        <input type="file" id="file-input" accept=".jpeg,.jpg,.png" placeholder='Image Drag here' />
-                                        <p>.jpeg, .jpg or .png 2MB max</p>
-                                    </div>
-                                    <div className="field">
-                                        <label>Decimal</label>
-                                        <input type="number" name="decimal"  onChange={handleChange} placeholder='8-18' required />
-                                    </div>
-                                    <div className="field">
-                                        <label >Initial supply </label>
-                                        <input type="number" name="supply"  onChange={handleChange} placeholder='e.g "10 000"' required />
-                                    </div>
-                                    <div className="field">
-                                        <label >Description</label>
-                                        <input type="text" name="description"  onChange={handleChange} placeholder='e.g "A Defi Yeild Farming Token"' required />
-                                    </div>
-                                    <div className="field">
-                                        <label >Website (optional)</label>
-                                        <input type="text" name="Website (optional)" placeholder='e.g "https://www.team.finance/"' />
-                                    </div>
-                                    <div className="field">
-                                        <label >Twitter (optional)</label>
-                                        <input type="text" name="Twitter (optional)" placeholder='e.g "https://twitter.com/team.finance/"' />
-                                    </div>
-                                    <div className="field">
-                                        <label >Telegram (optional)</label>
-                                        <input type="text" name="Telegram (optional)" placeholder='e.g "https://t.me/team.finance/"' />
-                                    </div>
+                                        <label className='heading-of-token-address'>e.g. 0xCC4304A31d09258b0029eA7FE63d032f52e44EFe</label>
+                                        <div className='token-info-box'>
+                                            <div className="token-details-box1">
+                                                 <img src="	https://app.team.finance/tokens/ethereum-token.webp" alt="l" />
+                                                <div>
+                                                    <div className='small-info-box'>
+                                                        <p>ETH</p>
+                                                        <svg stroke="blue" fill="blue" stroke-width="0" viewBox="0 0 24 24" height="1.2em" width="1.2em" xmlns="http://www.w3.org/2000/svg"><path d="m10 15.586-3.293-3.293-1.414 1.414L10 18.414l9.707-9.707-1.414-1.414z"></path></svg>
+                                                    </div>
+                                                    <div className='small-info-box2'>
+                                                        <span>Native token</span>
+                                                        <p> 0.01</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div className="token-details-box2">
+                                                <div className='info-colum11'>
+                                                    <div>
+                                                    <h4>Token</h4>
+                                                    </div>
+                                                    <div>
+                                                        <p><img src="	https://app.team.finance/tokens/ethereum-token.webp" alt="l" />ETH</p>
+                                                    </div>
+                                                </div>
+                                                <div className='info-colum11'>
+                                                    <div>
+                                                    <h4>Balance</h4>
+                                                    </div>
+                                                    <div>
+                                                        <p>0</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     <div className="form-continue-btn">
                                         <button type="submit" onClick={handleNext}>Continue</button>
                                     </div>
@@ -194,8 +194,8 @@ export default function MultiSender() {
                         <div className="select-blockchain">
                             <div className='select-box1'>
                                 <div>
-                                    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M15 16a1 1 0 0 0 1-1V9a1 1 0 0 0-1-1H9a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h6z"></path><path d="M5 16h1V8a2 2 0 0 1 2-2h8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2zm3 3a2 2 0 0 0 2 2h9a2 2 0 0 0 2-2v-9a2 2 0 0 0-2-2h-1v8a2 2 0 0 1-2 2H8v1z"></path></svg>
-                                    <span>Add features</span>
+                                <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24"  height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M19 15v-3h-2v3h-3v2h3v3h2v-3h3v-2h-.937zM4 7h11v2H4zm0 4h11v2H4zm0 4h8v2H4z"></path></svg>
+                                     <span>Add recipient details</span>
                                 </div>
                                 <svg stroke="currentColor" fill="none" stroke-width="0" viewBox="0 0 24 24" className='select-right-arrow' height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M6.34317 7.75732L4.92896 9.17154L12 16.2426L19.0711 9.17157L17.6569 7.75735L12 13.4142L6.34317 7.75732Z" fill="currentColor"></path></svg>
                             </div>
