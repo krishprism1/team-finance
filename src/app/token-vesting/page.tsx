@@ -1,15 +1,14 @@
 "use client"
-import Footer from '@/components/dashboard/Footer'
+import Create from '@/components/Create'
 import DashboardLayout from '@/containers/DashboardLayout'
-import React from 'react'
+import { tokenVestingProps } from '@/utils/constant.utils'
+
 
 export default function TokenVesting() {
     return (
         <DashboardLayout>
-            <h1>+++++++++++++Token Vesting</h1>
-            <Footer />
+           <Create {...tokenVestingProps}/>
         </DashboardLayout>
     )
 }
-
 

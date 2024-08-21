@@ -1,17 +1,13 @@
 "use client"
 import Create from '@/components/Create'
 import DashboardLayout from '@/containers/DashboardLayout'
-import { tokenSenderProps } from '@/utils/constant.utils'
+import { tokenLockProps } from '@/utils/constant.utils'
 
 
-export default function tokenMultiSender() {
+export default function NFTLock() {
     return (
         <DashboardLayout>
-           <Create {...tokenSenderProps}/>
+           <Create {...tokenLockProps}/>
         </DashboardLayout>
     )
 }
-
-
-
-
