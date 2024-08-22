@@ -654,3 +654,89 @@
 .address-form-container .ad-box5 .cancle-btn:hover{
     background-color: #d1dff8;
 }
+
+
+
+
+/* team token lock page code here */
+
+.ad-lock-box1{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.ad-lock-box1 span{
+    font-size: 0.8em;
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
+.ad-lock-box1 input{
+    width: 60%;
+    height: 45px;
+    border-radius: 6px;
+    border: 0.1px solid rgba(0, 0, 0, 0.234);
+    outline-color: rgb(64, 198, 255);
+    padding: 0 1em;
+    font-size: 1em;
+}
+/* box2 */
+
+.ad-lock-box2{
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    margin-top: 0.2em;
+}
+.ad-lock-box2 p{
+    font-size: 0.9em;
+    color: gray;
+    margin-top: 0.7em;
+}
+.ad-lock-box2 span{
+    font-size: 0.9em;
+    font-weight: 600;
+    margin-left: 5px;
+}
+
+.ad-lock-box2 h5{
+    padding: 0.4em 0.6em;
+    border-radius: 7px;
+    font-size: 14px;
+    font-weight: 600;
+    background-color: #d1dff8b0;
+    color: blue;
+}
+/* box3 */
+.ad-lock-box3{
+    display: flex;
+    justify-content: space-between;
+    width: 60%;
+    margin-top: 0.8em;
+}
+.ad-lock-box3 p{
+    font-size: 1em;
+    color: gray;
+}
+.ad-lock-box3 span{
+    font-size: 1em;
+    font-weight: 500;
+}
+/* box4 */
+.ad-lock-box4{
+    display: flex;
+    justify-content: space-between;
+    width: 60%;
+    align-items: center;
+}
+.ad-lock-box4 p{
+    font-size: 1em;
+    margin-bottom: -0.5em;
+}
+.ad-lock-box4 span{
+    line-height: 0;
+    margin-top: -1em;
+    font-size: 0.7em;
+}
