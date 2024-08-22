@@ -1,4 +1,3 @@
-// validation.ts
 export interface TokenDetail {
     name: string;
     symbol: string;

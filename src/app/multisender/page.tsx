@@ -1,6 +1,6 @@
 "use client"
 import ActionLayout from '@/containers/ActionLayout'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import "../../styles/mint.css"
 import "../../styles/Mint-responsive.css"
 import "../../styles/multisender.css"
@@ -16,14 +16,24 @@ import { ethers } from 'ethers'
 import { networks } from '@/contracts'
 import { abi } from '@/contracts/abis/tokenFactory.abi'
 import { intToBig } from '@/utils/math.utils'
+import { getWalletTransaction } from '@/utils/moralis.utils'
+
+interface TokenInfo {
+    token: string;
+    name: string;
+    symbol: string;
+    balance: number;
+}
 
 export default function MultiSender() {
     const { step, setStep } = useFormStore();
-    const { isConnected } = useAccount();
+    const { isConnected, address } = useAccount();
     const [load, setLoad] = useState(false)
     const signer = useEthersSigner();
     const [toggleFirst, setToggleFirst] = useState(false)
     const [toggleSecond, setToggleSecond] = useState(false)
+    const [tokenInfo, setTokenInfo] = useState<TokenInfo[]>([]);
+    const [selectedToken, setSelectedToken] = useState<TokenInfo>();
 
     const [tokenDetail, setTokenDetail] = useState<TokenDetail>({
         name: "",
@@ -113,6 +123,15 @@ export default function MultiSender() {
         }
     }
 
+    useEffect(() => {
+        if (address) {
+            getWalletTransaction(address, "45").then(res => setTokenInfo(res))
+        }
+    }, [address, step])
+
+    const selectToken = async (item :any) => {
+        setSelectedToken(item)
+    }
     return (
         <ActionLayout>
             <div className="creat-token-container">
@@ -143,31 +162,39 @@ export default function MultiSender() {
                                     <div className='top-input-box'>
                                         <div>
                                             <label className='heading-of-token-address'>Token address</label>
-                                            <input type="text" name='name' onChange={handleChange} placeholder='Enter address....' className='token-address-input' required />
+                                            <input type="text" name='selectedToken' value={selectedToken?.token} onChange={handleChange} placeholder='Enter address....' className='token-address-input' required />
                                         </div>
                                     </div>
                                     <label className='heading-of-token-address'>e.g. 0xCC4304A31d09258b0029eA7FE63d032f52e44EFe</label>
                                     <div className='token-info-box'>
-                                        <div className="token-details-box1">
-                                            <img src="	https://app.team.finance/tokens/ethereum-token.webp" alt="l" />
-                                            <div>
-                                                <div className='small-info-box'>
-                                                    <p>ETH</p>
-                                                    <svg stroke="blue" fill="blue" stroke-width="0" viewBox="0 0 24 24" height="1.2em" width="1.2em" xmlns="http://www.w3.org/2000/svg"><path d="m10 15.586-3.293-3.293-1.414 1.414L10 18.414l9.707-9.707-1.414-1.414z"></path></svg>
-                                                </div>
-                                                <div className='small-info-box2'>
-                                                    <span>Native token</span>
-                                                    <p> 0.01</p>
-                                                </div>
-                                            </div>
+                                        <div>
+                                            {
+                                                tokenInfo && tokenInfo.map((item: TokenInfo, index: number) => (
+                                                    <div className="token-details-box1" key={index} onClick={() => selectToken(item)}>
+                                                        <img src="	https://app.team.finance/tokens/ethereum-token.webp" alt="l" />
+                                                        <div>
+                                                            <div className='small-info-box'>
+                                                                <p>{item.symbol}</p>
+                                                                <svg stroke="blue" fill="blue" stroke-width="0" viewBox="0 0 24 24" height="1.2em" width="1.2em" xmlns="http://www.w3.org/2000/svg"><path d="m10 15.586-3.293-3.293-1.414 1.414L10 18.414l9.707-9.707-1.414-1.414z"></path></svg>
+                                                            </div>
+                                                            <div className='small-info-box2'>
+                                                                <span>{item.name}</span>
+                                                                <p>{item.balance}</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                ))
+                                            }
                                         </div>
-                                        <div className="token-details-box2">
+
+                                        {selectedToken && (
+                                            <div className="token-details-box2">
                                             <div className='info-colum11'>
                                                 <div>
                                                     <h4>Token</h4>
                                                 </div>
                                                 <div>
-                                                    <p><img src="	https://app.team.finance/tokens/ethereum-token.webp" alt="l" />ETH</p>
+                                                    <p><img src="	https://app.team.finance/tokens/ethereum-token.webp" alt="l" />{selectedToken?.symbol}</p>
                                                 </div>
                                             </div>
                                             <div className='info-colum11'>
@@ -175,10 +202,11 @@ export default function MultiSender() {
                                                     <h4>Balance</h4>
                                                 </div>
                                                 <div>
-                                                    <p>0</p>
+                                                    <p>{selectedToken?.balance}</p>
                                                 </div>
                                             </div>
                                         </div>
+                                        )}
                                     </div>
                                     <div className="form-continue-btn" onClick={() => setStep(3)}>
                                         <button type="submit">Continue</button>
