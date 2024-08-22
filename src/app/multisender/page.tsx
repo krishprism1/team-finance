@@ -346,7 +346,7 @@ export default function MultiSender() {
 
                                 </div>
                                 <div className="form-continue-btn" onClick={() => setStep(4)}>
-                                    <button type="submit">Continue</button>
+                                    <button type="submit" className='all-time-use-btn'>Continue</button>
                                 </div>
                             </form>
                         </div>
