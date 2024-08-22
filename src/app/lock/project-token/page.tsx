@@ -107,7 +107,7 @@ export default function TokenLock() {
     return (
         <ActionLayout>
             <div className="creat-token-container">
-                <CreateProgress title="Create vesting contract" />
+                <CreateProgress title="Create team token lock" />
                 <ConnectWallet />
                 <div className="select-blockchain-box">
                     <SelectNetwork />
