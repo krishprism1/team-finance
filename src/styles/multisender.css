@@ -667,6 +667,7 @@
 }
 .ad-lock-box1 span{
     font-size: 0.8em;
+    margin-bottom: 3px;
     display: flex;
     gap: 5px;
     align-items: center;
@@ -754,4 +755,50 @@
     outline-color: rgb(64, 198, 255);
     padding: 0 1em;
     font-size: 1em;
+}
+/* nft lock code */
+.nft-token-id-box{
+    margin-top: 1em;
+}
+.nft-token-id-box2{
+    display: flex;
+    flex-direction: column;
+    width: 65%;
+    margin-top: 2em;
+}
+.nft-token-id-box2 div{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.nft-token-id-box2 div p{
+    font-size: 0.9em;
+    align-items: center;
+    color: gray;
+}
+.nft-token-id-box2 div span{
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 1em;
+    font-weight: 500;
+}
+.nft-token-id-box2 div:first-child{
+    border-bottom: 1px solid #00000032;
+    padding-bottom: 0.6em;
+    margin-bottom: 1em;
+}
+.ad-lock-box3-3{
+    width: 65%;
+}
+.ad-lock-box1-1{
+    width: 108%;
+}
+.ad-lock-box44-4{
+    width: 65%;
+}
+.input input{
+    width: 65%;
+    
 }

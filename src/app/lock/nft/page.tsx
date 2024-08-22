@@ -136,10 +136,20 @@ export default function NFTLock() {
                                             <input type="text" name='name' onChange={handleChange} placeholder='Enter address' className='token-address-input' required />
                                         </div>
                                     </div>
-                                    <div className='top-input-box'>
+                                    <div className='top-input-box nft-token-id-box'>
                                         <div>
-                                            <label className='heading-of-token-address'>NFT contract address</label>
+                                            <label className='heading-of-token-address'>NFT Token ID</label>
                                             <input type="text" name='name' onChange={handleChange} placeholder='Enter token ID' className='token-address-input' required />
+                                        </div>
+                                    </div>
+                                    <div className="nft-token-id-box2">
+                                        <div>
+                                            <p>Name</p>
+                                            <span><img src="https://app.team.finance/tokens/bsc-token.webp" width="30" height="30" alt="l" /> MyTest Nft</span>
+                                        </div>
+                                        <div>
+                                            <p>Symbol</p>
+                                            <span>NFTT</span>
                                         </div>
                                     </div>
                                     <div className="form-continue-btn" onClick={() => setStep(3)}>
@@ -168,8 +178,8 @@ export default function NFTLock() {
                         <div className="select-blockchain">
                             <div className='select-box1'>
                                 <div>
-                                    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M19 15v-3h-2v3h-3v2h3v3h2v-3h3v-2h-.937zM4 7h11v2H4zm0 4h11v2H4zm0 4h8v2H4z"></path></svg>
-                                    <span>Add recipient details</span>
+                                    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path fill="none" d="M0 0h24v24H0z"></path><path d="M20 3h-1V1h-2v2H7V1H5v2H4c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 18H4V8h16v13z"></path></svg>
+                                    <span>Add lock details</span>
                                 </div>
                                 <svg stroke="currentColor" fill="none" stroke-width="0" viewBox="0 0 24 24" className='select-right-arrow' height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M6.34317 7.75732L4.92896 9.17154L12 16.2426L19.0711 9.17157L17.6569 7.75735L12 13.4142L6.34317 7.75732Z" fill="currentColor"></path></svg>
                             </div>
@@ -178,35 +188,22 @@ export default function NFTLock() {
                     {step == 3 && (
                         <div className="add-feature-container">
                             <h3>Add lock details</h3>
-                            <p>Set the amount and time period you would like to lock your tokens for.</p>
+                            <p>Set the time period you would like to lock your NFT for.</p>
 
-                           <div className="ad-lock-box1">
-                            <span>Lock amount</span>
-                            <div>
-                                <input type="number"  placeholder='Enter amount'/>
-                                </div>
-                           </div>
-
-                           <div className="ad-lock-box2">
-                            <p>Your balance :</p>
-                            <span>10000 xrp</span>
-                            <h5>Max</h5>
-                           </div>
-
-                           <div className="ad-lock-box1">
+                           <div className="ad-lock-box1 ad-lock-box1-1">
                             <span>Unlock date & time <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" data-tooltip-id="tooltip-help-lock-period" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M12 6a3.939 3.939 0 0 0-3.934 3.934h2C10.066 8.867 10.934 8 12 8s1.934.867 1.934 1.934c0 .598-.481 1.032-1.216 1.626a9.208 9.208 0 0 0-.691.599c-.998.997-1.027 2.056-1.027 2.174V15h2l-.001-.633c.001-.016.033-.386.441-.793.15-.15.339-.3.535-.458.779-.631 1.958-1.584 1.958-3.182A3.937 3.937 0 0 0 12 6zm-1 10h2v2h-2z"></path><path d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8z"></path></svg></span>
                             <div>
                                 <input type="datetime-local" placeholder='select date'/>
                                 </div>
                            </div>
 
-                           <div className="ad-lock-box3">
+                           <div className="ad-lock-box3 ad-lock-box3-3 ">
                             <p>Service Fee</p>
                             <span>$10.00</span>
                            </div>
 
-                           <div className='ad-lock-box44'>
-                           <div className="ad-lock-box4">
+                           <div className='ad-lock-box44{'>
+                           <div className="ad-lock-box4 ad-lock-box44-4">
                             <div>
                                 <p>Do you have a valid Referral Address</p>
                                 <span>Receive a 10% discount!</span>
@@ -215,7 +212,7 @@ export default function NFTLock() {
                                 <input type="checkbox" name="percent" placeholder='"' />
                             </div>
                            </div>
-                           <div className='check-to-come-up'>
+                           <div className='check-to-come-up input'>
                             <input type="text" placeholder='Enter referres wallet address here'/>
                            </div>
                          </div>
