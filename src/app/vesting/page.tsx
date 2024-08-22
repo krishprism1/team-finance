@@ -214,104 +214,146 @@ export default function Vesting() {
                     )}
                     {step == 3 && (
                         <div className="add-feature-container">
-                            <h3>Add recipient details</h3>
-                            <p>Enter the wallet addresses and token amounts manually or upload a CSV file.</p>
+                            <h3>Add vesting details</h3>
+                            <p className='vesting-heading'>Unsure how to upload a file? Feel free to contact us on <a href="https://t.me/teamfinance_main" target="_blank" >Telegram</a> to learn how.</p>
                             <form>
-                                <div className='recipient-box1'>
+                                <div className='recipient-box1 vesting-box1'>
                                     <div className='rct-box1' onClick={(e) => toggleRadio("first")}>
                                         <div>
                                             <label htmlFor="add-recipients" style={{ display: 'flex', alignItems: 'center', cursor: 'pointer' }}>
                                                 <input type="radio" name="add-file" id="add-recipients" style={{ marginRight: '8px' }} />
-                                                <p>Add recipients manually</p>
+                                                <p>Create new vesting plan</p>
                                             </label>
                                         </div>
                                         <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16.293 9.293 12 13.586 7.707 9.293l-1.414 1.414L12 16.414l5.707-5.707z"></path></svg>
                                     </div>
 
                                     {toggleFirst && (
-                                        <div className="recipient-box2">
-                                            <div className="rct-box2">
-                                                <div className='small-rtc-box'>
-                                                    <p>Token balance</p>
-                                                    <span>0.00 ETH</span>
-                                                </div>
-                                                <div className='small-rtc-box'>
-                                                    <p>Total amount</p>
-                                                    <span></span>
-                                                </div>
-                                                <div className='small-rtc-box'>
-                                                    <p>Total recipients</p>
-                                                    <span>2</span>
-                                                </div>
-                                                <div className='small-rtc-box2'>
-                                                    <p>Service fee <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" className='dout-svg' height="1.1em" width="1.1em" xmlns="http://www.w3.org/2000/svg"><path d="M12 6a3.939 3.939 0 0 0-3.934 3.934h2C10.066 8.867 10.934 8 12 8s1.934.867 1.934 1.934c0 .598-.481 1.032-1.216 1.626a9.208 9.208 0 0 0-.691.599c-.998.997-1.027 2.056-1.027 2.174V15h2l-.001-.633c.001-.016.033-.386.441-.793.15-.15.339-.3.535-.458.779-.631 1.958-1.584 1.958-3.182A3.937 3.937 0 0 0 12 6zm-1 10h2v2h-2z"></path><path d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8z"></path></svg></p>
-                                                    <div>
-                                                        <span>$50</span>
-                                                        <p>per transaction <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" className='dout-svg' height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M12 6a3.939 3.939 0 0 0-3.934 3.934h2C10.066 8.867 10.934 8 12 8s1.934.867 1.934 1.934c0 .598-.481 1.032-1.216 1.626a9.208 9.208 0 0 0-.691.599c-.998.997-1.027 2.056-1.027 2.174V15h2l-.001-.633c.001-.016.033-.386.441-.793.15-.15.339-.3.535-.458.779-.631 1.958-1.584 1.958-3.182A3.937 3.937 0 0 0 12 6zm-1 10h2v2h-2z"></path><path d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8z"></path></svg></p>
-
-                                                    </div>
-
-                                                </div>
-                                                <div className="small-rtc-box3">
-                                                    <div className="div">
-                                                        <p>Wallet address</p>
-                                                        <p>Amount of tokens</p>
-                                                    </div>
-                                                    <div className="div2">
-                                                        <span>1.</span>
-                                                        <div>
-                                                            <input type="text" placeholder='Wallet address 1' className='first-input' required />
-                                                        </div>
-                                                        <div>
-                                                            <input type="number" name="token number" placeholder='0.0' className='second-input' />
-                                                        </div>
-                                                        <div>
-                                                            <button><svg stroke="white" fill="white" stroke-width="0" viewBox="0 0 24 24" height="1.7em" width="1.7em" xmlns="http://www.w3.org/2000/svg"><path d="M5 21h14a2 2 0 0 0 2-2V8a1 1 0 0 0-.29-.71l-4-4A1 1 0 0 0 16 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2zm10-2H9v-5h6zM13 7h-2V5h2zM5 5h2v4h8V5h.59L19 8.41V19h-2v-5a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2v5H5z"></path></svg></button>
-                                                            <button><svg stroke="red" fill="red" stroke-width="0" viewBox="0 0 24 24" height="1.7em" width="1.7em" xmlns="http://www.w3.org/2000/svg"><path d="M15 2H9c-1.103 0-2 .897-2 2v2H3v2h2v12c0 1.103.897 2 2 2h10c1.103 0 2-.897 2-2V8h2V6h-4V4c0-1.103-.897-2-2-2zM9 4h6v2H9V4zm8 16H7V8h10v12z"></path></svg></button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div className="small-rtc-box4">
-                                                    <div className="div1">
-                                                        <div>
-                                                            <p>Showing page 1 of 1</p>
-                                                            <p>1 results</p>
-                                                        </div>
-                                                    </div>
-                                                    <div className='div22'>
-                                                        <div className="div2">
-                                                            <p>Show rows</p>
-                                                            <select id="mySelect">
-                                                                <option value="option1">5</option>
-                                                                <option value="option2">10</option>
-                                                                <option value="option3">20</option>
-                                                            </select>
-                                                        </div>
-                                                        <div className="div3">
-                                                            <button><svg stroke="currentColor" fill="none" stroke-width="0" viewBox="0 0 24 24" height="20" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M18.3639 7.75735L16.9497 6.34314L11.2929 12L16.9497 17.6568L18.3639 16.2426L14.1213 12L18.3639 7.75735Z" fill="currentColor"></path><path d="M11.2929 6.34314L12.7071 7.75735L8.46447 12L12.7071 16.2426L11.2929 17.6568L5.63605 12L11.2929 6.34314Z" fill="currentColor"></path></svg></button>
-                                                            <button><svg stroke="currentColor" fill="none" stroke-width="0" viewBox="0 0 24 24" height="20" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M16.2426 6.34317L14.8284 4.92896L7.75739 12L14.8285 19.0711L16.2427 17.6569L10.5858 12L16.2426 6.34317Z" fill="currentColor"></path></svg></button>
-                                                            <button><svg stroke="currentColor" fill="none" stroke-width="0" viewBox="0 0 24 24" height="20" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M10.5858 6.34317L12 4.92896L19.0711 12L12 19.0711L10.5858 17.6569L16.2427 12L10.5858 6.34317Z" fill="currentColor"></path></svg></button>
-                                                            <button><svg stroke="currentColor" fill="none" stroke-width="0" viewBox="0 0 24 24" height="20" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M5.63605 7.75735L7.05026 6.34314L12.7071 12L7.05029 17.6568L5.63608 16.2426L9.87869 12L5.63605 7.75735Z" fill="currentColor"></path><path d="M12.7071 6.34314L11.2929 7.75735L15.5356 12L11.2929 16.2426L12.7072 17.6568L18.364 12L12.7071 6.34314Z" fill="currentColor"></path></svg></button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div className="small-rtc-box5">
-                                                    <div className='box1'>
-                                                        <button>Add another address</button>
-                                                        <a href="#">Download CSV file <svg stroke="rgb(103, 103, 255)" fill="rgb(103, 103, 255)" stroke-width="0" viewBox="0 0 24 24" height="1.1em" width="1.1em" xmlns="http://www.w3.org/2000/svg"><path d="m12 16 4-5h-3V4h-2v7H8z"></path><path d="M20 18H4v-7H2v7c0 1.103.897 2 2 2h16c1.103 0 2-.897 2-2v-7h-2v7z"></path></svg></a>
-
-                                                    </div>
-                                                    <div className="box2">
-                                                        <p>Clear all</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                        <div className="recipient-box2 vesting-inner-box1">
+                                            <div className='add-address-box'><button className='all-time-use-btn'>Add address</button></div>
+                                        </div>            
                                     )}
 
+                                    {/* address details container */}
+                                      <div className="address-details-box">
+                                            <div className="address-form-container">
+                                                <form>
+
+                                                <div className="ad-box1">
+                                                    <h3>Add address</h3>
+                                                    <svg stroke="black" fill="black" stroke-width="0" viewBox="0 0 24 24"  aria-hidden="true" height="1.7em" width="1.7em" xmlns="http://www.w3.org/2000/svg"><path d="m16.192 6.344-4.243 4.242-4.242-4.242-1.414 1.414L10.535 12l-4.242 4.242 1.414 1.414 4.242-4.242 4.243 4.242 1.414-1.414L13.364 12l4.242-4.242z"></path></svg>
+                                                </div>
+
+                                                <h4 style={{fontWeight:600,marginBottom:"8px",marginTop:"5px"}}>Wallet details</h4>
+
+                                                <div className="ad-box2">
+                                                    <div>
+                                                        <span>Wallet address</span>
+                                                        <input type="text" />
+                                                        <span>e.g. 0xAb5801a7D398351b8bE11C439e05C5B3259aeC9B</span>
+                                                    </div>
+                                                    <div>
+                                                    <span>Wallet nickname (optional)</span>
+                                                        <input type="text" />
+                                                    </div>
+                                                </div>
+
+                                                <h4 style={{fontWeight:"600",marginBottom:"8px",marginTop:"14px"}}>Relationship</h4>
+
+                                                <div className="ad-box3">
+                                                        <div className='ad-box3-3'>
+                                                            <input type="radio" name="relation"/>
+                                                            <div style={{display:'flex',flexDirection:'column'}}>
+                                                                <p>Investor</p>
+                                                                <span>Unlimited recipients</span>
+                                                            </div>
+                                                        </div>
+                                                        <div className='ad-box3-3'>
+                                                        <input type="radio" name="relation"/>
+                                                            <div style={{display:'flex',flexDirection:'column',gap:'0'}}>
+                                                                <p>Employee</p>
+                                                                <span>1 of 25 recipients</span>
+                                                            </div>
+                                                        </div>
+                                                        <div className='last-div'>
+                                                            <p><svg stroke="currentColor" fill="#006eff" stroke-width="0" viewBox="0 0 24 24" style={{marginRight:'10px'}}  height="1.1em" width="1.1em" xmlns="http://www.w3.org/2000/svg"><path fill="none" d="M0 0h24v24H0z"></path><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.21 1.79-4 4-4s4 1.79 4 4c0 .88-.36 1.68-.93 2.25z"></path></svg>what's the difference</p>
+                                                        </div>
+                                                </div>
+                                                    
+                                                <h4 style={{fontWeight:"600",marginBottom:"8px",marginTop:"14px"}}>Schedule details</h4>
+
+                                                <div className="ad-box2">
+                                                    <div>
+                                                        <span>Number of tokens to vest</span>
+                                                        <input type="number" placeholder='0' />
+                                                    </div>
+                                                    <div>
+                                                    <span>Vesting cadence <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24"  height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M12 6a3.939 3.939 0 0 0-3.934 3.934h2C10.066 8.867 10.934 8 12 8s1.934.867 1.934 1.934c0 .598-.481 1.032-1.216 1.626a9.208 9.208 0 0 0-.691.599c-.998.997-1.027 2.056-1.027 2.174V15h2l-.001-.633c.001-.016.033-.386.441-.793.15-.15.339-.3.535-.458.779-.631 1.958-1.584 1.958-3.182A3.937 3.937 0 0 0 12 6zm-1 10h2v2h-2z"></path><path d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8z"></path></svg></span>
+                                                        <select className='select'>
+                                                            <option>Per second</option>
+                                                            <option>Per minute</option>
+                                                            <option>Per hour</option>
+                                                            <option>Per weak</option>
+                                                            <option>Per month</option>
+                                                            <option>Quarterly</option>
+                                                            <option>Annually</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                
+                                                <h4 style={{fontWeight:"400",marginBottom:"5px",marginTop:"10px",fontSize:'14px',color:'gray'}}>Balance: <span style={{color:'black',fontSize:'15px'}}> 10000 xrp</span></h4>
+
+                                                <div className="ad-box2">
+                                                    <div>
+                                                        <span>Start date & time (UTC)</span>
+                                                        <input type="date" />
+                                                    </div>
+                                                    <div>
+                                                        <span>End date & time (UTC)</span>
+                                                        <input type="date" />
+                                                        <div style={{display:'flex',flexDirection:'row',gap:'10px'}}>
+                                                            <h5>+3M</h5>
+                                                            <h5>+6M</h5>
+                                                            <h5>+1Y</h5>
+                                                            <h5>+2Y</h5>
+                                                            <h5>+3Y</h5>
+                                                            <h5>+4Y</h5>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div className="ad-box4">
+                                                    <div>
+                                                        <button>hii</button>
+                                                    </div>
+                                                    <div>
+                                                        <h5>Cliff period <svg stroke="gray" fill="gray" stroke-width="0" viewBox="0 0 24 24"  height="1.2em" width="1.2em" xmlns="http://www.w3.org/2000/svg"><path d="M12 6a3.939 3.939 0 0 0-3.934 3.934h2C10.066 8.867 10.934 8 12 8s1.934.867 1.934 1.934c0 .598-.481 1.032-1.216 1.626a9.208 9.208 0 0 0-.691.599c-.998.997-1.027 2.056-1.027 2.174V15h2l-.001-.633c.001-.016.033-.386.441-.793.15-.15.339-.3.535-.458.779-.631 1.958-1.584 1.958-3.182A3.937 3.937 0 0 0 12 6zm-1 10h2v2h-2z"></path><path d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8z"></path></svg></h5>
+                                                    </div>
+                                                </div>
+
+                                                <div className="ad-box2">
+                                                    <div>
+                                                        <span>Cliff length (in months)  <svg stroke="gray" fill="gray" stroke-width="0" viewBox="0 0 24 24"  height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M12 6a3.939 3.939 0 0 0-3.934 3.934h2C10.066 8.867 10.934 8 12 8s1.934.867 1.934 1.934c0 .598-.481 1.032-1.216 1.626a9.208 9.208 0 0 0-.691.599c-.998.997-1.027 2.056-1.027 2.174V15h2l-.001-.633c.001-.016.033-.386.441-.793.15-.15.339-.3.535-.458.779-.631 1.958-1.584 1.958-3.182A3.937 3.937 0 0 0 12 6zm-1 10h2v2h-2z"></path><path d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8z"></path></svg></span>
+                                                        <input type="number" placeholder='0' required/>
+                                                    </div>
+                                                    <div>
+                                                    <span>Release percentage at cliff end <svg stroke="gray" fill="gray" stroke-width="0" viewBox="0 0 24 24"  height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M12 6a3.939 3.939 0 0 0-3.934 3.934h2C10.066 8.867 10.934 8 12 8s1.934.867 1.934 1.934c0 .598-.481 1.032-1.216 1.626a9.208 9.208 0 0 0-.691.599c-.998.997-1.027 2.056-1.027 2.174V15h2l-.001-.633c.001-.016.033-.386.441-.793.15-.15.339-.3.535-.458.779-.631 1.958-1.584 1.958-3.182A3.937 3.937 0 0 0 12 6zm-1 10h2v2h-2z"></path><path d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8z"></path></svg></span>
+                                                        <input type="number" placeholder='0' required/>
+                                                    </div>
+                                                </div>
+
+                                                <div className="ad-box5">
+                                                    <button className='all-time-use-btn cancle-btn'>Cancle</button>
+                                                    <button className='all-time-use-btn'>Add address</button>
+                                                </div>
+
+
+                                                </form>
+                                            </div>
+                                        </div>
                                 </div>
 
-                                <div className="recipient-box2">
+                                <div className="recipient-box2 vesting-box2">
                                     <div className='rct-box1' onClick={(e) => toggleRadio("second")}>
                                         <div>
                                             <label htmlFor="upload-csv" style={{ display: 'flex', alignItems: 'center', cursor: 'pointer' }}>
@@ -336,16 +378,14 @@ export default function Vesting() {
                                                     <h4>Drop CSV file here</h4>
                                                     <input type="file" name="file" placeholder='file' />
                                                 </div>
-                                                <div className='box1'>
-
-                                                </div>
+                                               
                                             </div>
                                         </div>
                                     )}
 
                                 </div>
                                 <div className="form-continue-btn" onClick={() => setStep(4)}>
-                                    <button type="submit">Continue</button>
+                                    <button type="submit" className='all-time-use-btn'>Continue</button>
                                 </div>
                             </form>
                         </div>
