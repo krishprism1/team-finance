@@ -232,7 +232,8 @@ export default function TokenLock() {
                             <p>Service Fee</p>
                             <span>$10.00</span>
                            </div>
-
+                            
+                        <div className='ad-lock-box44'>
                            <div className="ad-lock-box4">
                             <div>
                                 <p>Do you have a valid Referral Address</p>
@@ -242,6 +243,10 @@ export default function TokenLock() {
                                 <input type="checkbox" name="percent" placeholder='"' />
                             </div>
                            </div>
+                           <div className='check-to-come-up'>
+                            <input type="text" placeholder='Enter referres wallet address here'/>
+                           </div>
+                         </div>
                            <div className="ad-lock-box5">
                             <button className='all-time-use-btn'>Continue</button>
                            </div>

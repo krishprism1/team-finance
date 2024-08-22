@@ -306,11 +306,11 @@ export default function Vesting() {
                                                 <div className="ad-box2">
                                                     <div>
                                                         <span>Start date & time (UTC)</span>
-                                                        <input type="date" />
+                                                        <input type="datetime-local" />
                                                     </div>
                                                     <div>
                                                         <span>End date & time (UTC)</span>
-                                                        <input type="date" />
+                                                        <input type="datetime-local" />
                                                         <div style={{display:'flex',flexDirection:'row',gap:'10px'}}>
                                                             <h5>+3M</h5>
                                                             <h5>+6M</h5>
