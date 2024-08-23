@@ -19,7 +19,8 @@ const CreateProgress: React.FC<CreateProgressProps> = ({ title }) => {
                     </div>
                 </div>
             </div>
-            <div className="token-creation-bar">
+            <div className="token-creation-container">
+             <div className="token-creation-bar">
                 <div className="column row1" style={{ display: step === 0 ? '' : 'none' }}>
                     <button className='btn-radio1'></button>
                     <div className='content'>
@@ -97,6 +98,7 @@ const CreateProgress: React.FC<CreateProgressProps> = ({ title }) => {
                         <img src="https://app.team.finance/_next/static/media/check-circle.e19b6900.svg" className='radio-bar-img5' alt="" />
                         <span className='span5'>Create contract</span>
                     </div>
+                </div>
                 </div>
             </div>
         </>
