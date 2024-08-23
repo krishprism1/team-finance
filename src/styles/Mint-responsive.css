@@ -11,13 +11,17 @@
     }
     .creat-token-column .content1 h1{
         font-size: 1.6em;
-        margin-left: -1em;
+        width: 80%;
+        /* margin-left: -1em; */
     }
     .creat-token-column .content1 a{
         padding:  1.6vw;
         font-size: 0.8em;
         border: 0.1px solid rgba(0, 0, 0, 0.495) ;
         display: none;
+    }
+    .creat-token-column .content1 div{
+        display: flex;
     }
     .content1 .vd-icon2{
         display: block;
@@ -36,8 +40,7 @@
         background-color: blue;
         color: white;
         border-radius: 5px;
-        margin-left: -5em;
-        margin-right: -1em;
+        margin-left: 0.5em;
     }
     
     /*  */
@@ -45,7 +48,7 @@
     .token-creation-bar .column{
         margin-bottom: 1em;
         gap: 0.2em;
-        margin-right: 2vw;
+        /* margin-right: 2vw; */
     }
     .select-wallet{
         width: 92%;
@@ -74,36 +77,165 @@
         font-size: 1em;
         border-radius: 8px;
     }
+    .token-creation-container{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .token-creation-bar{
+        width: 90%;
+        height: 100%;
+        margin-right: 0;
+    }
+    .token-creation-bar .column{
+        width: 100%;
+        gap: 0.9em;
+    }
+    /* button radio bar */
+.token-creation-bar .column .btn-radio1{
+    width: 100%;
+    height: 4px ;
+    outline: none;
+    margin-top: 0.4em;
+    border: none;
+    background-color: rgb(0, 0, 255);
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+.token-creation-bar .column .btn-radio2{
+    width: 100%;
+    height: 4px ;
+    margin-top: 0.4em;
+    outline: none;
+    border: none;
+    background-color: #b0b7c1;
+}
+
+.token-creation-bar .column .btn-radio2-active{
+    width: 100%;
+    height: 4px ;
+    outline: none;
+    border: none;
+    margin-top: 0.4em;
+    background-color: rgb(0, 0, 255);
+}
+.token-creation-bar .column .btn-radio3{
+    width: 100%;
+    height: 4px ;
+    outline: none;
+    margin-top: 0.4em;
+    border: none;
+    background-color: #b0b7c1;
+}
+
+.token-creation-bar .column .btn-radio3-active{
+    width: 100%;
+    height: 4px ;
+    margin-top: 0.4em;
+    outline: none;
+    border: none;
+    background-color: rgb(0, 0, 255);
+}
+
+.token-creation-bar .column .btn-radio4{
+    width: 100%;
+    height: 4px ;
+    margin-top: 0.4em;
+    outline: none;
+    border: none;
+    background-color: #b0b7c1;
+}
+
+.token-creation-bar .column .btn-radio4-active{
+    width: 100%;
+    height: 4px ;
+    outline: none;
+    margin-top: 0.4em;
+    border: none;
+    background-color: rgb(0, 0, 255);
+}
+
+.token-creation-bar .column .btn-radio5{
+    width: 100%;
+    margin-top: 0.4em;
+    height: 4px ;
+    outline: none;
+    border: none;
+    background-color: #b0b7c1;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.token-creation-bar .column .btn-radio5-active{
+    width: 100%;
+    height: 4px ;
+    outline: none;
+    margin-top: 0.4em;
+    border: none;
+    background-color: rgb(0, 0, 255);
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
     .token-creation-bar .column .content .span1,
     .token-creation-bar .column .content .span2,
     .token-creation-bar .column .content .span3,
     .token-creation-bar .column .content .span4,
     .token-creation-bar .column .content .span5{
-    display: none;
+        display: none;
+        width: 100%;
+        height: 100%;
     }
-    .token-creation-bar .column .btn-radio1{
-        width: 5.4em;
-        margin-right: -1em;
-        height: 5px;
+    .token-creation-bar .column1 .content .span5,
+    .token-creation-bar .column2 .content .span5,
+    .token-creation-bar .column3 .content .span5,
+    .token-creation-bar .column4 .content .span5,
+    .token-creation-bar .column5 .content .span5{
+        display: none;
+        width: 100%;
+        height: 100%;
     }
-    .token-creation-bar .column .btn-radio2{
-        width: 5.4em;
-        height: 5px;
-        margin-right: -1em;
+    .token-creation-bar .column1 .green-radio1{
+        background-color: #22c55e;
+        width: 100%;
+        height: 4px ;
+        margin-bottom: 1.4em;
     }
-    .token-creation-bar .column .btn-radio3{
-        width: 5.4em;
-        height: 5px ;
-        margin-right: -1em;
+    .token-creation-bar .column2 .green-radio2{
+        width: 100%;
+        height: 4px ;
+        margin-bottom: 1.4em;
+        outline: none;
+        border: none;
+        background-color: #22c55e;
     }
-    .token-creation-bar .column .btn-radio4{
-        width: 5.4em;
-        height: 5px ;
-        margin-right: -1em;
+    .token-creation-bar .column3 .green-radio3{
+        width: 100%;
+        height: 4px ;
+        margin-bottom: 1.4em;
+        outline: none;
+        border: none;
+        background-color: #22c55e;
     }
-    .token-creation-bar .column .btn-radio5{
-        width: 5.4em;
-        height: 5px ;
+    .token-creation-bar .column4 .green-radio4{
+        background-color: #22c55e;
+        width: 100%;
+        margin-bottom: 1.4em;
+        height: 4px ;
+        outline: none;
+        border: none;
+    }
+    .token-creation-bar .column5 .green-radio5{
+        background-color: #22c55e;
+        width: 100%;
+        margin-bottom: 1.4em;
+        height: 4px ;
+        outline: none;
+        border: none;
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
     }
     /*popup box  */
 
@@ -163,8 +295,8 @@
         border: 0.2px solid rgba(0, 0, 0, 0.533);;
     }
     .continue-hide-box img{
-        width: 30px;
-        height: 30px;
+        width: 20px;
+        height: 20px;
         margin-right:1em;
     }
     .continue-hide-box h3{
@@ -176,30 +308,31 @@
         padding-bottom: 0.8em;
     }
     .continue-hide-box .a{
-        font-size: 1em;
-        color: black;
-        margin-left: 2em;
+        font-size: 0.9em;
+        color: blue;
+        margin-left: 4em;
         margin-top: -10px;
     }
     .continue-hide-box .ds-icon{
-        font-size: 1.7em;
+        font-size: 1.5em;
+        color: rgb(63, 63, 255);
     }
     /* end */
     .connected-wallet-hide-box{
         width: 98%;
-        margin-left: 0.1em;
+        padding: 0 1em;
     }
     .connected-wallet-hide-box .ds-icon2{
         font-size: 1.7em;
-        margin-left: 0em;
+        margin-left: 0.4em;
     }
     .connected-wallet-hide-box div h3{
         font-size: 0.9em;
-        margin-left: 0.2vw;
+        margin-left: 0.3em;
     }
     .connected-wallet-hide-box div p{
         font-size: 0.7em;
-        margin-left: 0.2vw;
+        margin-left: 0.3em;
     }
     .select-blockchain-box{
         padding-bottom:1em;
@@ -303,7 +436,137 @@
         background-color: blue;
         margin-left: 1em;
     }
+
+    /* after continue come out page here */
+    .select-blockchain-connected-small-box{
+        width: 100%;
+        height: 75px;
+        padding: 0 1em;
+        margin-top: 0.3em;
+        margin-bottom: 0.3em;
+    }
+
+
+    /* enetr token address css here from  create team token lock */
+
+    .token-info-container{
+        width: 100%;
+        height: 100%;
+        padding: 1em;
+    }
+
+
+
+
+
+
+    /* nft lock page code here  */
+
+    .heading-of-token-address{
+        color: gray;
+        font-size: 0.9em;
+        font-weight: 400;
+    }
+    .token-info-container .top-input-box .token-address-input{
+        width: 300%;
+    }
+    .token-info-container .top-input-box .token-address-input ::placeholder{
+        color: gray;
+        font-weight: 500;
+    }
+    .token-info-container .form-continue-btn button{
+        cursor: pointer;
+    }
+    .token-info-container .token-info-box{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        padding: 1em 0em;
+        flex-wrap: wrap;
+    }
+    .token-info-container .token-details-box1{
+        display: flex;
+        width: 260px;
+        border-radius: 5px;
+        border: 1px solid rgba(0, 0, 255, 0.33);
+        align-items: center;
+        background-color: #e5eff9;
+        margin-bottom: 0.5em;
+    }
+    .token-info-container .token-details-box1 img{
+        width: 35px;
+        height: 35px;
+        margin: 0 0.6em;
+    }
+    .token-info-container .token-details-box1 .small-info-box,.token-info-container .token-details-box1 .small-info-box2{
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        align-items: center;
+        gap: 5em;
+    }
+    .token-info-container .small-info-box p{
+        margin-top: 0.5em;
+        margin-left: 0.1em;
+    }
+    .token-info-container .small-info-box2 span{
+        margin-top: -2em;
+        padding: 0.1em 0.5em;
+        font-size: 0.8em;
+        background-color: #d1dff8;
+        border-radius: 40px;
+        color: blue;
+    }
+    .token-info-container .small-info-box2 p{
+        margin-top: -1em;
+        font-size: 0.8em;
+        color: gray;
+    }
+    .token-details-box2{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+    .token-details-box2 .info-colum11:first-child{
+        display: flex;
+        width: 50%;
+        margin-top: 1em;
+        justify-content: space-between;
+        border-bottom: .1px solid rgba(0, 0, 0, 0.188);
+    }
+    .token-details-box2 .info-colum11{
+        display: flex;
+        width: 80%;
+        justify-content: space-between;
+        margin-top: 2em;
+        margin-bottom: -1em;
+    }
+    .token-details-box2 .info-colum11 img{
+        width: 15px;
+        height: 15px;
+        margin-right: 5px;
+    }
+    
+
+    
+
+    /* connected width small box */
+    .token-info-connected-small-box{
+        width: 100%;
+        height: 75px;
+        padding: 0 1em;
+    }
+    .add-feature-connected-small-box{
+        width: 100%;
+        height: 75px;
+        margin-top: 0.3em;
+        padding: 0 1em;
+    }
+    /* end */
+
 }
+
 /* tab view */
 
 @media only screen and (min-width: 600px) and (max-width:880px){

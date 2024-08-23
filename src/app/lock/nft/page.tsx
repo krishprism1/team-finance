@@ -132,7 +132,7 @@ export default function NFTLock() {
                                 <form>
                                     <div className='top-input-box'>
                                         <div>
-                                            <label className='heading-of-token-address'>NFT contract address</label>
+                                            <label className='heading-of-token-address '>NFT contract address</label>
                                             <input type="text" name='name' onChange={handleChange} placeholder='Enter address' className='token-address-input' required />
                                         </div>
                                     </div>

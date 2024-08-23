@@ -1,6 +1,6 @@
 
 /* multisender code here */
-/* token information address code here */
+/* token information address code here of create team token lock */
 
 .token-info-container .token-address-p{
     font-size: 15px;
@@ -53,7 +53,6 @@
 .token-info-container .small-info-box p{
     margin-top: 0.5em;
     margin-left: 0.1em;
-    /* margin-right: 2rem; */
 }
 .token-info-container .small-info-box2 span{
     margin-top: -2em;
@@ -62,7 +61,6 @@
     background-color: #d1dff8;
     border-radius: 40px;
     color: blue;
-    /* margin-right: 5.5rem; */
 }
 .token-info-container .small-info-box2 p{
     margin-top: -1em;
@@ -73,7 +71,6 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    /* align-items: center; */
 }
 .token-details-box2 .info-colum11:first-child{
     display: flex;
@@ -498,6 +495,8 @@
     margin-left: -.3em;
     margin-bottom: -0.7em;
 }
+
+
 /* address details box here */
 
 .address-details-box{
@@ -572,7 +571,6 @@
 }
 .address-form-container .ad-box3 div{
     display: flex;
-    /* align-items: center; */
     margin-top: 0.3em;
 }
 .address-form-container .ad-box3-3{
@@ -756,6 +754,9 @@
     padding: 0 1em;
     font-size: 1em;
 }
+
+
+
 /* nft lock code */
 .nft-token-id-box{
     margin-top: 1em;
@@ -800,5 +801,4 @@
 }
 .input input{
     width: 65%;
-    
 }
