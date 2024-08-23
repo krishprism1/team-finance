@@ -5,9 +5,9 @@ import "../../styles/mint.css";
 import "../../styles/Mint-responsive.css";
 import "../../styles/multisender.css";
 import { useAccount } from "wagmi";
-import ConnectWallet from "@/components/common/create/ConnectWallet";
-import SelectNetwork from "@/components/common/create/SelectNetwork";
-import CreateProgress from "@/components/common/create/CreateProgress";
+import ConnectWallet from "@/components/common/createform/ConnectWallet";
+import SelectNetwork from "@/components/common/createform/SelectNetwork";
+import CreateProgress from "@/components/common/createform/CreateProgress";
 import useFormStore from "@/store/stepStore";
 import {
     isStepValid,
@@ -23,6 +23,7 @@ import { intToBig } from "@/utils/math.utils";
 import { getWalletTransaction } from "@/utils/moralis.utils";
 import { tokenAbi } from "@/contracts/abis/token.abi";
 import { multiSenderAbi } from "@/contracts/abis/multisender.abi";
+import TokenList from "@/components/common/createform/TokenList";
 
 interface TokenInfo {
     token: string;
@@ -165,27 +166,27 @@ export default function MultiSender() {
     const multiTransfer = async () => {
         setLoad(true);
         if (!isConnected) {
-          toast.error("Please connect the wallet first!");
+            toast.error("Please connect the wallet first!");
         }
         const recipients = rows.map(row => row.walletAddress);
         const amounts = rows.map(row => intToBig(row.tokenNumber, 18));
         if (signer && selectedToken) {
-          try {
-            const tokenInstance = new ethers.Contract(selectedToken.token, tokenAbi, await signer);
-            const _tx = await tokenInstance.approve(networks.Binance.multiSender, intToBig(totalToken, 18))
-            await _tx.wait()
-            const multiSendInstance = new ethers.Contract(networks.Binance.multiSender, multiSenderAbi, await signer);
-            const tx = await multiSendInstance.multisend(selectedToken.token, recipients, amounts);
-            const receipt = await tx.wait();
-            notify(networks.Binance.url, receipt.transactionHash);
-            setStep(5);
-            setLoad(false);
-          } catch (error: any) {
-            toast.error(error.reason);
-            setLoad(false);
-          } 
+            try {
+                const tokenInstance = new ethers.Contract(selectedToken.token, tokenAbi, await signer);
+                const _tx = await tokenInstance.approve(networks.Binance.multiSender, intToBig(totalToken, 18))
+                await _tx.wait()
+                const multiSendInstance = new ethers.Contract(networks.Binance.multiSender, multiSenderAbi, await signer);
+                const tx = await multiSendInstance.multisend(selectedToken.token, recipients, amounts);
+                const receipt = await tx.wait();
+                notify(networks.Binance.url, receipt.transactionHash);
+                setStep(5);
+                setLoad(false);
+            } catch (error: any) {
+                toast.error(error.reason);
+                setLoad(false);
+            }
         }
-      };
+    };
 
     return (
         <ActionLayout>
@@ -232,103 +233,13 @@ export default function MultiSender() {
                         </div>
                     )}
                     {step == 2 && (
-                        <div className="token-info-container">
-                            <h3>Enter token address</h3>
-                            <p className="token-address-p">
-                                Enter the token address for the token you are sending, or select
-                                from the tokens listed below from your wallet.
-                            </p>
-                            <div className="token-form-column">
-                                <form>
-                                    <div className="top-input-box">
-                                        <div>
-                                            <label className="heading-of-token-address">
-                                                Token address
-                                            </label>
-                                            <input
-                                                type="text"
-                                                name="selectedToken"
-                                                value={selectedToken?.token}
-                                                onChange={handleChange}
-                                                placeholder="Enter address...."
-                                                className="token-address-input"
-                                                required
-                                            />
-                                        </div>
-                                    </div>
-                                    <label className="heading-of-token-address">
-                                        e.g. 0xCC4304A31d09258b0029eA7FE63d032f52e44EFe
-                                    </label>
-                                    <div className="token-info-box">
-                                        <div>
-                                            {tokenInfo &&
-                                                tokenInfo.map((item: TokenInfo, index: number) => (
-                                                    <div
-                                                        className="token-details-box1"
-                                                        key={index}
-                                                        onClick={() => selectToken(item)}
-                                                    >
-                                                        <img
-                                                            src="	https://app.team.finance/tokens/ethereum-token.webp"
-                                                            alt="l"
-                                                        />
-                                                        <div>
-                                                            <div className="small-info-box">
-                                                                <p>{item.symbol}</p>
-                                                                <svg
-                                                                    stroke="blue"
-                                                                    fill="blue"
-                                                                    stroke-width="0"
-                                                                    viewBox="0 0 24 24"
-                                                                    height="1.2em"
-                                                                    width="1.2em"
-                                                                    xmlns="http://www.w3.org/2000/svg"
-                                                                >
-                                                                    <path d="m10 15.586-3.293-3.293-1.414 1.414L10 18.414l9.707-9.707-1.414-1.414z"></path>
-                                                                </svg>
-                                                            </div>
-                                                            <div className="small-info-box2">
-                                                                <span>{item.name}</span>
-                                                                <p>{item.balance}</p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                ))}
-                                        </div>
-
-                                        {selectedToken && (
-                                            <div className="token-details-box2">
-                                                <div className="info-colum11">
-                                                    <div>
-                                                        <h4>Token</h4>
-                                                    </div>
-                                                    <div>
-                                                        <p>
-                                                            <img
-                                                                src="	https://app.team.finance/tokens/ethereum-token.webp"
-                                                                alt="l"
-                                                            />
-                                                            {selectedToken?.symbol}
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                                <div className="info-colum11">
-                                                    <div>
-                                                        <h4>Balance</h4>
-                                                    </div>
-                                                    <div>
-                                                        <p>{selectedToken?.balance}</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        )}
-                                    </div>
-                                    <div className="form-continue-btn" onClick={() => setStep(3)}>
-                                        <button type="submit">Continue</button>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
+                        <TokenList
+                            selectedToken={selectedToken}
+                            tokenInfo={tokenInfo}
+                            handleChange={handleChange}
+                            selectToken={selectToken}
+                            setStep={setStep}
+                        />
                     )}
                     {step > 2 && (
                         <div

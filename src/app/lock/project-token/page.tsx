@@ -1,13 +1,13 @@
 "use client"
 import ActionLayout from '@/containers/ActionLayout'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import "../../../styles/mint.css"
 import "../../../styles/Mint-responsive.css"
 import "../../../styles/multisender.css"
 import { useAccount } from 'wagmi'
-import ConnectWallet from '@/components/common/create/ConnectWallet'
-import SelectNetwork from '@/components/common/create/SelectNetwork'
-import CreateProgress from '@/components/common/create/CreateProgress'
+import ConnectWallet from '@/components/common/createform/ConnectWallet'
+import SelectNetwork from '@/components/common/createform/SelectNetwork'
+import CreateProgress from '@/components/common/createform/CreateProgress'
 import useFormStore from '@/store/stepStore'
 import { isStepValid, TokenDetail, validateStep, ValidationErrors } from '@/utils/validation.utils'
 import { useEthersSigner } from '@/hooks/useEtherSigner'
@@ -16,14 +16,24 @@ import { ethers } from 'ethers'
 import { networks } from '@/contracts'
 import { abi } from '@/contracts/abis/tokenFactory.abi'
 import { intToBig } from '@/utils/math.utils'
+import TokenList from '@/components/common/createform/TokenList'
+import { getWalletTransaction } from '@/utils/moralis.utils'
+
+
+interface TokenInfo {
+    token: string;
+    name: string;
+    symbol: string;
+    balance: number;
+}
 
 export default function TokenLock() {
     const { step, setStep } = useFormStore();
-    const { isConnected } = useAccount();
+    const { isConnected, address } = useAccount();
     const [load, setLoad] = useState(false)
     const signer = useEthersSigner();
-
-
+    const [selectedToken, setSelectedToken] = useState<TokenInfo>();
+    const [tokenInfo, setTokenInfo] = useState<TokenInfo[]>([]);
     const [tokenDetail, setTokenDetail] = useState<TokenDetail>({
         name: "",
         symbol: "",
@@ -60,50 +70,59 @@ export default function TokenLock() {
     const creatToken = async () => {
         setLoad(true);
         if (!isConnected) {
-          setLoad(false);
-          return toast.error("Please connect the wallet first!");
-        }
-    
-        if (signer) {
-          try {
-            const contract = new ethers.Contract(networks.Binance.tokenFactory, abi, await signer);
-            const tx = await contract.createToken(
-              tokenDetail.name,
-              tokenDetail.symbol,
-              intToBig(tokenDetail?.supply, 18),
-              tokenDetail.mintable,
-              tokenDetail.burnable
-            );
-            
-            const receipt = await tx.wait();
-            notify(networks.Binance.url ,receipt.transactionHash)
-            setStep(5)
             setLoad(false);
-          } catch (error: any) {
-            toast.error(error.reason);
-            setLoad(false);
-          } finally {
-    
-          }
+            return toast.error("Please connect the wallet first!");
         }
-      };
 
-      const notify = (link: string, txhash:string) => {
+        if (signer) {
+            try {
+                const contract = new ethers.Contract(networks.Binance.tokenFactory, abi, await signer);
+                const tx = await contract.createToken(
+                    tokenDetail.name,
+                    tokenDetail.symbol,
+                    intToBig(tokenDetail?.supply, 18),
+                    tokenDetail.mintable,
+                    tokenDetail.burnable
+                );
+
+                const receipt = await tx.wait();
+                notify(networks.Binance.url, receipt.transactionHash)
+                setStep(5)
+                setLoad(false);
+            } catch (error: any) {
+                toast.error(error.reason);
+                setLoad(false);
+            } finally {
+
+            }
+        }
+    };
+
+    const notify = (link: string, txhash: string) => {
         let url = `${link}/${txhash}`
         toast.success(
-          <div>
-            Transaction completed successfully!
-            <a
-              href={url}
-              style={{ color: 'blue', textDecoration: 'underline' }}
-              target="_blank"
-            >
-              View Transaction
-            </a>
-          </div>
+            <div>
+                Transaction completed successfully!
+                <a
+                    href={url}
+                    style={{ color: 'blue', textDecoration: 'underline' }}
+                    target="_blank"
+                >
+                    View Transaction
+                </a>
+            </div>
         );
-      };
+    };
 
+    useEffect(() => {
+        if (address) {
+            getWalletTransaction(address, "45").then((res) => setTokenInfo(res));
+        }
+    }, [address, step]);
+
+    const selectToken = async (item: any) => {
+        setSelectedToken(item);
+    };
     return (
         <ActionLayout>
             <div className="creat-token-container">
@@ -125,57 +144,13 @@ export default function TokenLock() {
                         )
                     }
                     {step == 2 && (
-                        <div className="token-info-container">
-                            <h3>Enter token address</h3>
-                            <p className='token-address-p'>Enter the token address for the token you are sending, or select from the tokens listed below from your wallet.</p>
-                            <div className="token-form-column">
-                                <form>
-                                    <div className='top-input-box'>
-                                        <div>
-                                            <label className='heading-of-token-address'>Token address</label>
-                                            <input type="text" name='name' onChange={handleChange} placeholder='Enter address....' className='token-address-input' required />
-                                        </div>
-                                    </div>
-                                    <label className='heading-of-token-address'>e.g. 0xCC4304A31d09258b0029eA7FE63d032f52e44EFe</label>
-                                    <div className='token-info-box'>
-                                        <div className="token-details-box1">
-                                            <img src="	https://app.team.finance/tokens/ethereum-token.webp" alt="l" />
-                                            <div>
-                                                <div className='small-info-box'>
-                                                    <p>ETH</p>
-                                                    <svg stroke="blue" fill="blue" stroke-width="0" viewBox="0 0 24 24" height="1.2em" width="1.2em" xmlns="http://www.w3.org/2000/svg"><path d="m10 15.586-3.293-3.293-1.414 1.414L10 18.414l9.707-9.707-1.414-1.414z"></path></svg>
-                                                </div>
-                                                <div className='small-info-box2'>
-                                                    <span>Native token</span>
-                                                    <p> 0.01</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div className="token-details-box2">
-                                            <div className='info-colum11'>
-                                                <div>
-                                                    <h4>Token</h4>
-                                                </div>
-                                                <div>
-                                                    <p><img src="	https://app.team.finance/tokens/ethereum-token.webp" alt="l" />ETH</p>
-                                                </div>
-                                            </div>
-                                            <div className='info-colum11'>
-                                                <div>
-                                                    <h4>Balance</h4>
-                                                </div>
-                                                <div>
-                                                    <p>0</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="form-continue-btn" onClick={() => setStep(3)}>
-                                        <button type="submit">Continue</button>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
+                        <TokenList
+                            selectedToken={selectedToken}
+                            tokenInfo={tokenInfo}
+                            handleChange={handleChange}
+                            selectToken={selectToken}
+                            setStep={setStep}
+                        />
                     )}
                     {step > 2 && (
                         <div className="token-info-connected-small-box" onClick={() => setStep(2)}>
@@ -208,48 +183,48 @@ export default function TokenLock() {
                             <h3>Add lock details</h3>
                             <p>Set the amount and time period you would like to lock your tokens for.</p>
 
-                           <div className="ad-lock-box1">
-                            <span>Lock amount</span>
-                            <div>
-                                <input type="number"  placeholder='Enter amount'/>
+                            <div className="ad-lock-box1">
+                                <span>Lock amount</span>
+                                <div>
+                                    <input type="number" placeholder='Enter amount' />
                                 </div>
-                           </div>
+                            </div>
 
-                           <div className="ad-lock-box2">
-                            <p>Your balance :</p>
-                            <span>10000 xrp</span>
-                            <h5>Max</h5>
-                           </div>
+                            <div className="ad-lock-box2">
+                                <p>Your balance :</p>
+                                <span>10000 xrp</span>
+                                <h5>Max</h5>
+                            </div>
 
-                           <div className="ad-lock-box1">
-                            <span>Unlock date & time <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" data-tooltip-id="tooltip-help-lock-period" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M12 6a3.939 3.939 0 0 0-3.934 3.934h2C10.066 8.867 10.934 8 12 8s1.934.867 1.934 1.934c0 .598-.481 1.032-1.216 1.626a9.208 9.208 0 0 0-.691.599c-.998.997-1.027 2.056-1.027 2.174V15h2l-.001-.633c.001-.016.033-.386.441-.793.15-.15.339-.3.535-.458.779-.631 1.958-1.584 1.958-3.182A3.937 3.937 0 0 0 12 6zm-1 10h2v2h-2z"></path><path d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8z"></path></svg></span>
-                            <div>
-                                <input type="datetime-local" placeholder='select date'/>
+                            <div className="ad-lock-box1">
+                                <span>Unlock date & time <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" data-tooltip-id="tooltip-help-lock-period" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M12 6a3.939 3.939 0 0 0-3.934 3.934h2C10.066 8.867 10.934 8 12 8s1.934.867 1.934 1.934c0 .598-.481 1.032-1.216 1.626a9.208 9.208 0 0 0-.691.599c-.998.997-1.027 2.056-1.027 2.174V15h2l-.001-.633c.001-.016.033-.386.441-.793.15-.15.339-.3.535-.458.779-.631 1.958-1.584 1.958-3.182A3.937 3.937 0 0 0 12 6zm-1 10h2v2h-2z"></path><path d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8z"></path></svg></span>
+                                <div>
+                                    <input type="datetime-local" placeholder='select date' />
                                 </div>
-                           </div>
+                            </div>
 
-                           <div className="ad-lock-box3">
-                            <p>Service Fee</p>
-                            <span>$10.00</span>
-                           </div>
-                            
-                        <div className='ad-lock-box44'>
-                           <div className="ad-lock-box4">
-                            <div>
-                                <p>Do you have a valid Referral Address</p>
-                                <span>Receive a 10% discount!</span>
+                            <div className="ad-lock-box3">
+                                <p>Service Fee</p>
+                                <span>$10.00</span>
                             </div>
-                            <div>
-                                <input type="checkbox" name="percent" placeholder='"' />
+
+                            <div className='ad-lock-box44'>
+                                <div className="ad-lock-box4">
+                                    <div>
+                                        <p>Do you have a valid Referral Address</p>
+                                        <span>Receive a 10% discount!</span>
+                                    </div>
+                                    <div>
+                                        <input type="checkbox" name="percent" placeholder='"' />
+                                    </div>
+                                </div>
+                                <div className='check-to-come-up'>
+                                    <input type="text" placeholder='Enter referres wallet address here' />
+                                </div>
                             </div>
-                           </div>
-                           <div className='check-to-come-up'>
-                            <input type="text" placeholder='Enter referres wallet address here'/>
-                           </div>
-                         </div>
-                           <div className="ad-lock-box5">
-                            <button className='all-time-use-btn'>Continue</button>
-                           </div>
+                            <div className="ad-lock-box5">
+                                <button className='all-time-use-btn'>Continue</button>
+                            </div>
                         </div>
                     )}
                     {step > 3 && (
@@ -309,7 +284,7 @@ export default function TokenLock() {
                                 <div className='tk-informantion'>
                                     <p>Feature</p>
                                     <div>
-                                        <span>{tokenDetail?.mintable ? "mintable": ""} & {tokenDetail?.burnable ? "burnable" : ""}</span>
+                                        <span>{tokenDetail?.mintable ? "mintable" : ""} & {tokenDetail?.burnable ? "burnable" : ""}</span>
                                     </div>
                                 </div>
                             </div>

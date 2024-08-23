@@ -4,9 +4,9 @@ import React, { useState } from 'react'
 import "../../styles/mint.css"
 import "../../styles/Mint-responsive.css"
 import { useAccount } from 'wagmi'
-import ConnectWallet from '@/components/common/create/ConnectWallet'
-import SelectNetwork from '@/components/common/create/SelectNetwork'
-import CreateProgress from '@/components/common/create/CreateProgress'
+import ConnectWallet from '@/components/common/createform/ConnectWallet'
+import SelectNetwork from '@/components/common/createform/SelectNetwork'
+import CreateProgress from '@/components/common/createform/CreateProgress'
 import useFormStore from '@/store/stepStore'
 import { isStepValid, TokenDetail, validateStep, ValidationErrors } from '@/utils/validation.utils'
 import { useEthersSigner } from '@/hooks/useEtherSigner'
