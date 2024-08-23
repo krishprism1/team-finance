@@ -778,7 +778,7 @@
 .select-blockchain-connected-small-box .ds-icon{
     transform: rotate(90deg);
     color: rgba(0, 0, 0, 0.689);
-    font-size: 2vw;
+    font-size: 1.8em;
     margin-left: 2vw;
 }
 .select-blockchain-connected-small-box div{
@@ -940,7 +940,7 @@
 .token-info-connected-small-box .ds-icon{
     transform: rotate(90deg);
     color: rgba(0, 0, 0, 0.689);
-    font-size: 2vw;
+    font-size: 1.8em;
     margin-left: 2vw;
 }
 .token-info-connected-small-box div{
@@ -1062,7 +1062,7 @@
     border-radius: 5px;
 }
 
-/* add fr=eatures  connected box */
+/* add features  connected box */
 .add-feature-connected-small-box{
     width: 70%;
     height: 75px;
