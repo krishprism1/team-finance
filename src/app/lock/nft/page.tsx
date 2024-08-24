@@ -14,27 +14,36 @@ import { useEthersSigner } from '@/hooks/useEtherSigner'
 import { toast } from 'react-toastify'
 import { ethers } from 'ethers'
 import { networks } from '@/contracts'
-import { abi } from '@/contracts/abis/tokenFactory.abi'
-import { intToBig } from '@/utils/math.utils'
-import { fetchNFTDetails } from '@/utils/web3.utils'
 import { nftAbi } from '@/contracts/abis/nft.abi'
+import { lockAbi } from '@/contracts/abis/lock.abi'
 
 
 type NftInfo = {
     name: string;
     symbol: string;
 };
+
+type InputValue = {
+    contractAddress: string;
+    tokenId: number;
+}
 export default function NFTLock() {
     const { step, setStep } = useFormStore();
     const { isConnected, address } = useAccount();
     const [load, setLoad] = useState(false)
     const signer = useEthersSigner();
     const [nftInfo, setNftInfo] = useState<NftInfo | undefined>(undefined);
+    const [lockTime, setLockTime] = useState<number | undefined>(undefined);
 
 
-    const [inputValues, setInputValues] = useState({
+    // const [inputValues, setInputValues] = useState({
+    //     contractAddress: '',
+    //     tokenId: '',
+    // });
+
+    const [inputValues, setInputValues] = useState<InputValue>({
         contractAddress: '',
-        tokenId: '',
+        tokenId: 0,
     });
 
     // Handle input change
@@ -45,8 +54,6 @@ export default function NFTLock() {
             [name]: value,
         }));
     };
-
-
 
     const [errors, setErrors] = useState<ValidationErrors>({});
 
@@ -79,12 +86,39 @@ export default function NFTLock() {
     }
 
     useEffect(() => {
-        if(inputValues.contractAddress && inputValues.tokenId && signer){
+        if (inputValues.contractAddress && inputValues.tokenId && signer) {
             getNftDetails()
         }
     }, [inputValues])
-    console.log(inputValues, "+++++++", nftInfo)
 
+    const lock = async () => {
+        setLoad(true);
+        if (!isConnected) {
+            toast.error("Please connect the wallet first!");
+        }
+        let _mintNFT = false
+        let referr = "0x0000000000000000000000000000000000000000"
+
+        if (signer && inputValues.contractAddress) {
+            try {
+                const tokenInstance = new ethers.Contract(inputValues?.contractAddress, nftAbi, await signer);
+                const _tx = await tokenInstance.approve(networks.Binance.lockToken, inputValues?.tokenId)
+                await _tx.wait()
+                const lockInstance = new ethers.Contract(networks.Binance.lockToken, lockAbi, await signer);
+                const fee = await lockInstance.getFeesInETH(inputValues?.contractAddress)
+                const tx = await lockInstance.lockToken(inputValues?.contractAddress, address, inputValues?.tokenId, lockTime, _mintNFT, referr, {
+                    value: fee
+                });
+                const receipt = await tx.wait();
+                notify(networks.Binance.url, receipt.transactionHash)
+                setStep(5)
+                setLoad(false);
+            } catch (error: any) {
+                toast.error(error.reason);
+                setLoad(false);
+            }
+        }
+    };
     return (
         <ActionLayout>
             <div className="creat-token-container">
@@ -141,15 +175,15 @@ export default function NFTLock() {
                                     </div>
                                     {nftInfo && (
                                         <div className="nft-token-id-box2">
-                                        <div>
-                                            <p>Name</p>
-                                            <span><img src="https://app.team.finance/tokens/bsc-token.webp" width="30" height="30" alt="l" />{nftInfo.name}</span>
+                                            <div>
+                                                <p>Name</p>
+                                                <span><img src="https://app.team.finance/tokens/bsc-token.webp" width="30" height="30" alt="l" />{nftInfo.name}</span>
+                                            </div>
+                                            <div>
+                                                <p>Symbol</p>
+                                                <span>{nftInfo.symbol}</span>
+                                            </div>
                                         </div>
-                                        <div>
-                                            <p>Symbol</p>
-                                            <span>{nftInfo.symbol}</span>
-                                        </div>
-                                    </div>
                                     )}
                                     <div className="form-continue-btn" onClick={() => setStep(3)}>
                                         <button type="submit">Continue</button>
@@ -192,11 +226,16 @@ export default function NFTLock() {
                             <div className="ad-lock-box1 ad-lock-box1-1">
                                 <span>Unlock date & time <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" data-tooltip-id="tooltip-help-lock-period" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M12 6a3.939 3.939 0 0 0-3.934 3.934h2C10.066 8.867 10.934 8 12 8s1.934.867 1.934 1.934c0 .598-.481 1.032-1.216 1.626a9.208 9.208 0 0 0-.691.599c-.998.997-1.027 2.056-1.027 2.174V15h2l-.001-.633c.001-.016.033-.386.441-.793.15-.15.339-.3.535-.458.779-.631 1.958-1.584 1.958-3.182A3.937 3.937 0 0 0 12 6zm-1 10h2v2h-2z"></path><path d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8z"></path></svg></span>
                                 <div>
-                                    <input type="datetime-local" placeholder='select date' />
+                                    <input
+                                        type="datetime-local"
+                                        placeholder='select date'
+                                        value={lockTime ? new Date(lockTime).toISOString().slice(0, -1) : ""}
+                                        onChange={(e) => setLockTime(new Date(e.target.value).getTime())}
+                                    />
                                 </div>
                             </div>
 
-                            <div className="ad-lock-box3 ad-lock-box3-3 ">
+                            {/* <div className="ad-lock-box3 ad-lock-box3-3 ">
                                 <p>Service Fee</p>
                                 <span>$10.00</span>
                             </div>
@@ -214,8 +253,8 @@ export default function NFTLock() {
                                 <div className='check-to-come-up input'>
                                     <input type="text" placeholder='Enter referres wallet address here' />
                                 </div>
-                            </div>
-                            <div className="ad-lock-box5">
+                            </div> */}
+                            <div className="ad-lock-box5" onClick={() => setStep(4)}>
                                 <button className='all-time-use-btn'>Continue</button>
                             </div>
                         </div>
@@ -247,42 +286,9 @@ export default function NFTLock() {
                     {step == 4 && (
                         <div className="create-contract-container">
                             <h3>Create contract</h3>
-                            <p>Please ensure the following details are correct:</p>
-
-                            <div className="token-information-box">
-                                <div className='tk-informantion'>
-                                    <p>Token</p>
-                                    <div>
-                                        <img src="https://app.team.finance/tokens/ethereum-token.webp" alt="l" /><span>{tokenDetail?.symbol}</span>
-                                    </div>
-                                </div>
-                                <div className='tk-informantion'>
-                                    <p>Blockchain</p>
-                                    <div>
-                                        <img src="https://app.team.finance/icons/wizard/ethereum.svg" alt="l" /><span>Ethereum</span>
-                                    </div>
-                                </div>
-                                <div className='tk-informantion'>
-                                    <p>Total supply</p>
-                                    <div>
-                                        <span>{tokenDetail?.supply}</span>
-                                    </div>
-                                </div >
-                                <div className='tk-informantion'>
-                                    <p>Service fee</p>
-                                    <div>
-                                        <span>-</span>
-                                    </div>
-                                </div>
-                                <div className='tk-informantion'>
-                                    <p>Feature</p>
-                                    <div>
-                                        <span>{tokenDetail?.mintable ? "mintable" : ""} & {tokenDetail?.burnable ? "burnable" : ""}</span>
-                                    </div>
-                                </div>
-                            </div>
+                            <p>We need your authorisation before using the NFT. This only needs to be done once.</p>
                             <div className="confirm-transtion-btn">
-                                <button onClick={() => creatToken()}>{load ? "PROCESSING..." : "Confirm transaction"}</button>
+                                <button onClick={() => lock()}>{load ? "PROCESSING..." : "Confirm transaction"}</button>
                             </div>
                         </div>
                     )}

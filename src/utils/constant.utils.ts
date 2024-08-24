@@ -37,3 +37,11 @@ export const nftLockProps = {
     btnName: "Create NFT Lock",
     route: "/lock/nft"
 }
+
+export const tokenStaking = {
+    title: "Token staking",
+    subtitle:"Create your first Staking Pool",
+    desc: "Create a Staking Pool today.",
+    btnName: "Create Pool",
+    route: "/staking"
+}

@@ -1,9 +1,9 @@
 "use client"
 import ActionLayout from '@/containers/ActionLayout'
 import React, { useEffect, useState } from 'react'
-import "../../../styles/mint.css"
-import "../../../styles/Mint-responsive.css"
-import "../../../styles/multisender.css"
+import "../../styles/mint.css"
+import "../../styles/Mint-responsive.css"
+import "../../styles/multisender.css"
 import { useAccount } from 'wagmi'
 import ConnectWallet from '@/components/common/createform/ConnectWallet'
 import SelectNetwork from '@/components/common/createform/SelectNetwork'
@@ -34,7 +34,7 @@ interface InputForm {
     timestamp: number;
 }
 
-export default function TokenLock() {
+export default function Staking() {
     const { step, setStep } = useFormStore();
     const { isConnected, address } = useAccount();
     const [load, setLoad] = useState(false)
@@ -125,7 +125,7 @@ export default function TokenLock() {
     return (
         <ActionLayout>
             <div className="creat-token-container">
-                <CreateProgress title="Create team token lock" />
+                <CreateProgress title="Create staking pool" />
                 <ConnectWallet />
                 <div className="select-blockchain-box">
                     <SelectNetwork />
