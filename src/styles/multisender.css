@@ -217,6 +217,7 @@
     margin-left: 1em;
     outline: none;
     border: none;
+    margin-bottom: 1em;
     border-radius: 5px;
     height: 40px;
 }
@@ -227,6 +228,7 @@
     padding: 0 1em;
     height: 40px;
     outline: none;
+    margin-bottom: 1em;
     border: none;
 }
 .small-rtc-box3 .div2 button:nth-child(1){
@@ -237,6 +239,7 @@
     border: none;
     cursor: pointer;
     background-color: blue;
+    margin-bottom: 1em;
     color: white;
 }
 .small-rtc-box3 .div2 button:nth-child(2){
@@ -245,6 +248,7 @@
     border-radius: 5px;
     cursor: pointer;
     background-color: transparent;
+    margin-bottom: 1em;
     border: 1px solid rgba(0, 0, 0, 0.229);
 }
 
@@ -323,7 +327,7 @@
     justify-content: space-between;
     margin-top: 2em;
     align-items: center;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
 }
 .small-rtc-box5 .box1{
     display: flex;

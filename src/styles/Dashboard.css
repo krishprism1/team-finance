@@ -171,13 +171,19 @@
     margin-top: 0.5em;
     background: linear-gradient(to right, #020a7b, #8b51cd);
 }
-
-.CircularProgressbar {
+.level-bar-column{
+    position: relative;
+    width: 150px;
+}
+.level-bar-column .CircularProgressbar {
     width: 140px;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-left: 1em;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
 }
 
 .circle-path {
@@ -197,8 +203,9 @@
 
 .percent-text {
     position: absolute;
-    top: 34%;
-    left: 26.3%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
     font-size: 2em;
     font-weight: 600;
     color: #fff;
@@ -782,6 +789,12 @@
 
     /*  */
 
+    .level-bar-column{
+        position: relative;
+        width: 20px;
+        margin-top: 12em;
+        margin-bottom: 3em;
+    }
     .securty-level-bar-container {
         width: 100%;
         height: 100%;
@@ -790,16 +803,19 @@
     }
 
     .CircularProgressbar {
-        width: 100px;
+        width: 20px;
         display: flex;
-        margin-top: 6em;
-        margin-left: -10em;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
     }
 
     .percent-text {
         position: absolute;
-        top: 25%;
-        left: 15%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
         font-size: 1.5em;
         font-weight: 600;
         color: #fff;
@@ -810,25 +826,31 @@
         width: 100%;
         flex-direction: column;
         margin-left: 2em;
-        margin-top: 1em;
+        margin-top: 5em;
     }
 
     .level-heading-column .first-box1 {
+        width: 100%;
         display: flex;
         flex-direction: column;
         color: #fff;
+        align-items: center;
         top: 5%;
-        left: 3%;
+        left: 2%;
+        right: 2%;
         position: absolute;
     }
 
     .level-heading-column .first-box1 div h3 {
         font-weight: 600;
-        font-size: 1.6em;
+        margin-left: 1em;
+        font-size: 1.5em;
     }
 
     .level-heading-column .first-box1 div span {
         background-color: #4136e4;
+        width: 65%;
+        margin-right: 1em;
     }
 
     .level-heading-column .first-box1 p {
@@ -837,8 +859,8 @@
 
     .circle-heading-top {
         position: absolute;
-        bottom: -180%;
-        right: -1em;
+        bottom: -250%;
+        left: 3%;
     }
 
     .second-box2 {
@@ -1041,6 +1063,35 @@
         margin-top: 1em;
         margin-bottom: 0.4em;
     }
+    /* top securty level box */
+    .level-bar-column{
+        position: relative;
+        width: 100px;
+        margin-left: 3em;
+        margin-right: 1em;
+    }
+    .token-vesting-column2 a {
+        font-size: 1em;
+        font-weight: 500;
+        text-decoration: none;
+        color: blue;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-left: -2em;
+        margin-bottom: 1em;
+    }
+    .history-small-box2 img{
+        margin-top: 0em;
+     }
+     .token-vesting-column2{
+        margin-left: -6em;
+     }
+     .token-vesting-column2 .token-section2 {
+        display: flex;
+        width: 100%;
+        gap: 1em;
+    }
 
 }
 
@@ -1123,5 +1174,6 @@
         line-height: 18px;
         word-spacing: 2px;
     }
+    
 
 }

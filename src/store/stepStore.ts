@@ -6,7 +6,7 @@ interface FormState {
 }
 
 const useFormStore = create<FormState>((set) => ({
-  step: 0,
+  step: 3,
   formData: {},
   setStep: (step) => set({ step: step })
 }));
