@@ -701,7 +701,7 @@
         }
         /* end */
         .connected-wallet-hide-box{
-            width: 98%;
+            width: 70%;
             margin-left: 0.1em;
         }
         .connected-wallet-hide-box .ds-icon2{
@@ -818,4 +818,166 @@
             background-color: blue;
             margin-left: 1em;
         }
+  
+        .select-wallet{
+            width: 80%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background-color: #fff;
+            border-radius: 2px;
+            padding-top: 1vw;
+            padding-left: 2vw;
+            padding-bottom: 2vw;
+            /* display: none; */
+        }
+        
+        /* radio button code */
+
+        .token-creation-bar .column .btn-radio1{
+            width: 120%;
+            height: 4px ;
+            outline: none;
+            margin-top: 0.4em;
+            border: none;
+            background-color: rgb(0, 0, 255);
+            border-top-left-radius: 10px;
+            border-bottom-left-radius: 10px;
+        }
+        .token-creation-bar .column .btn-radio2{
+            width: 120%;
+            height: 4px ;
+            margin-top: 0.4em;
+            outline: none;
+            border: none;
+            background-color: #b0b7c1;
+        }
+        
+        .token-creation-bar .column .btn-radio2-active{
+            width: 120%;
+            height: 4px ;
+            outline: none;
+            border: none;
+            margin-top: 0.4em;
+            background-color: rgb(0, 0, 255);
+        }
+        .token-creation-bar .column .btn-radio3{
+            width: 120%;
+            height: 4px ;
+            outline: none;
+            margin-top: 0.4em;
+            border: none;
+            background-color: #b0b7c1;
+        }
+        
+        .token-creation-bar .column .btn-radio3-active{
+            width: 120%;
+            height: 4px ;
+            margin-top: 0.4em;
+            outline: none;
+            border: none;
+            background-color: rgb(0, 0, 255);
+        }
+        
+        .token-creation-bar .column .btn-radio4{
+            width: 120%;
+            height: 4px ;
+            margin-top: 0.4em;
+            outline: none;
+            border: none;
+            background-color: #b0b7c1;
+        }
+        
+        .token-creation-bar .column .btn-radio4-active{
+            width: 120%;
+            height: 4px ;
+            outline: none;
+            margin-top: 0.4em;
+            border: none;
+            background-color: rgb(0, 0, 255);
+        }
+        
+        .token-creation-bar .column .btn-radio5{
+            width: 120%;
+            margin-top: 0.4em;
+            height: 4px ;
+            outline: none;
+            border: none;
+            background-color: #b0b7c1;
+            border-top-right-radius: 10px;
+            border-bottom-right-radius: 10px;
+        }
+        
+        .token-creation-bar .column .btn-radio5-active{
+            width: 120%;
+            height: 4px ;
+            outline: none;
+            margin-top: 0.4em;
+            border: none;
+            background-color: rgb(0, 0, 255);
+            border-top-right-radius: 10px;
+            border-bottom-right-radius: 10px;
+        }
+        
+            .token-creation-bar .column .content .span1,
+            .token-creation-bar .column .content .span2,
+            .token-creation-bar .column .content .span3,
+            .token-creation-bar .column .content .span4,
+            .token-creation-bar .column .content .span5{
+                display: none;
+                width: 100%;
+                height: 100%;
+            }
+            .token-creation-bar .column1 .content .span5,
+            .token-creation-bar .column2 .content .span5,
+            .token-creation-bar .column3 .content .span5,
+            .token-creation-bar .column4 .content .span5,
+            .token-creation-bar .column5 .content .span5{
+                display: none;
+                width: 100%;
+                height: 100%;
+            }
+            .token-creation-bar .column1 .green-radio1{
+                background-color: #22c55e;
+                width: 100%;
+                height: 4px ;
+                margin-bottom: 0.1em;
+            }
+            .token-creation-bar .column2 .green-radio2{
+                width: 100%;
+                height: 4px ;
+                margin-bottom: 0.1em;
+                outline: none;
+                border: none;
+                background-color: #22c55e;
+            }
+            .token-creation-bar .column3 .green-radio3{
+                width: 100%;
+                height: 4px ;
+                margin-bottom: 0.1em;
+                outline: none;
+                border: none;
+                background-color: #22c55e;
+            }
+            .token-creation-bar .column4 .green-radio4{
+                background-color: #22c55e;
+                width: 100%;
+                margin-bottom: 0.1em;
+                height: 4px ;
+                outline: none;
+                border: none;
+            }
+            .token-creation-bar .column5 .green-radio5{
+                background-color: #22c55e;
+                width: 100%;
+                margin-bottom: 0.1em;
+                z-index: 99;
+                height: 4px ;
+                outline: none;
+                border: none;
+                border-top-right-radius: 10px;
+                border-bottom-right-radius: 10px;
+            }
+
 }
