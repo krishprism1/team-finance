@@ -1082,7 +1082,7 @@
 .add-feature-connected-small-box .ds-icon{
     transform: rotate(90deg);
     color: rgba(0, 0, 0, 0.689);
-    font-size: 2vw;
+    font-size: 1.8em;
     margin-left: 2vw;
 }
 .add-feature-connected-small-box div{
