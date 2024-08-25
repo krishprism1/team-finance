@@ -502,6 +502,84 @@
     margin-left: -.3em;
     margin-bottom: -0.7em;
 }
+.vesting-token-details{
+    padding: 0;
+    width: 100%;
+}
+.recipient-box2-2{
+    padding: 0em;
+    margin-top: 1em;
+}
+.fully-details-box{
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    border-radius: 7px;
+    align-items: center;
+    padding: 1em 1em;
+    display: flex;
+    justify-content: space-between;
+}
+.fully-details-box div:first-child span{
+    font-size: 1em;
+    font-weight: 600;
+}
+.fully-details-box div:first-child p{
+    font-size: 0.8em;
+    font-weight: 500;
+    margin-top: 10px;
+}
+.fully-details-box button{
+    width: 38px;
+    height: 38px;
+    background-color: transparent;
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.fully-details-box div:first-child{
+    gap: 2em;
+    display: flex;
+    align-items: center;
+}
+.fully-details-box div{
+    display: flex;
+    align-items: center;
+}
+.last-svg-up-arrrow{
+    cursor: pointer;
+    margin-left: 0.6em;
+    color: #66696d;
+}
+.details-token-vesting-plan{
+    margin-top: -0.2em;
+    width: 100%;
+    border-top: 1px solid rgba(0, 0, 0, 0.16);
+    background-color: #fff;
+    padding: 1em;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    display: flex;
+    flex-direction: column;
+}
+.details-token-vesting-plan div{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+.details-token-vesting-plan div p{
+    font-size: 0.9em;
+    padding-bottom: 5px;
+    color: gray;
+}
+.details-token-vesting-plan div span{
+    font-size: 0.9em;
+    font-weight: 400;
+}
 
 
 /* address details box here */
@@ -535,6 +613,9 @@
 .address-form-container .ad-box1 h3{
     font-weight: 500;
     font-size: 1.5em;
+}
+.address-form-container .ad-box1{
+    cursor: pointer;
 }
 /* box2 */
 .address-form-container .ad-box2{
