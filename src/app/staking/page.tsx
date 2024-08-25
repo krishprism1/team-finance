@@ -43,20 +43,20 @@ export default function Staking() {
     const [selectedToken, setSelectedToken] = useState<TokenInfo>();
     const [tokenInfo, setTokenInfo] = useState<TokenInfo[]>([]);
 
-    const [formInput, setFormInput] = useState<InputForm[]>([{ amount: 0, timestamp: 0 }]);
+    const [formInput, setFormInput] = useState<InputForm>({ amount: 0, timestamp: 0 });
 
 
     const [errors, setErrors] = useState<ValidationErrors>({});
 
     const handleNext = (e: React.MouseEvent<HTMLButtonElement>) => {
         e.preventDefault();
-        if (step === 2) {
-            const newErrors = validateStep(step, tokenDetail);
-            setErrors(newErrors);
-            if (isStepValid(newErrors)) {
-                setStep(step + 1);
-            }
-        }
+        // if (step === 2) {
+        //     const newErrors = validateStep(step, tokenDetail);
+        //     setErrors(newErrors);
+        //     if (isStepValid(newErrors)) {
+        //         setStep(step + 1);
+        //     }
+        // }
     };
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {

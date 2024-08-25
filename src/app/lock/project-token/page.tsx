@@ -42,7 +42,7 @@ export default function TokenLock() {
     const [selectedToken, setSelectedToken] = useState<TokenInfo>();
     const [tokenInfo, setTokenInfo] = useState<TokenInfo[]>([]);
 
-    const [formInput, setFormInput] = useState<InputForm[]>([{ amount: 0, timestamp: 0 }]);
+    const [formInput, setFormInput] = useState<InputForm>({ amount: 0, timestamp: 0 });
 
 
     const [errors, setErrors] = useState<ValidationErrors>({});

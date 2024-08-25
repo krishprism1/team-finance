@@ -94,8 +94,7 @@ export default function Vesting() {
         setIsModalOpen(true);
     };
 
-    const closeModal = (e: any) => {
-        e.preventDefault()
+    const closeModal = () => {
         setIsModalOpen(false);
     };
 
