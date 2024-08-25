@@ -386,3 +386,73 @@
     }
 
 }
+
+@media only screen and (min-width: 1100px){
+
+
+.creat-token-box{
+    margin-top: 1.3vw;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    border-radius: 7px;
+    display: flex;
+    align-items: center;
+}
+.creat-token-box .logo-box1{
+    padding: 1vw;
+    width: 10%;
+}
+.creat-token-box .logo-heading{
+    width: 100%;
+    padding: 0 1.5vw;
+}
+.creat-token-box .logo-heading h3{
+    font-size: 1.6vw;
+    font-weight: 600;
+}
+.creat-token-box .logo-heading p{
+    font-size: 1.2vw;
+    padding-top: 0.2vw;
+    padding-bottom: 1em;
+}
+.creat-token-box .creat-token-links{
+    width: 47%;
+    padding:  0 1.5vw;
+}
+.creat-token-box .creat-token-links div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 44px;
+    border-radius: 6px;
+    border: 0.1px solid rgba(0, 0, 0, 0.153);
+}
+.creat-token-box .creat-token-links div:hover{
+    background-color: rgb(219 234 254 );
+}
+.creat-token-box .creat-token-links div a{
+    text-decoration: none;
+    font-size: 1.3vw;
+    font-weight: 600;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3px;
+    color: blue;
+}
+.creat-token-box .creat-token-links p{
+    text-align: center;
+    font-size: 1.1;
+    color: rgba(0, 0, 0, 0.607);
+    padding-top: 0vw;
+    padding-bottom: 0em;
+    width: 100%;
+}
+.token-icon{
+    width: 19px;
+    height: 19px;
+    color: rgb(149, 149, 255);
+}
+}
