@@ -414,7 +414,7 @@ export default function MultiSender() {
                                                         <p>Amount of tokens</p>
                                                     </div>
                                                     {rows.map((row, index) => (
-                                                        <div className="div2">
+                                                        <div className="div2" key={index}>
                                                             <span>{index + 1}.</span>
                                                             <div>
                                                                 <input
@@ -746,7 +746,7 @@ export default function MultiSender() {
                         <div className="create-contract-container">
                             <h3>Send token</h3>
                             <p>
-                                Please give your permissions to use this token. It's a one-time
+                                Please give your permissions to use this token. It is a one-time
                                 action per sender wallet. If you modify the spend cap in your
                                 wallet, reauthorization is required.
                             </p>
