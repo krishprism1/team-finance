@@ -3,6 +3,7 @@ import ActionLayout from '@/containers/ActionLayout'
 import React, { useEffect, useState } from 'react'
 import "../../styles/mint.css"
 import "../../styles/Mint-responsive.css"
+import "../../styles/Staking.css"
 import "../../styles/multisender.css"
 import { useAccount } from 'wagmi'
 import ConnectWallet from '@/components/common/createform/ConnectWallet'
@@ -177,31 +178,26 @@ export default function Staking() {
                     )}
                     {step == 3 && (
                        <div className="add-feature-container">
-                       <h3>Add lock details</h3>
-                       <p>Set the amount and time period you would like to lock your tokens for.</p>
+                       <h3>Add pool details</h3>
+                       <p>Specify the duration, reward token, and reward amount for your staking pool. Once you create your pool you cannot modify or close it.</p>
            
-                       <div className="ad-lock-box1">
-                           <span>Lock amount</span>
+                       <div className="ad-lock-box1 staking-input-box">
+                           <span>Start date</span>
                            <div>
                                <input
-                                   type="number"
+                                   type="datetime-local"
                                    name="amount"
-                                   placeholder="Enter amount"
-                                   value={formInput.amount}
+                                   className='input'
+                                   placeholder=""
+                                //    value={formInput.amount}
                                    onChange={handleChange}
                                />
                            </div>
                        </div>
            
-                       <div className="ad-lock-box2">
-                           <p>Your balance :</p>
-                           <span>10000 xrp</span>
-                           <h5>Max</h5>
-                       </div>
-           
-                       <div className="ad-lock-box1">
+                       <div className="ad-lock-box1 staking-input-box">
                            <span>
-                               Unlock date & time{" "}
+                           End date{" "}
                                <svg
                                    stroke="currentColor"
                                    fill="currentColor"
@@ -220,32 +216,52 @@ export default function Staking() {
                                <input
                                    type="datetime-local"
                                    name="timestamp"
+                                   className='input'
                                    placeholder="select date"
                                    value={formInput.timestamp ? new Date(formInput.timestamp).toISOString().slice(0, -1) : ""}
                                    onChange={handleChange}
                                />
                            </div>
                        </div>
-           
-                       <div className="ad-lock-box3">
-                           <p>Service Fee</p>
-                           <span>$0.00</span>
-                       </div>
-           
-                       <div className="ad-lock-box44">
-                           <div className="ad-lock-box4">
-                               <div>
-                                   <p>Do you have a valid Referral Address</p>
-                                   <span>Receive a 10% discount!</span>
-                               </div>
-                               <div>
-                                   <input type="checkbox" name="percent" />
-                               </div>
+                        <div className="toggle-middle-container">
+
+                        <div className="toggle-button-box">
+                            <input type="checkbox" id='check'/>
+                            <label htmlFor="check" className='button'></label>
+                        </div>
+
+                        <span>Use a custom reward token <svg stroke="gray" fill="gray" stroke-width="0" viewBox="0 0 24 24" height="1.1em" width="1.1em" xmlns="http://www.w3.org/2000/svg"><path fill="none" d="M0 0h24v24H0z"></path><path d="M11 18h2v-2h-2v2zm1-16C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm0-14c-2.21 0-4 1.79-4 4h2c0-1.1.9-2 2-2s2 .9 2 2c0 2-3 1.75-3 5h2c0-2.25 3-2.5 3-5 0-2.21-1.79-4-4-4z"></path></svg></span>
+                        </div>
+
+                       <div className="ad-lock-box1 staking-input-box">
+                           <span>Reward token address</span>
+                           <div>
+                               <input
+                                   type="text"
+                                   name="amount"
+                                   className='input'
+                                   placeholder="0x..."
+                                //    value={formInput.amount}
+                                   onChange={handleChange}
+                                   required
+                               />
                            </div>
-                           <div className="check-to-come-up">
-                               <input type="text" placeholder="Enter referres wallet address here" />
+                       </div>
+                       <div className="ad-lock-box1 staking-input-box">
+                           <span>Amount of reward tokens</span>
+                           <div>
+                               <input
+                                   type="number"
+                                   name="amount"
+                                   className='input'
+                                   placeholder="0"
+                                //    value={formInput.amount}
+                                   onChange={handleChange}
+                                   required
+                               />
                            </div>
                        </div>
+                       
                        <div className="ad-lock-box5" onClick={() => setStep(4)}>
                            <button className="all-time-use-btn">Continue</button>
                        </div>
@@ -277,42 +293,10 @@ export default function Staking() {
                     {step == 4 && (
                         <div className="create-contract-container">
                             <h3>Create contract</h3>
-                            <p>Please ensure the following details are correct:</p>
+                            <p>We need your authorisation before using the token. This only needs to be done once.</p>
 
-                            <div className="token-information-box">
-                                <div className='tk-informantion'>
-                                    <p>Token</p>
-                                    <div>
-                                        <img src="https://app.team.finance/tokens/ethereum-token.webp" alt="l" /><span>{selectedToken?.symbol}</span>
-                                    </div>
-                                </div>
-                                <div className='tk-informantion'>
-                                    <p>Blockchain</p>
-                                    <div>
-                                        <img src="https://app.team.finance/icons/wizard/ethereum.svg" alt="l" /><span>Ethereum</span>
-                                    </div>
-                                </div>
-                                <div className='tk-informantion'>
-                                    <p>Lock Amount</p>
-                                    <div>
-                                        <span>{formInput?.amount}</span>
-                                    </div>
-                                </div >
-                                <div className='tk-informantion'>
-                                    <p>Service fee</p>
-                                    <div>
-                                        <span>-</span>
-                                    </div>
-                                </div>
-                                <div className='tk-informantion'>
-                                    <p>Unlock Time</p>
-                                    <div>
-                                        <span>{formInput.timestamp ? new Date(formInput.timestamp).toISOString().slice(0, -1) : ""}</span>
-                                    </div>
-                                </div>
-                            </div>
                             <div className="confirm-transtion-btn">
-                                <button onClick={() => lock()}>{load ? "PROCESSING..." : "Confirm transaction"}</button>
+                                <button onClick={() => lock()}>{load ? "PROCESSING..." : "Give permission"}</button>
                             </div>
                         </div>
                     )}

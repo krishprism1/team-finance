@@ -1,0 +1,58 @@
+.staking-input-box{
+    margin-bottom: 0.7em;
+}
+.staking-input-box .input{
+    width: 70%;
+    color: rgb(70, 70, 70);
+}
+
+/* toggle button use every where */
+.toggle-button-box{
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+.toggle-button-box .button{
+    background-color: gray;
+    position: relative;
+    width: 45px;
+    height: 22px;
+    border-radius: 200px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+.toggle-button-box .button::before{
+    position: absolute;
+    content: '';
+    background-color: #fff;
+    width: 18px;
+    height: 18px;
+    border-radius: 200px;
+    margin: 2px;
+    transition: 0.2s;
+}
+.toggle-button-box input:checked + .button{
+    background-color: blue;
+}
+.toggle-button-box input:checked + .button::before{
+    transform: translateX(22px);
+}
+.toggle-button-box input{
+    display: none;
+}
+/* end */
+
+.toggle-middle-container{
+    width: 100%;
+    margin-top: 0.3em;
+    margin-bottom: 0.3em;
+    display: flex;
+    gap: 0.8em;
+}
+.toggle-middle-container span{
+    font-size: 0.8em;
+    color: rgb(30, 30, 30);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
