@@ -21,6 +21,8 @@ import TokenList from '@/components/common/createform/TokenList'
 import { getWalletTransaction } from '@/utils/moralis.utils'
 import VIcon from "/public/form/v.svg"
 import LinkIcon from "/public/form/link.svg"
+import { tokenAbi } from '@/contracts/abis/token.abi'
+import { vestingFactoryAbi } from '@/contracts/abis/vestingFactory.abi'
 
 
 interface TokenInfo {
@@ -106,7 +108,6 @@ export default function Vesting() {
         // }
     };
 
-
     const creatToken = async () => {
         setLoad(true);
         if (!isConnected) {
@@ -151,8 +152,32 @@ export default function Vesting() {
         setIsModalOpen(false);
     };
 
+    const creatVesting = async () => {
+        setLoad(true);
+        if (!isConnected) {
+            setLoad(false);
+            toast.error("Please connect the wallet first!");
+        }
+        // let token = "0xD6cE8678FCF5AFa86F0a5E883f4D431F571Db62B"
+        let merkleRoot = "0xcee59b1f051c18fa9423528fb67cf285f86aa9fb34f0f38c766bda9a081403b3"
+        if (signer && selectedToken) {
+            try {
+                const tokenInstance = new ethers.Contract(selectedToken.token, tokenAbi, await signer);
+                await tokenInstance.approve(networks.Binance.vestingFactory, intToBig(totalVestingToken, 18))
+                const vFactory = new ethers.Contract(networks.Binance.vestingFactory, vestingFactoryAbi, await signer);
+                const tx = await vFactory.createVesting(selectedToken.token, merkleRoot, intToBig(totalVestingToken, 18));
+                const receipt = await tx.wait();
+                toast.success("Transaction completed successfully!");
+                console.log(receipt)
+                setLoad(false);
+            } catch (error: any) {
+                toast.error(error.reason);
+                setLoad(false);
+            }
+        }
+    };
+
     const totalVestingToken = users?.reduce((total, user) => total + Number(user.numberOfTokens), 0);
-    console.log(formData, "formData", users)
 
     return (
         <ActionLayout>
@@ -447,7 +472,7 @@ export default function Vesting() {
 
                             </div>
                             <div className="confirm-transtion-btn">
-                                <button onClick={() => creatToken()}>{load ? "PROCESSING..." : "Confirm transaction"}</button>
+                                <button onClick={() => creatVesting()}>{load ? "PROCESSING..." : "Confirm transaction"}</button>
                             </div>
                         </div>
                     )}
