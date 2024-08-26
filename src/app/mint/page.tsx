@@ -2,6 +2,7 @@
 import ActionLayout from '@/containers/ActionLayout'
 import React, { useState } from 'react'
 import "../../styles/mint.css"
+import "../../styles/EmptyInputAlert.css"
 import "../../styles/Mint-responsive.css"
 import { useAccount } from 'wagmi'
 import ConnectWallet from '@/components/common/createform/ConnectWallet'
@@ -130,11 +131,13 @@ export default function Mint() {
                                     <div className='top-input-box'>
                                         <div>
                                             <label>Token name</label>
-                                            <input type="text" name='name' onChange={handleChange} placeholder='e.g "Team Finance"' required />
+                                            <input type="text" name='name' className='empty-field danger' onChange={handleChange} placeholder='e.g "Team Finance"' required />
+                                            <span className='danger2 danger3'>This field is required</span>
                                         </div>
                                         <div>
                                             <label>Symbol</label>
-                                            <input type="text" name='symbol'  onChange={handleChange} placeholder='e.g "TFC"' required />
+                                            <input type="text" name='symbol' className='empty-field danger'  onChange={handleChange} placeholder='e.g "TFC"' required />
+                                            <span className='danger2 danger3'>This field is required</span>
                                         </div>
                                     </div>
                                     <label>Image Token</label>
@@ -145,27 +148,33 @@ export default function Mint() {
                                     </div>
                                     <div className="field">
                                         <label>Decimal</label>
-                                        <input type="number" name="decimal"  onChange={handleChange} placeholder='8-18' required />
+                                        <input type="number" name="decimal"  className='empty-field danger'  onChange={handleChange} placeholder='8-18' required />
+                                        <span className='danger2 danger3'>This field is required</span>
                                     </div>
                                     <div className="field">
                                         <label >Initial supply </label>
-                                        <input type="number" name="supply"  onChange={handleChange} placeholder='e.g "10 000"' required />
+                                        <input type="number" name="supply" className='empty-field danger'  onChange={handleChange} placeholder='e.g "10 000"' required />
+                                        <span className='danger2 danger3'>This field is required</span>
                                     </div>
                                     <div className="field">
                                         <label >Description</label>
-                                        <input type="text" name="description"  onChange={handleChange} placeholder='e.g "A Defi Yeild Farming Token"' required />
+                                        <input type="text" name="description" className='empty-field danger'  onChange={handleChange} placeholder='e.g "A Defi Yeild Farming Token"' required />
+                                        <span className='danger2 danger3'>This field is required</span>
                                     </div>
                                     <div className="field">
                                         <label >Website (optional)</label>
-                                        <input type="text" name="Website (optional)" placeholder='e.g "https://www.team.finance/"' />
+                                        <input type="text" name="Website (optional)" className='empty-field' placeholder='e.g "https://www.team.finance/"' />
+                                        <span className='danger2'>This field is required</span>
                                     </div>
                                     <div className="field">
                                         <label >Twitter (optional)</label>
-                                        <input type="text" name="Twitter (optional)" placeholder='e.g "https://twitter.com/team.finance/"' />
+                                        <input type="text" name="Twitter (optional)" className='empty-field' placeholder='e.g "https://twitter.com/team.finance/"' />
+                                        <span className='danger2'>This field is required</span>
                                     </div>
                                     <div className="field">
                                         <label >Telegram (optional)</label>
-                                        <input type="text" name="Telegram (optional)" placeholder='e.g "https://t.me/team.finance/"' />
+                                        <input type="text" name="Telegram (optional)" className='empty-field' placeholder='e.g "https://t.me/team.finance/"' />
+                                        <span className='danger2'>This field is required</span>
                                     </div>
                                     <div className="form-continue-btn">
                                         <button type="submit" onClick={handleNext}>Continue</button>

@@ -1,0 +1,20 @@
+/* Token creation css */
+
+.empty-field{
+    border: 0.1px solid rgba(0, 0, 0, 0.188);
+    outline: rgba(255, 255, 255, 0.608);
+}
+.danger{
+    border: 2px solid red;
+    z-index: 99;
+}
+.danger2{
+    font-size: 0.9em;
+    color: red;
+    opacity: 0;
+}
+.danger3{
+    font-size: 0.9em;
+    color: red;
+    opacity: 1;
+}
