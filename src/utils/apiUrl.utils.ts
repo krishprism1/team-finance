@@ -1,0 +1,1 @@
+export const userStats = "/api/user/stats"
