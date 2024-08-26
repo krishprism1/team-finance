@@ -61,7 +61,7 @@ const TokenList: React.FC<TokenListProps> = ({
                                             <div className="small-info-box">
                                                 <p>{item.symbol}</p>
                                                 <svg
-                                                    className='done-arrow'
+                                                    className='done-arrow done-arrow2-2'
                                                     stroke="blue"
                                                     fill="blue"
                                                     strokeWidth="0"

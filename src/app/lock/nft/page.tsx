@@ -2,8 +2,10 @@
 import ActionLayout from '@/containers/ActionLayout'
 import React, { useEffect, useState } from 'react'
 import "../../../styles/mint.css"
-import "../../../styles/Mint-responsive.css"
 import "../../../styles/multisender.css"
+import "../../../styles/Mint-responsive.css"
+import "../../../styles/TeamTokenLockResponsive.css"
+import "../../../styles/NftResponsive.css"
 import { useAccount } from 'wagmi'
 import ConnectWallet from '@/components/common/createform/ConnectWallet'
 import SelectNetwork from '@/components/common/createform/SelectNetwork'

@@ -2,10 +2,11 @@
 import ActionLayout from '@/containers/ActionLayout'
 import React, { useEffect, useState } from 'react'
 import "../../styles/mint.css"
-import "../../styles/Mint-responsive.css"
-import "../../styles/multisender.css"
-import "../../styles/MultisenderResponsive.css"
 import "../../styles/Staking.css"
+import "../../styles/multisender.css"
+import "../../styles/Mint-responsive.css"
+import "../../styles/MultisenderResponsive.css"
+import "../../styles/VestingResponsive.css"
 import { useAccount } from 'wagmi'
 import ConnectWallet from '@/components/common/createform/ConnectWallet'
 import SelectNetwork from '@/components/common/createform/SelectNetwork'
@@ -575,7 +576,7 @@ export default function Vesting() {
                                     </Modal>
                                 </div>
 
-                                <div className="recipient-box2 vesting-box2">
+                                <div className="recipient-box2 vesting-box2 ">
                                     <div className='rct-box1' onClick={(e) => toggleRadio("second")}>
                                         <div>
                                             <label htmlFor="upload-csv" style={{ display: 'flex', alignItems: 'center', cursor: 'pointer' }}>

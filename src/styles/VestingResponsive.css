@@ -1,0 +1,22 @@
+@media only screen and (max-width:480px){
+    .token-info-container{
+         width: 95%;
+         padding: 1em;
+    }
+    .add-feature-container .vesting-box1{
+        width: 100%;
+    }
+    .fully-details-box{
+        /* width: 110%; */
+    }
+    .draw-no-about-token{
+        width: 110%;
+        margin-left: -1em;
+    }
+    .add-feature-container .vesting-box2{
+        width: 100%;
+    }
+    .upload-box{
+        flex-direction: column;
+    }
+}
