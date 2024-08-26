@@ -31,7 +31,7 @@ const TokenList: React.FC<TokenListProps> = ({
             <div className="token-form-column">
                 <form>
                     <div className="top-input-box">
-                        <div>
+                        <div className='div1-1'>
                             <label className="heading-of-token-address">Token address</label>
                             <input
                                 type="text"
@@ -48,7 +48,7 @@ const TokenList: React.FC<TokenListProps> = ({
                         e.g. 0xCC4304A31d09258b0029eA7FE63d032f52e44EFe
                     </label>
                     <div className="token-info-box">
-                        <div>
+                        <div className='token-info-box-container'>
                             {tokenInfo &&
                                 tokenInfo.map((item, index) => (
                                     <div
@@ -61,6 +61,7 @@ const TokenList: React.FC<TokenListProps> = ({
                                             <div className="small-info-box">
                                                 <p>{item.symbol}</p>
                                                 <svg
+                                                    className='done-arrow '
                                                     stroke="blue"
                                                     fill="blue"
                                                     strokeWidth="0"
