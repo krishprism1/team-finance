@@ -2,9 +2,9 @@
 import ActionLayout from '@/containers/ActionLayout'
 import React, { useEffect, useState } from 'react'
 import "../../../styles/mint.css"
+import "../../../styles/multisender.css"
 import "../../../styles/TeamTokenLockResponsive.css"
 import "../../../styles/Mint-responsive.css"
-import "../../../styles/multisender.css"
 import { useAccount } from 'wagmi'
 import ConnectWallet from '@/components/common/createform/ConnectWallet'
 import SelectNetwork from '@/components/common/createform/SelectNetwork'
@@ -228,7 +228,7 @@ export default function TokenLock() {
                            </div>
                        </div>
            
-                       <div className="ad-lock-box3">
+                       <div className="ad-lock-box3 rs-ad-lock-box3">
                            <p>Service Fee</p>
                            <span>$0.00</span>
                        </div>
