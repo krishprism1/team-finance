@@ -5,7 +5,7 @@ export interface TokenDetail {
     decimal: number;
     description: string;
     website: string;
-    twitter: string;
+    twitter: string; 
     telegram: string;
     mintable: boolean;
     burnable: boolean;
@@ -15,7 +15,7 @@ export interface ValidationErrors {
     [key: string]: string;
 }
 
-export const validateStep = (step: number, data: TokenDetail): ValidationErrors => {
+export const createTokenValidateStep = (step: number, data: TokenDetail): ValidationErrors => {
     const errors: ValidationErrors = {};
 
     switch (step) {
@@ -43,6 +43,6 @@ export const validateStep = (step: number, data: TokenDetail): ValidationErrors 
     return errors;
 };
 
-export const isStepValid = (errors: ValidationErrors): boolean => {
+export const isCreateTokenStepValid = (errors: ValidationErrors): boolean => {
     return Object.keys(errors).length === 0;
 };

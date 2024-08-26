@@ -7,6 +7,11 @@ interface IToken extends Document {
   symbol: string;
   decimal: number;
   supply: number;
+  description: string;
+  tokenLogo : string;
+  website: string;
+  twitter: string;
+  telegram: string;
   createdAt: Date;
 }
 
@@ -30,6 +35,22 @@ const tokenSchema: Schema<IToken> = new mongoose.Schema({
   supply: {
     type: Number,
     required: true,
+  },
+  description: {
+    type: String,
+    required: true,
+  },
+  tokenLogo: {
+    type: String,
+  },  
+  website: {
+    type: String,
+  },
+  twitter: {
+    type: String,
+  },
+  telegram: {
+    type: String,
   },
   createdAt: {
     type: Date,

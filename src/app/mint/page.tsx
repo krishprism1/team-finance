@@ -9,20 +9,19 @@ import ConnectWallet from '@/components/common/createform/ConnectWallet'
 import SelectNetwork from '@/components/common/createform/SelectNetwork'
 import CreateProgress from '@/components/common/createform/CreateProgress'
 import useFormStore from '@/store/stepStore'
-import { isStepValid, TokenDetail, validateStep, ValidationErrors } from '@/utils/validation.utils'
 import { useEthersSigner } from '@/hooks/useEtherSigner'
 import { toast } from 'react-toastify'
 import { ethers } from 'ethers'
 import { networks } from '@/contracts'
 import { abi } from '@/contracts/abis/tokenFactory.abi'
 import { intToBig } from '@/utils/math.utils'
+import { isCreateTokenStepValid, TokenDetail, createTokenValidateStep, ValidationErrors } from '@/validation/createTokenForm.validation'
 
 export default function Mint() {
     const { step, setStep } = useFormStore();
     const { isConnected } = useAccount();
     const [load, setLoad] = useState(false)
     const signer = useEthersSigner();
-
     const [tokenDetail, setTokenDetail] = useState<TokenDetail>({
         name: "",
         symbol: "",
@@ -40,9 +39,9 @@ export default function Mint() {
     const handleNext = (e: React.MouseEvent<HTMLButtonElement>) => {
         e.preventDefault();
         if (step === 2) {
-            const newErrors = validateStep(step, tokenDetail);
+            const newErrors = createTokenValidateStep(step, tokenDetail);
             setErrors(newErrors);
-            if (isStepValid(newErrors)) {
+            if (isCreateTokenStepValid(newErrors)) {
                 setStep(step + 1);
             }
         }
@@ -59,49 +58,49 @@ export default function Mint() {
     const creatToken = async () => {
         setLoad(true);
         if (!isConnected) {
-          setLoad(false);
-          return toast.error("Please connect the wallet first!");
-        }
-    
-        if (signer) {
-          try {
-            const contract = new ethers.Contract(networks.Binance.tokenFactory, abi, await signer);
-            const tx = await contract.createToken(
-              tokenDetail.name,
-              tokenDetail.symbol,
-              intToBig(tokenDetail?.supply, 18),
-              tokenDetail.mintable,
-              tokenDetail.burnable
-            );
-            
-            const receipt = await tx.wait();
-            notify(networks.Binance.url ,receipt.transactionHash)
-            setStep(5)
             setLoad(false);
-          } catch (error: any) {
-            toast.error(error.reason);
-            setLoad(false);
-          } finally {
-    
-          }
+            return toast.error("Please connect the wallet first!");
         }
-      };
 
-      const notify = (link: string, txhash:string) => {
+        if (signer) {
+            try {
+                const contract = new ethers.Contract(networks.Binance.tokenFactory, abi, await signer);
+                const tx = await contract.createToken(
+                    tokenDetail.name,
+                    tokenDetail.symbol,
+                    intToBig(tokenDetail?.supply, 18),
+                    tokenDetail.mintable,
+                    tokenDetail.burnable
+                );
+
+                const receipt = await tx.wait();
+                notify(networks.Binance.url, receipt.transactionHash)
+                setStep(5)
+                setLoad(false);
+            } catch (error: any) {
+                toast.error(error.reason);
+                setLoad(false);
+            } finally {
+
+            }
+        }
+    };
+
+    const notify = (link: string, txhash: string) => {
         let url = `${link}/${txhash}`
         toast.success(
-          <div>
-            Transaction completed successfully!
-            <a
-              href={url}
-              style={{ color: 'blue', textDecoration: 'underline' }}
-              target="_blank"
-            >
-              View Transaction
-            </a>
-          </div>
+            <div>
+                Transaction completed successfully!
+                <a
+                    href={url}
+                    style={{ color: 'blue', textDecoration: 'underline' }}
+                    target="_blank"
+                >
+                    View Transaction
+                </a>
+            </div>
         );
-      };
+    };
     return (
         <ActionLayout>
             <div className="creat-token-container">
@@ -131,13 +130,13 @@ export default function Mint() {
                                     <div className='top-input-box'>
                                         <div>
                                             <label>Token name</label>
-                                            <input type="text" name='name' className='empty-field danger' onChange={handleChange} placeholder='e.g "Team Finance"' required />
-                                            <span className='danger2 danger3'>This field is required</span>
+                                            <input type="text" name='name' className={errors?.name ? 'empty-field danger' : "empty-field"} onChange={handleChange} placeholder='e.g "Team Finance"' required />
+                                            {errors?.name && <span className='danger2 danger3'>{errors.name}</span>}
                                         </div>
                                         <div>
                                             <label>Symbol</label>
-                                            <input type="text" name='symbol' className='empty-field danger'  onChange={handleChange} placeholder='e.g "TFC"' required />
-                                            <span className='danger2 danger3'>This field is required</span>
+                                            <input type="text" name='symbol' className={errors?.symbol ? 'empty-field danger' : "empty-field"} onChange={handleChange} placeholder='e.g "TFC"' required />
+                                            {errors?.symbol && <span className='danger2 danger3'>{errors.symbol}</span>}
                                         </div>
                                     </div>
                                     <label>Image Token</label>
@@ -148,18 +147,18 @@ export default function Mint() {
                                     </div>
                                     <div className="field">
                                         <label>Decimal</label>
-                                        <input type="number" name="decimal"  className='empty-field danger'  onChange={handleChange} placeholder='8-18' required />
-                                        <span className='danger2 danger3'>This field is required</span>
+                                        <input type="number" name="decimal" className={errors?.decimal ? 'empty-field danger' : "empty-field"} onChange={handleChange} placeholder='8-18' required />
+                                        {errors?.decimal && <span className='danger2 danger3'>{errors.decimal}</span>}
                                     </div>
                                     <div className="field">
                                         <label >Initial supply </label>
-                                        <input type="number" name="supply" className='empty-field danger'  onChange={handleChange} placeholder='e.g "10 000"' required />
-                                        <span className='danger2 danger3'>This field is required</span>
+                                        <input type="number" name="supply" className={errors?.supply ? 'empty-field danger' : "empty-field"} onChange={handleChange} placeholder='e.g "10 000"' required />
+                                        {errors?.supply && <span className='danger2 danger3'>{errors.supply}</span>}
                                     </div>
                                     <div className="field">
                                         <label >Description</label>
-                                        <input type="text" name="description" className='empty-field danger'  onChange={handleChange} placeholder='e.g "A Defi Yeild Farming Token"' required />
-                                        <span className='danger2 danger3'>This field is required</span>
+                                        <input type="text" name="description" className={errors?.description ? 'empty-field danger' : "empty-field"} onChange={handleChange} placeholder='e.g "A Defi Yeild Farming Token"' required />
+                                        {errors?.description && <span className='danger2 danger3'>{errors.description}</span>}
                                     </div>
                                     <div className="field">
                                         <label >Website (optional)</label>
@@ -289,7 +288,7 @@ export default function Mint() {
                                 <div className='tk-informantion'>
                                     <p>Feature</p>
                                     <div>
-                                        <span>{tokenDetail?.mintable ? "mintable": ""} & {tokenDetail?.burnable ? "burnable" : ""}</span>
+                                        <span>{tokenDetail?.mintable ? "mintable" : ""} & {tokenDetail?.burnable ? "burnable" : ""}</span>
                                     </div>
                                 </div>
                             </div>
