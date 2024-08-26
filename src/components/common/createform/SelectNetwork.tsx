@@ -1,34 +1,66 @@
 import useFormStore from '@/store/stepStore';
 import { _chains } from '@/utils/constant.utils';
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Tick from "/public/form/tick.svg"
+import { toast } from 'react-toastify'
+import { useChainId, useSwitchChain } from 'wagmi';
 
+interface SwitchInfo {
+    networkType: string;
+    index: number;
+    chain: number;
+}
 const SelectNetwork = () => {
     const { step, setStep } = useFormStore();
     const [network, setNetwork] = useState({ ..._chains });
+    const { switchChain } = useSwitchChain();
+    const [switchInfo, setSwitchInfo] = useState<SwitchInfo>();
 
-    const selectNet = (e: any, type: string, index: number) => {
+    const chainId = useChainId()
+
+    const selectNet = async (e: any, type: string, index: number, chain: number) => {
         e.preventDefault()
-        const updatedNetwork = { ...network };
+        switchChain({ chainId: chain })
+        setSwitchInfo({
+            networkType: type,
+            index: index,
+            chain: chain
+        })
+    }
 
-        if (type === "test") {
+    const ifSwitched = () => {
+        const updatedNetwork = { ...network };
+        if (switchInfo?.networkType === "test") {
             updatedNetwork.testnet = updatedNetwork.testnet.map((item, i) =>
-                i === index ? { ...item, status: !item.status } : item
+                i === switchInfo.index ? { ...item, status: !item.status } : item
             );
+            updatedNetwork.mainnet = updatedNetwork.mainnet.map((item) => ({
+                ...item,
+                status: false
+            }));
         } else {
             updatedNetwork.mainnet = updatedNetwork.mainnet.map((item, i) =>
-                i === index ? { ...item, status: !item.status } : item
+                i === switchInfo?.index ? { ...item, status: !item.status } : item
             );
+            updatedNetwork.testnet = updatedNetwork.testnet.map((item) => ({
+                ...item,
+                status: false
+            }));
         }
-        setNetwork(updatedNetwork); 
+        setNetwork(updatedNetwork);
     }
 
     const handleNext = () => {
-        const status =  network.mainnet.some(item => item.status) || network.testnet.some(item => item.status);
-        if(!status) return
+        const status = network.mainnet.some(item => item.status) || network.testnet.some(item => item.status);
+        if (!status) return toast.error("please select Network!")
         setStep(step + 1)
     }
 
+    useEffect(() => {
+        if (chainId === switchInfo?.chain) {
+            ifSwitched()
+        }
+    }, [chainId, switchInfo])
     return (
         <>
             {
@@ -55,7 +87,7 @@ const SelectNetwork = () => {
                         <div className="cards-box-container">
                             <div className="column">
                                 {network && network.mainnet.map((item: any, index: number) => (
-                                    <div className='cards' onClick={(e) => selectNet(e, "main", index)}>
+                                    <div className='cards' onClick={(e) => selectNet(e, "main", index, item.chainId)}>
                                         <div>
                                             <img src={item.logo} alt="1" />
                                             <div>
@@ -72,7 +104,7 @@ const SelectNetwork = () => {
                             <h3>Testnets</h3>
                             <div className="column">
                                 {network && network.testnet.map((item: any, index: number) => (
-                                    <div className='cards' onClick={(e) => selectNet(e, "test", index)}>
+                                    <div className='cards' onClick={(e) => selectNet(e, "test", index, item.chainId)}>
                                         <div>
                                             <img src={item.logo} alt="1" />
                                             <div>

@@ -46,8 +46,8 @@ export const tokenStaking = {
     route: "/staking"
 }
 
-const main = [{ name: "BSC Mainnet", chain: "binance", logo: "https://app.team.finance/icons/wizard/binance.svg", status: false }]
-const test = [{ name: "BSC Testnet", chain: "binance", logo: "https://app.team.finance/icons/wizard/binance.svg", status: false }]
+const main = [{ name: "BSC Mainnet", chain: "binance", chainId: 56, logo: "https://app.team.finance/icons/wizard/binance.svg", status: false }]
+const test = [{ name: "BSC Testnet", chain: "binance", chainId : 97,  logo: "https://app.team.finance/icons/wizard/binance.svg", status: false }]
 export const _chains = {
     mainnet: main,
     testnet: test

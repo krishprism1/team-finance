@@ -12,6 +12,7 @@ const ConnectWallet = () => {
     const connect = async () => {
         await open()
     }
+
     return (
         <div className="select-wallet-box">
             {step == 0 && (
