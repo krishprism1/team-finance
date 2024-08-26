@@ -1,19 +1,32 @@
 import useFormStore from '@/store/stepStore';
+import { _chains } from '@/utils/constant.utils';
 import React, { useState } from 'react'
 import Tick from "/public/form/tick.svg"
 
 const SelectNetwork = () => {
     const { step, setStep } = useFormStore();
-    const [isSelectedMain, setIsSelectedMain] = useState(false)
-    const [isSelectedTest, setIsSelectedTest] = useState(false)
+    const [network, setNetwork] = useState({ ..._chains });
 
-    const selectNet = (e: any, type: string) => {
+    const selectNet = (e: any, type: string, index: number) => {
         e.preventDefault()
+        const updatedNetwork = { ...network };
+
         if (type === "test") {
-            setIsSelectedTest(true)
+            updatedNetwork.testnet = updatedNetwork.testnet.map((item, i) =>
+                i === index ? { ...item, status: !item.status } : item
+            );
         } else {
-            setIsSelectedMain(true)
+            updatedNetwork.mainnet = updatedNetwork.mainnet.map((item, i) =>
+                i === index ? { ...item, status: !item.status } : item
+            );
         }
+        setNetwork(updatedNetwork); 
+    }
+
+    const handleNext = () => {
+        const status =  network.mainnet.some(item => item.status) || network.testnet.some(item => item.status);
+        if(!status) return
+        setStep(step + 1)
     }
 
     return (
@@ -41,34 +54,38 @@ const SelectNetwork = () => {
                         </div>
                         <div className="cards-box-container">
                             <div className="column">
-                                <div className='cards' onClick={(e) => selectNet(e, "main")}>
-                                    <div>
-                                        <img src="https://app.team.finance/icons/wizard/binance.svg" alt="1" />
+                                {network && network.mainnet.map((item: any, index: number) => (
+                                    <div className='cards' onClick={(e) => selectNet(e, "main", index)}>
                                         <div>
-                                            <p>BSC Mainnet</p>
-                                            <span>Binance</span>
+                                            <img src={item.logo} alt="1" />
+                                            <div>
+                                                <p>{item.name}</p>
+                                                <span>{item.chain}</span>
+                                            </div>
                                         </div>
+                                        {item.status && <Tick width="24" height="24" fill="currentColor" />}
                                     </div>
-                                    {isSelectedMain && <Tick width="24" height="24" fill="currentColor" />}
-                                </div>
+                                ))}
                             </div>
                         </div>
                         <div className="bottom-column-box">
                             <h3>Testnets</h3>
                             <div className="column">
-                                <div className='cards' onClick={(e) => selectNet(e, "test")}>
-                                    <div>
-                                        <img src="https://app.team.finance/icons/wizard/binance.svg" alt="1" />
+                                {network && network.testnet.map((item: any, index: number) => (
+                                    <div className='cards' onClick={(e) => selectNet(e, "test", index)}>
                                         <div>
-                                            <p>BSC Testnet</p>
-                                            <span>Binance</span>
+                                            <img src={item.logo} alt="1" />
+                                            <div>
+                                                <p>{item.name}</p>
+                                                <span>{item.chain}</span>
+                                            </div>
                                         </div>
+                                        {item.status && <Tick width="24" height="24" fill="currentColor" />}
                                     </div>
-                                    {isSelectedTest && <Tick width="24" height="24" fill="currentColor" />}
-                                </div>
+                                ))}
                             </div>
                             <div className='block-chain-btn'>
-                                <a href="#" onClick={() => setStep(step + 1)}>Continue</a>
+                                <a href="#" onClick={handleNext}>Continue</a>
                             </div>
                         </div>
                     </div>
