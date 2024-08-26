@@ -1,9 +1,21 @@
 import useFormStore from '@/store/stepStore';
-import React from 'react'
+import React, { useState } from 'react'
 import Tick from "/public/form/tick.svg"
 
 const SelectNetwork = () => {
     const { step, setStep } = useFormStore();
+    const [isSelectedMain, setIsSelectedMain] = useState(false)
+    const [isSelectedTest, setIsSelectedTest] = useState(false)
+
+    const selectNet = (e: any, type: string) => {
+        e.preventDefault()
+        if (type === "test") {
+            setIsSelectedTest(true)
+        } else {
+            setIsSelectedMain(true)
+        }
+    }
+
     return (
         <>
             {
@@ -29,50 +41,30 @@ const SelectNetwork = () => {
                         </div>
                         <div className="cards-box-container">
                             <div className="column">
-                                <div className='cards'>
+                                <div className='cards' onClick={(e) => selectNet(e, "main")}>
                                     <div>
-                                        <img src="https://app.team.finance/icons/wizard/ethereum.svg" alt="1" />
+                                        <img src="https://app.team.finance/icons/wizard/binance.svg" alt="1" />
                                         <div>
                                             <p>BSC Mainnet</p>
                                             <span>Binance</span>
                                         </div>
                                     </div>
-                                    <Tick width="24" height="24" fill="currentColor" />
-                                </div>
-                                <div className='cards'>
-                                    <div>
-                                        <img src="https://app.team.finance/icons/wizard/ethereum.svg" alt="1" />
-                                        <div>
-                                            <p>BSC Mainnet</p>
-                                            <span>Binance</span>
-                                        </div>
-                                    </div>
-                                    <Tick width="24" height="24" fill="currentColor" />
-                                </div>
-                                <div className='cards'>
-                                    <div>
-                                        <img src="https://app.team.finance/icons/wizard/ethereum.svg" alt="1" />
-                                        <div>
-                                            <p>BSC Mainnet</p>
-                                            <span>Binance</span>
-                                        </div>
-                                    </div>
-                                    <Tick width="24" height="24" fill="currentColor" />                                    
+                                    {isSelectedMain && <Tick width="24" height="24" fill="currentColor" />}
                                 </div>
                             </div>
                         </div>
                         <div className="bottom-column-box">
                             <h3>Testnets</h3>
                             <div className="column">
-                                <div className='cards'>
+                                <div className='cards' onClick={(e) => selectNet(e, "test")}>
                                     <div>
-                                        <img src="https://app.team.finance/icons/wizard/ethereum.svg" alt="1" />
+                                        <img src="https://app.team.finance/icons/wizard/binance.svg" alt="1" />
                                         <div>
                                             <p>BSC Testnet</p>
                                             <span>Binance</span>
                                         </div>
                                     </div>
-                                    <Tick width="24" height="24" fill="currentColor" />                                    
+                                    {isSelectedTest && <Tick width="24" height="24" fill="currentColor" />}
                                 </div>
                             </div>
                             <div className='block-chain-btn'>
