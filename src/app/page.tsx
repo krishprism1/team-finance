@@ -170,10 +170,6 @@ export default function Home() {
             </div>
 
             <div className="column2-container">
-
-            </div>
-
-            <div className="column2-container">
               <FeatureCard title={tokenCard.title} description={tokenCard.description} btnOne={tokenCard.btnOne} btnTwo={tokenCard.btnTwo} />
               <FeatureCard title={vestingCard.title} description={vestingCard.description} btnOne={vestingCard.btnOne} btnTwo={vestingCard.btnTwo} />
               <FeatureCard title={teamLockCard.title} description={teamLockCard.description} btnOne={teamLockCard.btnOne} btnTwo={teamLockCard.btnTwo} />
@@ -183,9 +179,6 @@ export default function Home() {
               <FeatureCard title={liquidityLockCard.title} description={liquidityLockCard.description} btnOne={liquidityLockCard.btnOne} btnTwo={liquidityLockCard.btnTwo} />
             </div>
 
-            <div className="column2-container">
-              
-            </div>
 
           </div>
         </div>

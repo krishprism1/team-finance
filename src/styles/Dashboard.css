@@ -1094,16 +1094,33 @@
     }
 
 }
-
-@media only screen and (min-width: 1040px) {
+@media only screen and (min-width: 880px){
     .column2-container {
         display: flex;
         gap: 10px;
+        flex-wrap: wrap;
     }
 
     .column2-container .column2 {
-        width: 50%;
+        width: 48%;
     }
+    .dashboard-container .column2 .links {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        margin: 0.3vw 0vw;
+        flex-wrap: wrap;
+    }
+    
+    .dashboard-container .column2 .links div {
+        align-items: center;
+        display: flex;
+    }
+    
+}
+
+@media only screen and (min-width: 1040px) {
+   
 
     .dashboard-container .column2 .content {
         display: flex;
