@@ -10,12 +10,7 @@ import ConnectWallet from "@/components/common/createform/ConnectWallet";
 import SelectNetwork from "@/components/common/createform/SelectNetwork";
 import CreateProgress from "@/components/common/createform/CreateProgress";
 import useFormStore from "@/store/stepStore";
-import {
-    isStepValid,
-    TokenDetail,
-    validateStep,
-    ValidationErrors,
-} from "@/utils/validation.utils";
+
 import { useEthersSigner } from "@/hooks/useEtherSigner";
 import { toast } from "react-toastify";
 import { ethers } from "ethers";
@@ -25,6 +20,12 @@ import { getWalletTransaction } from "@/utils/moralis.utils";
 import { tokenAbi } from "@/contracts/abis/token.abi";
 import { multiSenderAbi } from "@/contracts/abis/multisender.abi";
 import TokenList from "@/components/common/createform/TokenList";
+import {
+    isCreateTokenStepValid,
+    TokenDetail,
+    createTokenValidateStep,
+    ValidationErrors,
+}  from "@/validation/createTokenForm.validation";
 
 interface TokenInfo {
     token: string;
@@ -68,9 +69,9 @@ export default function MultiSender() {
     const handleNext = (e: React.MouseEvent<HTMLButtonElement>) => {
         e.preventDefault();
         if (step === 2) {
-            const newErrors = validateStep(step, tokenDetail);
+            const newErrors = createTokenValidateStep(step, tokenDetail);
             setErrors(newErrors);
-            if (isStepValid(newErrors)) {
+            if (isCreateTokenStepValid(newErrors)) {
                 setStep(step + 1);
             }
         }

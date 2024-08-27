@@ -170,20 +170,22 @@ export default function Home() {
             </div>
 
             <div className="column2-container">
+
+            </div>
+
+            <div className="column2-container">
               <FeatureCard title={tokenCard.title} description={tokenCard.description} btnOne={tokenCard.btnOne} btnTwo={tokenCard.btnTwo} />
               <FeatureCard title={vestingCard.title} description={vestingCard.description} btnOne={vestingCard.btnOne} btnTwo={vestingCard.btnTwo} />
-            </div>
-
-            <div className="column2-container">
               <FeatureCard title={teamLockCard.title} description={teamLockCard.description} btnOne={teamLockCard.btnOne} btnTwo={teamLockCard.btnTwo} />
               <FeatureCard title={nftLockCard.title} description={nftLockCard.description} btnOne={nftLockCard.btnOne} btnTwo={nftLockCard.btnTwo} />
+              <FeatureCard title={multisenderCard.title} description={multisenderCard.description} btnOne={multisenderCard.btnOne} btnTwo={multisenderCard.btnTwo} />
+              <FeatureCard title={stakingCard.title} description={stakingCard.description} btnOne={stakingCard.btnOne} btnTwo={stakingCard.btnTwo} />
+              <FeatureCard title={liquidityLockCard.title} description={liquidityLockCard.description} btnOne={liquidityLockCard.btnOne} btnTwo={liquidityLockCard.btnTwo} />
             </div>
 
             <div className="column2-container">
-              <FeatureCard title={multisenderCard.title} description={multisenderCard.description} btnOne={multisenderCard.btnOne} btnTwo={multisenderCard.btnTwo} />
-              <FeatureCard title={stakingCard.title} description={stakingCard.description} btnOne={stakingCard.btnOne} btnTwo={stakingCard.btnTwo} />
+              
             </div>
-            <FeatureCard title={liquidityLockCard.title} description={liquidityLockCard.description} btnOne={liquidityLockCard.btnOne} btnTwo={liquidityLockCard.btnTwo} />
 
           </div>
         </div>
