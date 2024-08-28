@@ -1,8 +1,14 @@
 import React from 'react'
 
 
+interface RecentTokenCardProps {
+    tokenLogo: string;
+    name: string;
+    symbol: string;
+    supply: number;
+}
 
-const RecentTokenCard = () => {
+const RecentTokenCard: React.FC<RecentTokenCardProps> = (props) => {
     return (
         <div className="recently-history-container">
             <div className="recently-history-column1">
@@ -11,14 +17,14 @@ const RecentTokenCard = () => {
                     <div className="history-small-box1">
                         <img src="https://storage.googleapis.com/mint-token-images/1720458330489-D_VeLpoWwAAC2Go.jpg" alt="1" />
                         <div>
-                            <h5>CDS</h5>
-                            <p>Candes</p>
+                            <h5>{props.symbol}</h5>
+                            <p>{props.name}</p>
                         </div>
                     </div>
                     <div className="history-small-box2">
                         <div>
                             <p>Total supply</p>
-                            <span>10000 CDS</span>
+                            <span>{props.supply} {props.symbol}</span>
                         </div>
                         <img src="https://app.team.finance/icons/wizard/binance.svg" alt="l" />
                     </div>

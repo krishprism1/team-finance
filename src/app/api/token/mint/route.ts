@@ -7,15 +7,10 @@ connect()
 export async function POST(request: NextRequest) {
     try {
         const reqBody = await request.json()
-        const { wallet, name, symbol, decimal, supply } = reqBody
-        const newToken = new Token({
-            wallet : wallet?.toLowerCase(),
-            name : name,
-            symbol: symbol,
-            decimal: decimal,
-            supply: supply
-        })
-
+        if (reqBody?.wallet) {
+            reqBody.wallet = reqBody.wallet.toLowerCase();
+        }
+        const newToken = new Token(reqBody)
         const newUser = await newToken.save()
 
         return NextResponse.json({ message: "User created successfully!", success: true, newUser })

@@ -46,54 +46,72 @@ export const tokenStaking = {
     route: "/staking"
 }
 
-export const tokenCard = {
+//For Feature card
+const tokenCard = {
     title: "Token Creation",
     description: "Create your own fully-audited token in 5 minutes with no programming experience.",
     btnOne: "Create audited token",
-    btnTwo: "More info"
+    btnTwo: "More info",
+    routeOne: "token-creation"
 }
 
-export const vestingCard = {
+const vestingCard = {
     title: "Token Vesting",
     description: "Let your investors, advisors and employees get paid automatically, without you having to lift a finger.",
     btnOne: "Create vesting",
-    btnTwo: "More info"
+    btnTwo: "More info",
+    routeOne: "token-vesting"
 }
 
-export const teamLockCard = {
+const teamLockCard = {
     title: "Team Token Locks",
     description: "Improve security and build trust in your token by locking your team Tokens.",
     btnOne: "Create team token lock",
-    btnTwo: "More info"
+    btnTwo: "More info",
+    routeOne: "team-token-locks"
 }
 
-export const nftLockCard = {
+const nftLockCard = {
     title: "NFT Locks",
     description: "Lock your NFTs to showcase your confidence in the collection.",
     btnOne: "Create NFT lock ",
-    btnTwo: "More info"
+    btnTwo: "More info",
+    routeOne: "nft-locks"
 }
 
-export const stakingCard = {
+const stakingCard = {
     title: "Staking",
     description: "Create a staking pool in seconds. Better rewards and tokenomics, without the hassle.",
     btnOne: "Create staking pool",
-    btnTwo: "More info"
+    btnTwo: "More info",
+    routeOne: "token-staking"
 }
 
-export const multisenderCard = {
+const multisenderCard = {
     title: "Multisender",
     description: "Send tokens to unlimited wallet addresses in one single action.",
     btnOne: "Send token",
-    btnTwo: "More info"
+    btnTwo: "More info",
+    routeOne: "token-multisender"
 }
 
-export const liquidityLockCard = {
+const liquidityLockCard = {
     title: "Liquidity Locks",
     description: "Prevent rug pulls and increase community trust by locking LP tokens.",
     btnOne: "Create Liquidity lock",
-    btnTwo: "More info"
+    btnTwo: "More info",
+    routeOne: "team-token-locks"
 }
+
+export const featureProps = [
+    tokenCard,
+    vestingCard,
+    teamLockCard,
+    nftLockCard,
+    stakingCard,
+    multisenderCard,
+    liquidityLockCard
+]
 
 const main = [{ name: "BSC Mainnet", chain: "binance", chainId: 56, logo: "https://app.team.finance/icons/wizard/binance.svg", status: false }]
 const test = [{ name: "BSC Testnet", chain: "binance", chainId: 97, logo: "https://app.team.finance/icons/wizard/binance.svg", status: false }]

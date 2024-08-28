@@ -7,7 +7,6 @@ import { useAccount } from "wagmi";
 import { intToBig } from "@/utils/math.utils";
 import { tokenAbi } from "@/contracts/abis/token.abi";
 import { ethers } from "ethers";
-import { lockAbi } from "@/contracts/abis/lock.abi";
 import { stakeAbi } from "@/contracts/abis/stake.abi";
 
 const Stake = () => {
