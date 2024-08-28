@@ -1,4 +1,4 @@
-@media only screen and (max-width:480px){
+@media only screen and (max-width:766px){
     .add-feature-container2-2{
         width: 95%;
         height: 100%;;
@@ -6,6 +6,13 @@
     }
     .token-info-container{
         width: 95%;
+    }
+
+    .token-info-container .top-input-box .token-address-input{
+        width: 150%;
+        height: 45px;
+        outline: rgba(255, 255, 255, 0.608);
+        border: 0.1px solid rgba(0, 0, 0, 0.188);
     }
     /* team token lock page code here */
 
@@ -49,12 +56,18 @@
 
 }
 
-@media only screen and (min-width: 600px) and (max-width:1040px){
+@media only screen and (min-width: 768px) and (max-width:1023px){
 
 
     .token-information-box{
         width: 95%;
         align-items: center;
+    }
+    .token-info-container .top-input-box .token-address-input{
+        width: 150%;
+        height: 45px;
+        outline: rgba(255, 255, 255, 0.608);
+        border: 0.1px solid rgba(0, 0, 0, 0.188);
     }
 
 }

@@ -56,3 +56,22 @@
     align-items: center;
     gap: 10px;
 }
+
+
+@media only screen and (max-width:766px){
+
+    .token-info-container{
+        width: 95%;
+        height: 100%;
+        padding: 1em;
+    }
+    .add-feature-container{
+        width: 95%;
+        padding: 1em;
+    }
+    .create-contract-container{
+        width: 95%;
+        padding: 1em;
+    }
+}
+ 

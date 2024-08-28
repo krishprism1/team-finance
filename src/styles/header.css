@@ -58,24 +58,45 @@
 }
 /*  */
 
-@media only screen and (max-width:480px){
+@media only screen and (max-width:766px){
+    .header-container{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        height: 7.5vh;
+    }
+    header{
+        margin-bottom: 8vh;
+    }
+    .nav-open-container h2{
+        font-size: 1.3em;
+        font-weight: 500;
+    }
+
     .nav-open-container{
         display: flex;
         width: 100%;
         height: 100%;
         justify-content: center;
         align-items: center;
+        gap: 10px;
     }
     .nav-open-container button{
-        width: 100%;
-        height: 100%;
         outline: none;
         border: none;
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        width: 100%;
+        border-right: 1px solid rgba(0, 0, 0, 0.204);
         background-color: transparent;
     }
     .nav-open-icon{
+        margin-top: 1em;
         width: 2.5em;
         height: 2.5em;
+        margin-left: -4em;
         cursor: pointer;
     }
     .heading-box img{
@@ -88,6 +109,7 @@
         width: 140px;
         border-radius: 6px;
         z-index: 99;
+        margin-right: -2em;
     }
     .header-container nav a{
         font-size: 0.8em;
@@ -98,8 +120,26 @@
     }
 }
 /*  */
-@media only screen and (min-width: 600px) and (max-width:880px){
-
+@media only screen and (min-width: 768px) and (max-width:1023px){
+    header{
+        margin-bottom: 9vh;
+    }
+    .header-container{
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 17em;
+        height: 10vh;
+    }
+    .header-container h2{
+        font-size: 1.4em;
+        font-weight: 500;
+        height: 100%;
+        margin-top: 1.6em;
+        margin-left: 0.4em;
+        align-items: center;
+    }
     .nav-open-container{
         display: flex;
         width: 100%;
@@ -112,6 +152,11 @@
         height: 100%;
         outline: none;
         border: none;
+        margin: 0;
+        padding: 0;
+        margin-left: -3em;
+        border-right: 1px solid rgba(0, 0, 0, 0.145);
+        padding-right: 5px;
         background-color: transparent;
     }
     .nav-open-icon{
@@ -129,7 +174,9 @@
         width: 180px;
         border-radius: 6px;
         z-index: 99;
-        margin-right: 3em;
+        margin-right: 0em;
+        margin-right: -2em;
+        height: 45px;
     }
     .header-container nav a{
         font-size: 1em;

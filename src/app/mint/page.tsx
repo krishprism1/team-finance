@@ -221,7 +221,7 @@ export default function Mint() {
                                     </div>
                                 </div>
                                 <div className="feature-box3">
-                                    <input type="checkbox" name="burnable" onChange={handleChange} id="Burn" title='Burn' />
+                                    <input type="checkbox" name="burnable" onChange={handleChange} id="Burn" title='Burn' className='featutre-box3-input' />
                                     <div className='feature-heading'>
                                         <h4>Burn Function</h4>
                                         <p>Add the ability to burn your tokens. This is great for creating deflation</p>

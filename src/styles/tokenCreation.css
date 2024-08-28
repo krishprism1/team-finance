@@ -152,7 +152,7 @@
 
 /*  */
 
-@media only screen and (max-width:480px){
+@media only screen and (max-width:766px){
 
     .token-creation-content-box{
         padding:1.6% 2.5%;
@@ -270,7 +270,7 @@
     
 }
 /*  */
-@media only screen and (min-width: 600px) and (max-width:880px){
+@media only screen and (min-width: 768px) and (max-width:1023px){
     .token-creation-content-box{
         padding:1.6% 2.5%;
         width: 100%;

@@ -10,6 +10,7 @@
 html,body{
     width: 100%;
     height: 100%;
+    background-color: #f3f7fa;
 }
 
 header{
@@ -21,6 +22,7 @@ header{
     align-items: flex-end;
     margin-bottom: 10vh;
     background-color: #f3f7fa;
+    overflow: hidden;
 }
 .header-container{
     background-color: #f3f7fa;
@@ -34,7 +36,7 @@ header{
     justify-content: space-between;
     align-items: center;
     z-index: 99;
-    border-bottom: .02px solid rgba(0, 0, 0, 0.322);
+    border-bottom: .02px solid rgba(0, 0, 0, 0.183);
 }
 
 .side-container{
@@ -95,7 +97,7 @@ header{
 }
 
 .back-home-box .image-container a span{
-    font-size: 1.2vw;
+    font-size: 1.2em;
     font-weight: 500;
     margin-left: 2.5vw;
 }
@@ -109,7 +111,7 @@ header{
     opacity: 0.8;
 }
 /* back home css for media query  */
-@media only screen and (max-width:480px){
+@media only screen and (max-width:766px){
     .back-home-box .image-container{
         width: 90%;
         justify-content: space-around;
@@ -132,6 +134,33 @@ header{
         font-weight: 500;
         margin-left:0vw;
     }
+}
+
+@media only screen and (min-width: 768px) and (max-width:1023px){
+    .back-home-box .image-container{
+        width: 90%;
+        justify-content: space-around;
+    }
+    .back-home-box .image-container a{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+    }
+    .back-home-box .image-container a span{
+        font-size: 1.5em;
+        font-weight: 500;
+        margin-left:-4.6em;
+    }
+    .back-home-box .left-icon{
+        left: -100%;
+        top: 50%;
+        transform: translate(-50%,-50%);
+        height: 1.8em;
+        width: 1.8em;
+    }
+
+
 }
 /* end here */
 
