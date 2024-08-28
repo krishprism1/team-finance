@@ -1,21 +1,10 @@
-export interface TokenDetail {
-    name: string;
-    symbol: string;
-    supply: number;
-    decimal: number;
-    description: string;
-    website: string;
-    twitter: string; 
-    telegram: string;
-    mintable: boolean;
-    burnable: boolean;
-}
+import { ITokenForm } from "@/utils/interface.utils";
 
 export interface ValidationErrors {
     [key: string]: string;
 }
 
-export const createTokenValidateStep = (step: number, data: TokenDetail): ValidationErrors => {
+export const createTokenValidateStep = (step: number, data: ITokenForm): ValidationErrors => {
     const errors: ValidationErrors = {};
 
     switch (step) {

@@ -15,24 +15,29 @@ import { ethers } from 'ethers'
 import { networks } from '@/contracts'
 import { abi } from '@/contracts/abis/tokenFactory.abi'
 import { intToBig } from '@/utils/math.utils'
-import { isCreateTokenStepValid, TokenDetail, createTokenValidateStep, ValidationErrors } from '@/validation/createTokenForm.validation'
+import { isCreateTokenStepValid, createTokenValidateStep, ValidationErrors } from '@/validation/createTokenForm.validation'
+import axios from 'axios'
+import { tokenMintUrl } from '@/utils/apiUrl.utils'
+import { ITokenForm } from '@/utils/interface.utils'
 
 export default function Mint() {
     const { step, setStep } = useFormStore();
-    const { isConnected } = useAccount();
+    const { isConnected, address } = useAccount();
     const [load, setLoad] = useState(false)
     const signer = useEthersSigner();
-    const [tokenDetail, setTokenDetail] = useState<TokenDetail>({
+    const [tokenDetail, setTokenDetail] = useState<ITokenForm>({
+        wallet: "",
         name: "",
         symbol: "",
         supply: 0,
         decimal: 0,
         description: "",
+        tokenLogo: "",
         website: "",
         twitter: "",
         telegram: "",
         mintable: false,
-        burnable: false,
+        burnable: false
     });
     const [errors, setErrors] = useState<ValidationErrors>({});
 
@@ -74,6 +79,7 @@ export default function Mint() {
                 );
 
                 const receipt = await tx.wait();
+                await saveToDb()
                 notify(networks.Binance.url, receipt.transactionHash)
                 setStep(5)
                 setLoad(false);
@@ -101,6 +107,16 @@ export default function Mint() {
             </div>
         );
     };
+
+    const saveToDb = async () => {
+        try {
+            tokenDetail.wallet = address ?? '';
+            await axios.post(tokenMintUrl.mint, tokenDetail);
+        } catch (error) {
+            console.log(error, "++++")
+        }
+    }
+
     return (
         <ActionLayout>
             <div className="creat-token-container">

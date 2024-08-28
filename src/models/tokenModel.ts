@@ -1,21 +1,10 @@
 // models/tokenModel.ts
+import { IToken } from '@/utils/interface.utils';
 import mongoose, { Document, Model, Schema } from 'mongoose';
 
-interface IToken extends Document {
-  wallet:string;
-  name: string;
-  symbol: string;
-  decimal: number;
-  supply: number;
-  description: string;
-  tokenLogo : string;
-  website: string;
-  twitter: string;
-  telegram: string;
-  createdAt: Date;
-}
+interface ITokenDocument extends IToken, Document { }
 
-const tokenSchema: Schema<IToken> = new mongoose.Schema({
+const tokenSchema: Schema<ITokenDocument> = new mongoose.Schema({
   wallet: {
     type: String,
     required: true,
@@ -42,7 +31,7 @@ const tokenSchema: Schema<IToken> = new mongoose.Schema({
   },
   tokenLogo: {
     type: String,
-  },  
+  },
   website: {
     type: String,
   },
@@ -58,6 +47,6 @@ const tokenSchema: Schema<IToken> = new mongoose.Schema({
   },
 });
 
-const Token: Model<IToken> = mongoose.models.Token || mongoose.model<IToken>('Token', tokenSchema);
+const Token: Model<ITokenDocument> = mongoose.models.Token || mongoose.model<ITokenDocument>('Token', tokenSchema);
 
 export default Token;
