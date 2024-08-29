@@ -1,8 +1,4 @@
-import { ITokenForm } from "@/utils/interface.utils";
-
-export interface ValidationErrors {
-    [key: string]: string;
-}
+import { ITokenForm, ValidationErrors } from "@/utils/interface.utils";
 
 export const createTokenValidateStep = (step: number, data: ITokenForm): ValidationErrors => {
     const errors: ValidationErrors = {};
@@ -32,6 +28,6 @@ export const createTokenValidateStep = (step: number, data: ITokenForm): Validat
     return errors;
 };
 
-export const isCreateTokenStepValid = (errors: ValidationErrors): boolean => {
+export const isStepValid = (errors: ValidationErrors): boolean => {
     return Object.keys(errors).length === 0;
 };

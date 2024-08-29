@@ -26,6 +26,7 @@ export const getWalletTransaction = async (wallet: string, network: string) => {
         name: formatName(item.name),
         symbol: formatName(item.symbol),
         balance: bigToIntClean(item.balance),
+        decimals: item.decimals
       }
     })
     return result;

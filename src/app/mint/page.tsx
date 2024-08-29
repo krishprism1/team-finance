@@ -15,10 +15,10 @@ import { ethers } from 'ethers'
 import { networks } from '@/contracts'
 import { abi } from '@/contracts/abis/tokenFactory.abi'
 import { intToBig } from '@/utils/math.utils'
-import { isCreateTokenStepValid, createTokenValidateStep, ValidationErrors } from '@/validation/createTokenForm.validation'
+import { createTokenValidateStep, isStepValid } from '@/validation/createTokenForm.validation'
 import axios from 'axios'
 import { tokenMintUrl } from '@/utils/apiUrl.utils'
-import { ITokenForm } from '@/utils/interface.utils'
+import { ITokenForm, ValidationErrors } from '@/utils/interface.utils'
 
 export default function Mint() {
     const { step, setStep } = useFormStore();
@@ -46,7 +46,7 @@ export default function Mint() {
         if (step === 2) {
             const newErrors = createTokenValidateStep(step, tokenDetail);
             setErrors(newErrors);
-            if (isCreateTokenStepValid(newErrors)) {
+            if (isStepValid(newErrors)) {
                 setStep(step + 1);
             }
         }

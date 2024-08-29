@@ -63,3 +63,29 @@ export interface IStakeModel {
   mainTokenFee: number;
   pairTokenFee: number;
 }
+
+
+
+//Components related interface
+
+export interface TokenInfo {
+  token: string;
+  name: string;
+  symbol: string;
+  balance: number;
+  decimals:number;
+}
+
+//stake page
+export interface stakeFormInfo {
+  rewardToken : string;
+  startTime: number;
+  endTime: number;
+  precision: number;
+  totalReward: number;
+}
+
+//validationi
+export interface ValidationErrors {
+  [key: string]: string;
+}
