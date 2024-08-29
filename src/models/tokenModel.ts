@@ -1,4 +1,3 @@
-// models/tokenModel.ts
 import { IToken } from '@/utils/interface.utils';
 import mongoose, { Document, Model, Schema } from 'mongoose';
 

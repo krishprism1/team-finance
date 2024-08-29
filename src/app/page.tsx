@@ -69,7 +69,7 @@ export default function Home() {
                   supply={mint?.supply} />
               }
 
-              {stats?.data?.multisenderCount && <RecentMultisentCard tokenLogo="ls" symbol="CDS" amount={1000} recipients={10} />}
+              {stats?.data?.multisenderCount ? <RecentMultisentCard tokenLogo="ls" symbol="CDS" amount={1000} recipients={10} /> :""}
             </> :
               <WalletOverviewCard />
             }

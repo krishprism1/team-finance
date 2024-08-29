@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react'
 import Tick from "/public/form/tick.svg"
 import { toast } from 'react-toastify'
 import { useChainId, useSwitchChain } from 'wagmi';
+import VIcon from "/public/form/v.svg"
 
 interface SwitchInfo {
     networkType: string;
@@ -71,7 +72,7 @@ const SelectNetwork = () => {
                                 <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path fill="none" d="M0 0h24v24H0z"></path><path d="M13 13v8h8v-8h-8zM3 21h8v-8H3v8zM3 3v8h8V3H3zm13.66-1.31L11 7.34 16.66 13l5.66-5.66-5.66-5.65z"></path></svg>
                                 <span>Select Blockchain</span>
                             </div>
-                            <svg stroke="currentColor" fill="none" stroke-width="0" viewBox="0 0 24 24" className='select-right-arrow' height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M6.34317 7.75732L4.92896 9.17154L12 16.2426L19.0711 9.17157L17.6569 7.75735L12 13.4142L6.34317 7.75732Z" fill="currentColor"></path></svg>
+                            <VIcon width="24" height="24" fill="currentColor" />
                         </div>
                     </div>)
             }
@@ -132,7 +133,7 @@ const SelectNetwork = () => {
                     </div>
                     <div>
                         <p>Ethereum</p>
-                        <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" className="ds-icon" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10.707 17.707 16.414 12l-5.707-5.707-1.414 1.414L13.586 12l-4.293 4.293z"></path></svg>
+                        <VIcon width="20" height="20" fill="currentColor" />
                     </div>
                 </div>
             )}

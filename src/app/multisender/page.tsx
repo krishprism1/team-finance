@@ -20,12 +20,17 @@ import { getWalletTransaction } from "@/utils/moralis.utils";
 import { tokenAbi } from "@/contracts/abis/token.abi";
 import { multiSenderAbi } from "@/contracts/abis/multisender.abi";
 import TokenList from "@/components/common/createform/TokenList";
-import {
-    isCreateTokenStepValid,
-    TokenDetail,
-    createTokenValidateStep,
-    ValidationErrors,
-}  from "@/validation/createTokenForm.validation";
+import VIcon from "/public/form/v.svg"
+import Trash from "/public/form/trash.svg"
+import Que from "/public/form/question.svg"
+import First from "/public/form/first.svg"
+import Prev from "/public/form/prev.svg"
+import Next from "/public/form/next.svg"
+import Last from "/public/form/last.svg"
+import Download from "/public/form/download.svg"
+import axios from "axios";
+import { multiSentUrl } from "@/utils/apiUrl.utils";
+
 
 interface TokenInfo {
     token: string;
@@ -37,6 +42,13 @@ interface TokenInfo {
 interface InputRow {
     walletAddress: string;
     tokenNumber: number;
+}
+
+interface ErrorState {
+    index: number;
+    walletAddress: string;
+    tokenNumber: string;
+    status: boolean;
 }
 
 export default function MultiSender() {
@@ -52,38 +64,16 @@ export default function MultiSender() {
         { walletAddress: "", tokenNumber: 0 },
     ]);
 
-    const [tokenDetail, setTokenDetail] = useState<TokenDetail>({
-        name: "",
-        symbol: "",
-        supply: 0,
-        decimal: 0,
-        description: "",
-        website: "",
-        twitter: "",
-        telegram: "",
-        mintable: false,
-        burnable: false,
-    });
-    const [errors, setErrors] = useState<ValidationErrors>({});
+    const [errors, setErrors] = useState<ErrorState>();
 
-    const handleNext = (e: React.MouseEvent<HTMLButtonElement>) => {
+    const handleNext = (e: React.MouseEvent<HTMLDivElement>) => {
         e.preventDefault();
-        if (step === 2) {
-            const newErrors = createTokenValidateStep(step, tokenDetail);
-            setErrors(newErrors);
-            if (isCreateTokenStepValid(newErrors)) {
-                setStep(step + 1);
-            }
-        }
+        const status = isEmptyField()
+        if (status) return;
+        setStep(4)
     };
 
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const { name, value, type, checked } = e.target;
-        setTokenDetail({
-            ...tokenDetail,
-            [name]: type === "checkbox" ? checked : value,
-        });
-    };
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => { };
 
     const notify = (link: string, txhash: string) => {
         let url = `${link}/${txhash}`;
@@ -156,6 +146,10 @@ export default function MultiSender() {
         for (let i = 0; i < incrementValue; i++) {
             newRows.push({ walletAddress: "", tokenNumber: 0 });
         }
+
+        //Validate
+        const status = isEmptyField()
+        if (status) return;
         setRows(newRows);
     };
 
@@ -165,12 +159,36 @@ export default function MultiSender() {
 
     const totalToken = rows?.reduce((total, row) => total + row.tokenNumber, 0);
 
+    const isEmptyField = () => {
+        const lastRow = rows[rows.length - 1];
+        const lastErrors = { index: rows.length - 1, walletAddress: "", tokenNumber: "", status: false };
+
+        let isValid = true;
+
+        if (lastRow.walletAddress.trim() === "") {
+            lastErrors.walletAddress = "Wallet Address cannot be empty.";
+            isValid = false;
+        }
+
+        if (lastRow.tokenNumber <= 0) {
+            lastErrors.tokenNumber = "Token Number must be greater than 0.";
+            isValid = false;
+        }
+        setErrors(lastErrors);
+        if (!isValid) {
+            setErrors(lastErrors);
+            return true;
+        }
+        return false
+    }
+
     const multiTransfer = async () => {
         setLoad(true);
         if (!isConnected) {
             toast.error("Please connect the wallet first!");
         }
         const recipients = rows.map(row => row.walletAddress);
+        const normalAmount = rows.map(row => row.tokenNumber);
         const amounts = rows.map(row => intToBig(row.tokenNumber, 18));
         if (signer && selectedToken) {
             try {
@@ -180,7 +198,18 @@ export default function MultiSender() {
                 const multiSendInstance = new ethers.Contract(networks.Binance.multiSender, multiSenderAbi, await signer);
                 const tx = await multiSendInstance.multisend(selectedToken.token, recipients, amounts);
                 const receipt = await tx.wait();
-                notify(networks.Binance.url, receipt.transactionHash);
+
+                await axios.post(multiSentUrl.send, {
+                    wallet: address,
+                    chainId: 22,
+                    token: selectedToken.token,
+                    recipients: recipients,
+                    amounts: normalAmount,
+                    txhash: receipt.hash,
+                    totalRecipients: recipients.length,
+                    totalAmount: normalAmount.length
+                });
+                notify(networks.Binance.url, receipt.hash);
                 setStep(5);
                 setLoad(false);
             } catch (error: any) {
@@ -190,6 +219,7 @@ export default function MultiSender() {
         }
     };
 
+    console.log(errors, "errors")
     return (
         <ActionLayout>
             <div className="creat-token-container">
@@ -344,17 +374,7 @@ export default function MultiSender() {
                                                 <p>Add recipients manually</p>
                                             </label>
                                         </div>
-                                        <svg
-                                            stroke="currentColor"
-                                            fill="currentColor"
-                                            stroke-width="0"
-                                            viewBox="0 0 24 24"
-                                            height="1em"
-                                            width="1em"
-                                            xmlns="http://www.w3.org/2000/svg"
-                                        >
-                                            <path d="M16.293 9.293 12 13.586 7.707 9.293l-1.414 1.414L12 16.414l5.707-5.707z"></path>
-                                        </svg>
+                                        <VIcon width="16" height="16" fill="currentColor" />
                                     </div>
 
                                     {toggleFirst && (
@@ -375,37 +395,13 @@ export default function MultiSender() {
                                                 <div className="small-rtc-box2">
                                                     <p>
                                                         Service fee{" "}
-                                                        <svg
-                                                            stroke="currentColor"
-                                                            fill="currentColor"
-                                                            stroke-width="0"
-                                                            viewBox="0 0 24 24"
-                                                            className="dout-svg"
-                                                            height="1.1em"
-                                                            width="1.1em"
-                                                            xmlns="http://www.w3.org/2000/svg"
-                                                        >
-                                                            <path d="M12 6a3.939 3.939 0 0 0-3.934 3.934h2C10.066 8.867 10.934 8 12 8s1.934.867 1.934 1.934c0 .598-.481 1.032-1.216 1.626a9.208 9.208 0 0 0-.691.599c-.998.997-1.027 2.056-1.027 2.174V15h2l-.001-.633c.001-.016.033-.386.441-.793.15-.15.339-.3.535-.458.779-.631 1.958-1.584 1.958-3.182A3.937 3.937 0 0 0 12 6zm-1 10h2v2h-2z"></path>
-                                                            <path d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8z"></path>
-                                                        </svg>
+                                                        <Que width="14" height="14" fill="currentColor" />
                                                     </p>
                                                     <div>
                                                         <span>$0.00</span>
                                                         <p>
                                                             per transaction{" "}
-                                                            <svg
-                                                                stroke="currentColor"
-                                                                fill="currentColor"
-                                                                stroke-width="0"
-                                                                viewBox="0 0 24 24"
-                                                                className="dout-svg"
-                                                                height="1em"
-                                                                width="1em"
-                                                                xmlns="http://www.w3.org/2000/svg"
-                                                            >
-                                                                <path d="M12 6a3.939 3.939 0 0 0-3.934 3.934h2C10.066 8.867 10.934 8 12 8s1.934.867 1.934 1.934c0 .598-.481 1.032-1.216 1.626a9.208 9.208 0 0 0-.691.599c-.998.997-1.027 2.056-1.027 2.174V15h2l-.001-.633c.001-.016.033-.386.441-.793.15-.15.339-.3.535-.458.779-.631 1.958-1.584 1.958-3.182A3.937 3.937 0 0 0 12 6zm-1 10h2v2h-2z"></path>
-                                                                <path d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8z"></path>
-                                                            </svg>
+                                                            <Que width="14" height="14" fill="currentColor" />
                                                         </p>
                                                     </div>
                                                 </div>
@@ -463,17 +459,7 @@ export default function MultiSender() {
                                                                     </svg>
                                                                 </button>
                                                                 <button>
-                                                                    <svg
-                                                                        stroke="red"
-                                                                        fill="red"
-                                                                        stroke-width="0"
-                                                                        viewBox="0 0 24 24"
-                                                                        height="1.7em"
-                                                                        width="1.7em"
-                                                                        xmlns="http://www.w3.org/2000/svg"
-                                                                    >
-                                                                        <path d="M15 2H9c-1.103 0-2 .897-2 2v2H3v2h2v12c0 1.103.897 2 2 2h10c1.103 0 2-.897 2-2V8h2V6h-4V4c0-1.103-.897-2-2-2zM9 4h6v2H9V4zm8 16H7V8h10v12z"></path>
-                                                                    </svg>
+                                                                    <Trash width="24" height="24" fill="currentColor" />
                                                                 </button>
                                                             </div>
                                                         </div>
@@ -500,76 +486,16 @@ export default function MultiSender() {
                                                         </div>
                                                         <div className="div3">
                                                             <button>
-                                                                <svg
-                                                                    stroke="currentColor"
-                                                                    fill="none"
-                                                                    stroke-width="0"
-                                                                    viewBox="0 0 24 24"
-                                                                    height="20"
-                                                                    width="20"
-                                                                    xmlns="http://www.w3.org/2000/svg"
-                                                                >
-                                                                    <path
-                                                                        d="M18.3639 7.75735L16.9497 6.34314L11.2929 12L16.9497 17.6568L18.3639 16.2426L14.1213 12L18.3639 7.75735Z"
-                                                                        fill="currentColor"
-                                                                    ></path>
-                                                                    <path
-                                                                        d="M11.2929 6.34314L12.7071 7.75735L8.46447 12L12.7071 16.2426L11.2929 17.6568L5.63605 12L11.2929 6.34314Z"
-                                                                        fill="currentColor"
-                                                                    ></path>
-                                                                </svg>
+                                                                <First width="20" height="20" fill="currentColor" />
                                                             </button>
                                                             <button>
-                                                                <svg
-                                                                    stroke="currentColor"
-                                                                    fill="none"
-                                                                    stroke-width="0"
-                                                                    viewBox="0 0 24 24"
-                                                                    height="20"
-                                                                    width="20"
-                                                                    xmlns="http://www.w3.org/2000/svg"
-                                                                >
-                                                                    <path
-                                                                        d="M16.2426 6.34317L14.8284 4.92896L7.75739 12L14.8285 19.0711L16.2427 17.6569L10.5858 12L16.2426 6.34317Z"
-                                                                        fill="currentColor"
-                                                                    ></path>
-                                                                </svg>
+                                                                <Prev width="20" height="20" fill="currentColor" />
                                                             </button>
                                                             <button>
-                                                                <svg
-                                                                    stroke="currentColor"
-                                                                    fill="none"
-                                                                    stroke-width="0"
-                                                                    viewBox="0 0 24 24"
-                                                                    height="20"
-                                                                    width="20"
-                                                                    xmlns="http://www.w3.org/2000/svg"
-                                                                >
-                                                                    <path
-                                                                        d="M10.5858 6.34317L12 4.92896L19.0711 12L12 19.0711L10.5858 17.6569L16.2427 12L10.5858 6.34317Z"
-                                                                        fill="currentColor"
-                                                                    ></path>
-                                                                </svg>
+                                                                <Next width="20" height="20" fill="currentColor" />
                                                             </button>
                                                             <button>
-                                                                <svg
-                                                                    stroke="currentColor"
-                                                                    fill="none"
-                                                                    stroke-width="0"
-                                                                    viewBox="0 0 24 24"
-                                                                    height="20"
-                                                                    width="20"
-                                                                    xmlns="http://www.w3.org/2000/svg"
-                                                                >
-                                                                    <path
-                                                                        d="M5.63605 7.75735L7.05026 6.34314L12.7071 12L7.05029 17.6568L5.63608 16.2426L9.87869 12L5.63605 7.75735Z"
-                                                                        fill="currentColor"
-                                                                    ></path>
-                                                                    <path
-                                                                        d="M12.7071 6.34314L11.2929 7.75735L15.5356 12L11.2929 16.2426L12.7072 17.6568L18.364 12L12.7071 6.34314Z"
-                                                                        fill="currentColor"
-                                                                    ></path>
-                                                                </svg>
+                                                                <Last width="20" height="20" fill="currentColor" />
                                                             </button>
                                                         </div>
                                                     </div>
@@ -581,18 +507,7 @@ export default function MultiSender() {
                                                         </button>
                                                         <a href="#">
                                                             Download CSV file{" "}
-                                                            <svg
-                                                                stroke="rgb(103, 103, 255)"
-                                                                fill="rgb(103, 103, 255)"
-                                                                stroke-width="0"
-                                                                viewBox="0 0 24 24"
-                                                                height="1.1em"
-                                                                width="1.1em"
-                                                                xmlns="http://www.w3.org/2000/svg"
-                                                            >
-                                                                <path d="m12 16 4-5h-3V4h-2v7H8z"></path>
-                                                                <path d="M20 18H4v-7H2v7c0 1.103.897 2 2 2h16c1.103 0 2-.897 2-2v-7h-2v7z"></path>
-                                                            </svg>
+                                                            <Download width="16" height="16" fill="currentColor" />
                                                         </a>
                                                     </div>
                                                     <div className="box2" onClick={clearAll}>
@@ -627,17 +542,7 @@ export default function MultiSender() {
                                                 <p>Upload CSV file</p>
                                             </label>
                                         </div>
-                                        <svg
-                                            stroke="currentColor"
-                                            fill="currentColor"
-                                            stroke-width="0"
-                                            viewBox="0 0 24 24"
-                                            height="1em"
-                                            width="1em"
-                                            xmlns="http://www.w3.org/2000/svg"
-                                        >
-                                            <path d="M16.293 9.293 12 13.586 7.707 9.293l-1.414 1.414L12 16.414l5.707-5.707z"></path>
-                                        </svg>
+                                        <VIcon width="16" height="16" fill="currentColor" />
                                     </div>
 
                                     {toggleSecond && (
@@ -665,7 +570,7 @@ export default function MultiSender() {
                                         </div>
                                     )}
                                 </div>
-                                <div className="form-continue-btn" onClick={() => setStep(4)}>
+                                <div className="form-continue-btn" onClick={(e) => handleNext(e)}>
                                     <button type="submit" className="all-time-use-btn">
                                         Continue
                                     </button>

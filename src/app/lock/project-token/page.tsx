@@ -46,17 +46,31 @@ export default function TokenLock() {
     const [formInput, setFormInput] = useState<InputForm>({ amount: 0, timestamp: 0 });
 
 
-    const [errors, setErrors] = useState<ValidationErrors>({});
+    const [errors, setErrors] = useState({ amount: "", timestamp: "" });
 
-    const handleNext = (e: React.MouseEvent<HTMLButtonElement>) => {
+    const handleNext = (e: React.MouseEvent<HTMLDivElement>) => {
         e.preventDefault();
-        // if (step === 2) {
-        //     const newErrors = validateStep(step, tokenDetail);
-        //     setErrors(newErrors);
-        //     if (isStepValid(newErrors)) {
-        //         setStep(step + 1);
-        //     }
-        // }
+        const isValid = validateForm()
+        console.log(isValid, "usoooo")
+        if (!isValid) return
+        setStep(4)
+    };
+
+    const validateForm = () => {
+        let valid = true;
+        let tempErrors = { amount: "", timestamp: "" };
+
+        if (!formInput.amount) {
+            tempErrors.amount = "Amount is required";
+            valid = false;
+        }
+        if (!formInput.timestamp) {
+            tempErrors.timestamp = "Timestamp is required";
+            valid = false;
+        }
+
+        setErrors(tempErrors);
+        return valid;
     };
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -177,80 +191,80 @@ export default function TokenLock() {
                         </div>
                     )}
                     {step == 3 && (
-                       <div className="add-feature-container add-feature-container2-2">
-                       <h3>Add lock details</h3>
-                       <p>Set the amount and time period you would like to lock your tokens for.</p>
-           
-                       <div className="ad-lock-box1">
-                           <span>Lock amount</span>
-                           <div>
-                               <input
-                                   type="number"
-                                   name="amount"
-                                   placeholder="Enter amount"
-                                   value={formInput.amount}
-                                   onChange={handleChange}
-                               />
-                           </div>
-                       </div>
-           
-                       <div className="ad-lock-box2">
-                           <p>Your balance :</p>
-                           <span>10000 xrp</span>
-                           <h5>Max</h5>
-                       </div>
-           
-                       <div className="ad-lock-box1">
-                           <span>
-                               Unlock date & time{" "}
-                               <svg
-                                   stroke="currentColor"
-                                   fill="currentColor"
-                                   stroke-width="0"
-                                   viewBox="0 0 24 24"
-                                   data-tooltip-id="tooltip-help-lock-period"
-                                   height="1em"
-                                   width="1em"
-                                   xmlns="http://www.w3.org/2000/svg"
-                               >
-                                   <path d="M12 6a3.939 3.939 0 0 0-3.934 3.934h2C10.066 8.867 10.934 8 12 8s1.934.867 1.934 1.934c0 .598-.481 1.032-1.216 1.626a9.208 9.208 0 0 0-.691.599c-.998.997-1.027 2.056-1.027 2.174V15h2l-.001-.633c.001-.016.033-.386.441-.793.15-.15.339-.3.535-.458.779-.631 1.958-1.584 1.958-3.182A3.937 3.937 0 0 0 12 6zm-1 10h2v2h-2z"></path>
-                                   <path d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8z"></path>
-                               </svg>
-                           </span>
-                           <div>
-                               <input
-                                   type="datetime-local"
-                                   name="timestamp"
-                                   placeholder="select date"
-                                   value={formInput.timestamp ? new Date(formInput.timestamp).toISOString().slice(0, -1) : ""}
-                                   onChange={handleChange}
-                               />
-                           </div>
-                       </div>
-           
-                       <div className="ad-lock-box3 rs-ad-lock-box3">
-                           <p>Service Fee</p>
-                           <span>$0.00</span>
-                       </div>
-           
-                       <div className="ad-lock-box44">
-                           <div className="ad-lock-box4">
-                               <div>
-                                   <p>Do you have a valid Referral Address</p>
-                                   <span>Receive a 10% discount!</span>
-                               </div>
-                               <div>
-                                   <input type="checkbox" name="percent" />
-                               </div>
-                           </div>
-                           <div className="check-to-come-up">
-                               <input type="text" placeholder="Enter referres wallet address here" />
-                           </div>
-                       </div>
-                       <div className="ad-lock-box5" onClick={() => setStep(4)}>
-                           <button className="all-time-use-btn">Continue</button>
-                       </div>
-                   </div>
+                        <div className="add-feature-container add-feature-container2-2">
+                            <h3>Add lock details</h3>
+                            <p>Set the amount and time period you would like to lock your tokens for.</p>
+
+                            <div className="ad-lock-box1">
+                                <span>Lock amount</span>
+                                <div>
+                                    <input
+                                        type="number"
+                                        name="amount"
+                                        placeholder="Enter amount"
+                                        value={formInput.amount}
+                                        onChange={handleChange}
+                                    />
+                                </div>
+                            </div>
+
+                            <div className="ad-lock-box2">
+                                <p>Your balance :</p>
+                                <span>10000 xrp</span>
+                                <h5>Max</h5>
+                            </div>
+
+                            <div className="ad-lock-box1">
+                                <span>
+                                    Unlock date & time{" "}
+                                    <svg
+                                        stroke="currentColor"
+                                        fill="currentColor"
+                                        stroke-width="0"
+                                        viewBox="0 0 24 24"
+                                        data-tooltip-id="tooltip-help-lock-period"
+                                        height="1em"
+                                        width="1em"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                        <path d="M12 6a3.939 3.939 0 0 0-3.934 3.934h2C10.066 8.867 10.934 8 12 8s1.934.867 1.934 1.934c0 .598-.481 1.032-1.216 1.626a9.208 9.208 0 0 0-.691.599c-.998.997-1.027 2.056-1.027 2.174V15h2l-.001-.633c.001-.016.033-.386.441-.793.15-.15.339-.3.535-.458.779-.631 1.958-1.584 1.958-3.182A3.937 3.937 0 0 0 12 6zm-1 10h2v2h-2z"></path>
+                                        <path d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8z"></path>
+                                    </svg>
+                                </span>
+                                <div>
+                                    <input
+                                        type="datetime-local"
+                                        name="timestamp"
+                                        placeholder="select date"
+                                        value={formInput.timestamp ? new Date(formInput.timestamp).toISOString().slice(0, -1) : ""}
+                                        onChange={handleChange}
+                                    />
+                                </div>
+                            </div>
+
+                            <div className="ad-lock-box3 rs-ad-lock-box3">
+                                <p>Service Fee</p>
+                                <span>$0.00</span>
+                            </div>
+
+                            <div className="ad-lock-box44">
+                                <div className="ad-lock-box4">
+                                    <div>
+                                        <p>Do you have a valid Referral Address</p>
+                                        <span>Receive a 10% discount!</span>
+                                    </div>
+                                    <div>
+                                        <input type="checkbox" name="percent" />
+                                    </div>
+                                </div>
+                                <div className="check-to-come-up">
+                                    <input type="text" placeholder="Enter referres wallet address here" />
+                                </div>
+                            </div>
+                            <div className="ad-lock-box5" onClick={(e) => handleNext(e)}>
+                                <button className="all-time-use-btn">Continue</button>
+                            </div>
+                        </div>
                     )}
                     {step > 3 && (
                         <div className="add-feature-connected-small-box" onClick={() => setStep(3)}>

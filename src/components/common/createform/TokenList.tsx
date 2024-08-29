@@ -1,4 +1,6 @@
 import React from 'react';
+import { toast } from 'react-toastify';
+import Tick from "/public/form/tick.svg"
 
 interface TokenInfo {
     symbol: string;
@@ -22,6 +24,14 @@ const TokenList: React.FC<TokenListProps> = ({
     selectToken,
     setStep,
 }) => {
+
+    const handleNext = () => {
+        if (selectedToken?.token) {
+            setStep(3)
+        }else {
+            return toast.error("please select a token!")
+        }
+    }
     return (
         <div className="token-info-container">
             <h3>Enter token address</h3>
@@ -40,7 +50,6 @@ const TokenList: React.FC<TokenListProps> = ({
                                 onChange={handleChange}
                                 placeholder="Enter address...."
                                 className="token-address-input"
-                                required
                             />
                         </div>
                     </div>
@@ -60,18 +69,7 @@ const TokenList: React.FC<TokenListProps> = ({
                                         <div>
                                             <div className="small-info-box">
                                                 <p>{item.symbol}</p>
-                                                <svg
-                                                    className='done-arrow done-arrow2-2'
-                                                    stroke="blue"
-                                                    fill="blue"
-                                                    strokeWidth="0"
-                                                    viewBox="0 0 24 24"
-                                                    height="1.2em"
-                                                    width="1.2em"
-                                                    xmlns="http://www.w3.org/2000/svg"
-                                                >
-                                                    <path d="m10 15.586-3.293-3.293-1.414 1.414L10 18.414l9.707-9.707-1.414-1.414z"></path>
-                                                </svg>
+                                                {selectedToken?.token == item.token && <Tick width="24" height="24" fill="currentColor" />}
                                             </div>
                                             <div className="small-info-box2">
                                                 <span>{item.name}</span>
@@ -106,7 +104,7 @@ const TokenList: React.FC<TokenListProps> = ({
                             </div>
                         )}
                     </div>
-                    <div className="form-continue-btn" onClick={() => setStep(3)}>
+                    <div className="form-continue-btn" onClick={handleNext}>
                         <button type="submit">Continue</button>
                     </div>
                 </form>
