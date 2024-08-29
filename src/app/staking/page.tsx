@@ -2,9 +2,9 @@
 import ActionLayout from '@/containers/ActionLayout'
 import React, { useEffect, useState } from 'react'
 import "../../styles/mint.css"
-import "../../styles/Mint-responsive.css"
 import "../../styles/Staking.css"
 import "../../styles/multisender.css"
+import "../../styles/Mint-responsive.css"
 import { useAccount } from 'wagmi'
 import ConnectWallet from '@/components/common/createform/ConnectWallet'
 import SelectNetwork from '@/components/common/createform/SelectNetwork'
