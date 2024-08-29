@@ -16,8 +16,8 @@ import { userUrl } from "@/utils/apiUrl.utils";
 
 export default function Home() {
   const { address } = useAccount()
-  const [stats, setStats] = useState()
-  const [userInfo, setUserInfo] = useState()
+  const [stats, setStats] = useState<any>()
+  const [userInfo, setUserInfo] = useState<any>()
 
   useEffect(() => {
     if (address) {

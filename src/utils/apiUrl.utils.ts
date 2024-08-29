@@ -13,5 +13,9 @@ export const multiSentUrl = {
 }
 
 export const tokenLockUrl = {
-    send : "/api/lock/project",
+    lock : "/api/lock/project",
+}
+
+export const nftLockUrl = {
+    lock : "/api/lock/nft",
 }

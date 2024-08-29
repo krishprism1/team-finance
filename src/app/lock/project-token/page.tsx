@@ -10,17 +10,17 @@ import ConnectWallet from '@/components/common/createform/ConnectWallet'
 import SelectNetwork from '@/components/common/createform/SelectNetwork'
 import CreateProgress from '@/components/common/createform/CreateProgress'
 import useFormStore from '@/store/stepStore'
-import { isStepValid, TokenDetail, validateStep, ValidationErrors } from '@/utils/validation.utils'
 import { useEthersSigner } from '@/hooks/useEtherSigner'
 import { toast } from 'react-toastify'
 import { ethers } from 'ethers'
 import { networks } from '@/contracts'
-import { abi } from '@/contracts/abis/tokenFactory.abi'
 import { intToBig } from '@/utils/math.utils'
 import TokenList from '@/components/common/createform/TokenList'
 import { getWalletTransaction } from '@/utils/moralis.utils'
 import { tokenAbi } from '@/contracts/abis/token.abi'
 import { lockAbi } from '@/contracts/abis/lock.abi'
+import axios from 'axios'
+import { tokenLockUrl } from '@/utils/apiUrl.utils'
 
 
 interface TokenInfo {
@@ -127,7 +127,18 @@ export default function TokenLock() {
                     value: fee
                 });
                 const receipt = await tx.wait();
-                notify(networks.Binance.url, receipt.transactionHash)
+                await axios.post(tokenLockUrl.lock, {
+                    wallet: address,
+                    chainId: 97,
+                    token: selectedToken.token,
+                    amount: formInput.amount,
+                    withdrawlAddress: address,
+                    unlockTime: formInput.timestamp,
+                    txhash: receipt.hash,
+                    mintNft: _mintNFT,
+                    referr: referr
+                });
+                notify(networks.Binance.url, receipt.hash)
                 setStep(5)
                 setLoad(false);
             } catch (error: any) {

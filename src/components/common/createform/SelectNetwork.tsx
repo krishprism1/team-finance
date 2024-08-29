@@ -88,7 +88,7 @@ const SelectNetwork = () => {
                         <div className="cards-box-container">
                             <div className="column">
                                 {network && network.mainnet.map((item: any, index: number) => (
-                                    <div className='cards' onClick={(e) => selectNet(e, "main", index, item.chainId)}>
+                                    <div className='cards' key={index} onClick={(e) => selectNet(e, "main", index, item.chainId)}>
                                         <div>
                                             <img src={item.logo} alt="1" />
                                             <div>
@@ -105,7 +105,7 @@ const SelectNetwork = () => {
                             <h3>Testnets</h3>
                             <div className="column">
                                 {network && network.testnet.map((item: any, index: number) => (
-                                    <div className='cards' onClick={(e) => selectNet(e, "test", index, item.chainId)}>
+                                    <div className='cards' key={index} onClick={(e) => selectNet(e, "test", index, item.chainId)}>
                                         <div>
                                             <img src={item.logo} alt="1" />
                                             <div>

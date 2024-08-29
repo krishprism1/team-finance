@@ -10,7 +10,6 @@ import ConnectWallet from '@/components/common/createform/ConnectWallet'
 import SelectNetwork from '@/components/common/createform/SelectNetwork'
 import CreateProgress from '@/components/common/createform/CreateProgress'
 import useFormStore from '@/store/stepStore'
-import { isStepValid, TokenDetail, validateStep, ValidationErrors } from '@/utils/validation.utils'
 import { useEthersSigner } from '@/hooks/useEtherSigner'
 import { toast } from 'react-toastify'
 import { ethers } from 'ethers'
@@ -46,7 +45,7 @@ export default function Staking() {
     const [formInput, setFormInput] = useState<InputForm>({ amount: 0, timestamp: 0 });
 
 
-    const [errors, setErrors] = useState<ValidationErrors>({});
+    // const [errors, setErrors] = useState<ValidationErrors>({});
 
     const handleNext = (e: React.MouseEvent<HTMLButtonElement>) => {
         e.preventDefault();
@@ -189,8 +188,6 @@ export default function Staking() {
                                    name="amount"
                                    className='input'
                                    placeholder=""
-                                //    value={formInput.amount}
-                                   onChange={handleChange}
                                />
                            </div>
                        </div>

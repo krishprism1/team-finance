@@ -11,53 +11,35 @@ import ConnectWallet from '@/components/common/createform/ConnectWallet'
 import SelectNetwork from '@/components/common/createform/SelectNetwork'
 import CreateProgress from '@/components/common/createform/CreateProgress'
 import useFormStore from '@/store/stepStore'
-import { isStepValid, TokenDetail, validateStep, ValidationErrors } from '@/utils/validation.utils'
 import { useEthersSigner } from '@/hooks/useEtherSigner'
 import { toast } from 'react-toastify'
 import { ethers } from 'ethers'
 import { networks } from '@/contracts'
 import { nftAbi } from '@/contracts/abis/nft.abi'
 import { lockAbi } from '@/contracts/abis/lock.abi'
-
+import { getWalletNfts } from '@/utils/moralis.utils'
+import NftList from '@/components/common/createform/NftList'
+import axios from 'axios'
+import { nftLockUrl } from '@/utils/apiUrl.utils'
 
 type NftInfo = {
+    token: string;
     name: string;
     symbol: string;
+    tokenId: string;
+    nftType: string;
 };
 
-type InputValue = {
-    contractAddress: string;
-    tokenId: number;
-}
 export default function NFTLock() {
     const { step, setStep } = useFormStore();
     const { isConnected, address } = useAccount();
     const [load, setLoad] = useState(false)
     const signer = useEthersSigner();
-    const [nftInfo, setNftInfo] = useState<NftInfo | undefined>(undefined);
+    const [selectedToken, setSelectedToken] = useState<NftInfo>();
+    const [nfts, setNfts] = useState<NftInfo[]>([]);
     const [lockTime, setLockTime] = useState<number | undefined>(undefined);
 
-
-    // const [inputValues, setInputValues] = useState({
-    //     contractAddress: '',
-    //     tokenId: '',
-    // });
-
-    const [inputValues, setInputValues] = useState<InputValue>({
-        contractAddress: '',
-        tokenId: 0,
-    });
-
-    // Handle input change
-    const _handleChange = (e: any) => {
-        const { name, value } = e.target;
-        setInputValues((prevValues) => ({
-            ...prevValues,
-            [name]: value,
-        }));
-    };
-
-    const [errors, setErrors] = useState<ValidationErrors>({});
+    const [errors, setErrors] = useState({ status: false, msg: "" });
 
 
     const notify = (link: string, txhash: string) => {
@@ -76,22 +58,30 @@ export default function NFTLock() {
         );
     };
 
-    const getNftDetails = async () => {
-        const instance = new ethers.Contract(inputValues.contractAddress, nftAbi, await signer);
-        const name = await instance.name();
-        const symbol = await instance.symbol();
-        const ownerAddress = await instance.ownerOf(inputValues.tokenId);
-        if (ownerAddress.toLowerCase() != address?.toLocaleLowerCase()) {
-            return null;
-        }
-        setNftInfo({ name, symbol })
-    }
+    const selectToken = async (item: any) => {
+        setSelectedToken(item);
+    };
 
     useEffect(() => {
-        if (inputValues.contractAddress && inputValues.tokenId && signer) {
-            getNftDetails()
+        if (address) {
+            getWalletNfts(address, "45").then((res) => setNfts(res));
         }
-    }, [inputValues])
+    }, [address])
+
+    const handleNext = () => {
+        if (lockTime) {
+            setErrors({
+                status: false,
+                msg: ""
+            })
+            setStep(4)
+        } else {
+            setErrors({
+                status: true,
+                msg: "lock detail is required."
+            })
+        }
+    }
 
     const lock = async () => {
         setLoad(true);
@@ -101,17 +91,28 @@ export default function NFTLock() {
         let _mintNFT = false
         let referr = "0x0000000000000000000000000000000000000000"
 
-        if (signer && inputValues.contractAddress) {
+        if (signer && selectedToken) {
             try {
-                const tokenInstance = new ethers.Contract(inputValues?.contractAddress, nftAbi, await signer);
-                const _tx = await tokenInstance.approve(networks.Binance.lockToken, inputValues?.tokenId)
+                const tokenInstance = new ethers.Contract(selectedToken?.token, nftAbi, await signer);
+                const _tx = await tokenInstance.approve(networks.Binance.lockToken, selectedToken?.tokenId)
                 await _tx.wait()
                 const lockInstance = new ethers.Contract(networks.Binance.lockToken, lockAbi, await signer);
-                const fee = await lockInstance.getFeesInETH(inputValues?.contractAddress)
-                const tx = await lockInstance.lockToken(inputValues?.contractAddress, address, inputValues?.tokenId, lockTime, _mintNFT, referr, {
+                const fee = await lockInstance.getFeesInETH(selectedToken?.token)
+                const tx = await lockInstance.lockToken(selectedToken?.token, address, selectedToken?.tokenId, lockTime, _mintNFT, referr, {
                     value: fee
                 });
                 const receipt = await tx.wait();
+                await axios.post(nftLockUrl.lock, {
+                    wallet: address,
+                    chainId: 97,
+                    nftAddr: selectedToken.token,
+                    tokenId: selectedToken.tokenId,
+                    withdrawlAddress: address,
+                    unlockTime: lockTime,
+                    txhash: receipt.hash,
+                    mintNft: _mintNFT,
+                    referr: referr
+                });
                 notify(networks.Binance.url, receipt.transactionHash)
                 setStep(5)
                 setLoad(false);
@@ -121,6 +122,9 @@ export default function NFTLock() {
             }
         }
     };
+
+
+    console.log(nfts, "nft")
     return (
         <ActionLayout>
             <div className="creat-token-container">
@@ -142,57 +146,12 @@ export default function NFTLock() {
                         )
                     }
                     {step == 2 && (
-                        <div className="token-info-container">
-                            <h3>Enter NFT info</h3>
-                            <p className='token-address-p'>Enter the contract address and TokenID for the NFT you are locking, or select from the tokens listed below from your wallet.</p>
-                            <div className="token-form-column">
-                                <form>
-                                    <div className='top-input-box'>
-                                        <div>
-                                            <label className='heading-of-token-address enter-adress-nft-lock'>NFT contract address</label>
-                                            <input
-                                                type="text"
-                                                name='contractAddress'
-                                                onChange={_handleChange}
-                                                placeholder='Enter address'
-                                                className='token-address-input'
-                                                value={inputValues.contractAddress}
-                                                required
-                                            />
-                                        </div>
-                                    </div>
-                                    <div className='top-input-box nft-token-id-box'>
-                                        <div>
-                                            <label className='heading-of-token-address'>NFT Token ID</label>
-                                            <input
-                                                type="text"
-                                                name='tokenId'
-                                                onChange={_handleChange}
-                                                placeholder='Enter token ID'
-                                                className='token-address-input'
-                                                value={inputValues.tokenId}
-                                                required
-                                            />
-                                        </div>
-                                    </div>
-                                    {nftInfo && (
-                                        <div className="nft-token-id-box2">
-                                            <div>
-                                                <p>Name</p>
-                                                <span><img src="https://app.team.finance/tokens/bsc-token.webp" width="30" height="30" alt="l" />{nftInfo.name}</span>
-                                            </div>
-                                            <div>
-                                                <p>Symbol</p>
-                                                <span>{nftInfo.symbol}</span>
-                                            </div>
-                                        </div>
-                                    )}
-                                    <div className="form-continue-btn" onClick={() => setStep(3)}>
-                                        <button type="submit">Continue</button>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
+                        <NftList
+                            selectedToken={selectedToken}
+                            nftInfo={nfts}
+                            selectToken={selectToken}
+                            setStep={setStep}
+                        />
                     )}
                     {step > 2 && (
                         <div className="token-info-connected-small-box" onClick={() => setStep(2)}>
@@ -256,7 +215,7 @@ export default function NFTLock() {
                                     <input type="text" placeholder='Enter referres wallet address here' />
                                 </div>
                             </div> */}
-                            <div className="ad-lock-box5" onClick={() => setStep(4)}>
+                            <div className="ad-lock-box5" onClick={handleNext}>
                                 <button className='all-time-use-btn'>Continue</button>
                             </div>
                         </div>
