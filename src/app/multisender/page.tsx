@@ -219,7 +219,6 @@ export default function MultiSender() {
         }
     };
 
-    console.log(errors, "errors")
     return (
         <ActionLayout>
             <div className="creat-token-container">

@@ -14,22 +14,18 @@ import { useEthersSigner } from '@/hooks/useEtherSigner'
 import { toast } from 'react-toastify'
 import { ethers } from 'ethers'
 import { networks } from '@/contracts'
-import { abi } from '@/contracts/abis/tokenFactory.abi'
 import { intToBig } from '@/utils/math.utils'
 import TokenList from '@/components/common/createform/TokenList'
 import { getWalletTransaction } from '@/utils/moralis.utils'
 import { tokenAbi } from '@/contracts/abis/token.abi'
-import { lockAbi } from '@/contracts/abis/lock.abi'
 import { stakeFormInfo, TokenInfo, ValidationErrors } from '@/utils/interface.utils'
 import Que from "/public/form/question.svg"
 import { stakeTokenValidateStep } from '@/validation/stake.validation'
 import { isStepValid } from '@/validation/createTokenForm.validation'
 import { stakeAbi } from '@/contracts/abis/stake.abi'
+import axios from "axios";
+import { poolUrl } from '@/utils/apiUrl.utils'
 
-interface InputForm {
-    amount: number;
-    timestamp: number;
-}
 
 export default function Staking() {
     const { step, setStep } = useFormStore();
@@ -98,66 +94,50 @@ export default function Staking() {
         setSelectedToken(item);
         setFormData((prevData) => ({
             ...prevData,
-            ["rewardToken"] : item.token
+            ["rewardToken"]: item.token
         }))
-            
+
     };
-
-    console.log(errors, "formData")
-
-    // const lock = async () => {
-    //     let _mintNFT = false
-    //     let referr = "0x0000000000000000000000000000000000000000"
-    //     setLoad(true);
-    //     if (!isConnected) {
-    //         toast.error("Please connect the wallet first!");
-    //     }
-
-    //     if (signer && selectedToken) {
-    //         try {
-    //             const tokenInstance = new ethers.Contract(selectedToken.token, tokenAbi, await signer);
-    //             const _tx = await tokenInstance.approve(networks.Binance.lockToken, intToBig(formInput.amount, 18))
-    //             await _tx.wait()
-    //             const lockInstance = new ethers.Contract(networks.Binance.lockToken, lockAbi, await signer);
-    //             const fee = await lockInstance.getFeesInETH(selectedToken.token)
-    //             const tx = await lockInstance.lockToken(selectedToken.token, address, intToBig(formInput.amount, 18), intToBig(formInput.timestamp, 18), _mintNFT, referr, {
-    //                 value: fee
-    //             });
-    //             const receipt = await tx.wait();
-    //             notify(networks.Binance.url, receipt.transactionHash)
-    //             setStep(5)
-    //             setLoad(false);
-    //         } catch (error: any) {
-    //             toast.error(error.reason);
-    //             setLoad(false);
-    //         }
-    //     }
-    // };
 
     const addPool = async () => {
         setLoad(true);
         if (!isConnected) {
-          toast.error("Please connect the wallet first!");
+            toast.error("Please connect the wallet first!");
         }
-    
+
         if (signer && selectedToken) {
-          try {
-            const tokenInstance = new ethers.Contract(selectedToken.token, tokenAbi, await signer);
-            const _tx = await tokenInstance.approve(networks.Binance.stakeContract, intToBig(formData.totalReward, 18))
-            await _tx.wait()
-            const stakeInstance = new ethers.Contract(networks.Binance.stakeContract, stakeAbi, await signer);
-            // const fee = await stakeInstance.getFeesInETH(token)
-            const tx = await stakeInstance.addPool(selectedToken.token, formData.rewardToken, formData.startTime, formData.endTime, formData.precision, intToBig(formData.totalReward, 18));
-            const receipt = await tx.wait();
-            notify(networks.Binance.url, receipt.hash)
-            toast.success("Transaction completed successfully!");
-            setLoad(false);
-          } catch (error: any) {
-            toast.error(error.reason);
-            setLoad(false);
-          }
+            try {
+                console.log("++++", formData.startTime, formData.endTime)
+
+                const tokenInstance = new ethers.Contract(selectedToken.token, tokenAbi, await signer);
+                const _tx = await tokenInstance.approve(networks.Binance.stakeContract, intToBig(formData.totalReward, 18))
+                await _tx.wait()
+                const stakeInstance = new ethers.Contract(networks.Binance.stakeContract, stakeAbi, await signer);
+                // const fee = await stakeInstance.getFeesInETH(token)
+                const tx = await stakeInstance.addPool(selectedToken.token, formData.rewardToken, formData.startTime, formData.endTime, formData.precision, intToBig(formData.totalReward, 18));
+                const receipt = await tx.wait();
+                console.log("__________")
+                await axios.post(poolUrl.pool, {
+                    wallet: address,
+                    chainId: 97,
+                    mainToken: selectedToken.token,
+                    rewardToken: formData.rewardToken,
+                    startTime: formData.startTime,
+                    endTime: formData.endTime,
+                    decimals: formData.precision,
+                    txhash: receipt.hash,
+                    totalReward: formData.totalReward
+                });
+                notify(networks.Binance.url, receipt.hash)
+                toast.success("Transaction completed successfully!");
+                setLoad(false);
+            } catch (error: any) {
+                console.log(error)
+                toast.error(error.reason);
+                setLoad(false);
+            }
         }
-      };
+    };
 
     return (
         <ActionLayout>
@@ -308,7 +288,7 @@ export default function Staking() {
                             <p>We need your authorisation before using the token. This only needs to be done once.</p>
 
                             <div className="confirm-transtion-btn">
-                                <button onClick={() => addPool()}>{load ? "PROCESSING..." : "Give permission"}</button>
+                                <button onClick={() => addPool()}>{load ? "PROCESSING..." : "Confirm"}</button>
                             </div>
                         </div>
                     )}

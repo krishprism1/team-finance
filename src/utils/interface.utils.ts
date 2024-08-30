@@ -54,14 +54,13 @@ export interface INFTLockModel {
 export interface IStakeModel {
   wallet: string;
   chainId: number;
-  amount: number;
   mainToken: string;
-  pairToken: string;
-  rate: number;
-  rateDecimal: number;
+  rewardToken: string;
+  startTime: number;
+  endTime: number;
+  decimals: number;
   txhash: string;
-  mainTokenFee: number;
-  pairTokenFee: number;
+  totalReward: number;
 }
 
 
@@ -83,6 +82,19 @@ export interface stakeFormInfo {
   endTime: number;
   precision: number;
   totalReward: number;
+}
+
+//vesting form data
+export interface VestingFormData {
+  walletAddress: string;
+  walletNickname: string;
+  relationship: string;
+  numberOfTokens: number;
+  vestingCadence: string;
+  startDate: string;
+  endDate: string;
+  cliffLength: number;
+  releasePercentage: number;
 }
 
 //validationi

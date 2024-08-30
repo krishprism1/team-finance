@@ -19,3 +19,7 @@ export const tokenLockUrl = {
 export const nftLockUrl = {
     lock : "/api/lock/nft",
 }
+
+export const poolUrl = {
+    pool : "/api/stake/create-pool",
+}
