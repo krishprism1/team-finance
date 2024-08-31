@@ -1,0 +1,173 @@
+.token-overview-column1{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    flex-direction: column;
+}
+.token-overview-column1 .tk-view-row{
+    padding: 1em;
+    width: 80%;
+    height: 100%;
+    align-items: center;
+}
+.token-overview-column1 .tk-view-row h1{
+    margin-top: 0.3em;
+    font-size: 1.3em;
+    font-weight: 500;
+    word-spacing: 0;
+}
+.token-overview-column1 .tk-view-row p{
+    width: 60%;
+    font-size: 1em;
+    margin-top: 0.6em;
+}
+.token-overview-column1 .tk-view-row a{
+    color: black;
+}
+
+
+
+.token-overview-container{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+.token-overview-container .token-overview-column2{
+    width: 78%;
+    margin-right: 1em;
+    height: 100%;
+    display: flex;
+    padding: 1em;
+    flex-wrap: wrap;
+    background-color: #fff;
+    border-radius: 5px;
+}
+.token-overview-column2 .tk-view-box{
+    width: 33%;
+    height: 50px;
+    align-items: center;
+    padding: 1em;
+    background-color: #fff;
+}
+.token-overview-column2 .tk-view-box p{
+    font-size: 0.7em;
+    margin-top: -1em;
+}
+.token-overview-column2 .tk-view-box h3{
+    font-weight: 600;
+}
+.token-overview-column2 .tk-view-box:nth-child(1){
+    border-right: 1px solid rgba(0, 0, 0, 0.223);
+}
+.token-overview-column2 .tk-view-box:nth-child(2){
+    border-right: 1px solid rgba(0, 0, 0, 0.223);
+}
+
+
+
+.token-overview-container2{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+.token-overview-container2 .token-column1{
+    width: 78%;
+    margin-right: 1em;
+    height: 100%;
+    border-radius: 5px;
+    margin-top: 1em;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    padding: 1em;
+}
+.token-overview-container2 .token-column1 .first-box{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.token-overview-container2 .token-column1 .first-box h2{
+    margin-top: 0.3em;
+    font-size: 1.4em;
+    font-weight: 500;
+    word-spacing: 0;
+}
+.token-overview-container2 .token-column1 .first-box div{
+    display: flex;
+    margin-top: 0.7em;
+    align-items: center;
+}
+.token-overview-container2 .token-column1 .first-box div input{
+    width: 33%;
+    padding:0.8em 1em;
+    margin-left: 0.7em;
+    border: 1px solid rgba(0, 0, 0, 0.262);
+    outline: 1px solid rgba(0, 0, 0, 0.262);
+    border-radius: 6px;
+}
+
+.token-overview-container2 .token-column1 .second-box{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2.5em;
+    margin-bottom: 2.5em;
+}
+.token-overview-container2 .token-column1 .second-box .row1{
+    display: flex;
+    gap: 2em;
+    margin-left: 15%;
+}
+.token-overview-container2 .token-column1 .second-box .row1 .div{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.token-overview-container2 .token-column1 .second-box .row1 div p{
+    font-size: 0.8em;
+}
+.token-overview-container2 .token-column1 .second-box .row1 div h4{
+   font-weight: 600;
+}
+.token-overview-container2 .token-column1 .second-box .row1 .div:nth-child(1) span{
+    width: 15px;
+    height: 15px;
+    background-color: blue;
+    border-radius: 50%;
+}
+.token-overview-container2 .token-column1 .second-box .row1 .div:nth-child(2) span{
+    width: 15px;
+    height: 15px;
+    background-color: #bfdbfe;
+    border-radius: 50%;
+}
+
+.token-overview-container2 .token-column1 .second-box .row2{
+    margin-top: -1em;
+    align-items: center;
+    gap: 6px;
+    display: flex;
+    flex-direction: column;
+}
+.token-overview-container2 .token-column1 .second-box .row2 p{
+    font-size: 1em;
+    margin-left: 1em;
+}
+.token-overview-container2 .token-column1 .second-box .row2 a{
+    font-size: 1em;
+    text-decoration: none;
+    color: blue;
+    border-radius: 5px;
+    font-weight: 500;
+    padding: 0.5em 0.8em;
+    border: 1px solid rgba(0, 0, 0, 0.162);
+}
+.token-overview-container2 .token-column1 .second-box .row2 a:hover{
+    background-color: #dbeafe;
+}
