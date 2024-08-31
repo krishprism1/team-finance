@@ -94,7 +94,7 @@
 }
 .token-overview-container2 .token-column1 .first-box h2{
     margin-top: 0.3em;
-    font-size: 1.4em;
+    font-size: 1.3em;
     font-weight: 500;
     word-spacing: 0;
 }
@@ -116,8 +116,8 @@
     width: 100%;
     display: flex;
     justify-content: space-between;
-    margin-top: 2.5em;
-    margin-bottom: 2.5em;
+    margin-top: 3em;
+    margin-bottom: 3em;
 }
 .token-overview-container2 .token-column1 .second-box .row1{
     display: flex;
@@ -170,4 +170,101 @@
 }
 .token-overview-container2 .token-column1 .second-box .row2 a:hover{
     background-color: #dbeafe;
+}
+
+
+
+.token-overview-container3{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+.my-team-token-lock-container{
+    width: 78%;
+    margin-right: 1em;
+    height: 100%;
+    border-radius: 5px;
+    margin-top: 1em;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    padding: 1em;
+}
+.my-team-token-lock-container h3{
+    margin-top: 0.3em;
+    font-size: 1.3em;
+    font-weight: 500;
+    word-spacing: 0;
+}
+.search-top-box{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 0.5em;
+    flex-wrap: wrap;
+    align-items:center;
+    margin-bottom: 0.5em;
+}
+.search-top-box div{
+    display: flex;
+    margin-left: 0.5em;
+    width: 46%;
+    align-items: center;
+}
+.search-top-box div .input-box{
+    width: 350px;
+    height: 46px;
+    position: relative;
+    border: 1px solid rgba(0, 0, 0, 0.181);
+    align-items: center;
+    border-radius: 5px;
+    margin-right: 0.5em;
+}
+.search-top-box div .input-box input{
+    position: absolute;
+    border: none;
+    outline: none;
+    top: 0;
+    width: 310px;
+    height: 45px;
+    right: 3px;
+}
+.search-top-box div .input-box .svg1{
+    width: 1.3em;
+    height: 1.3em;
+    color: gray;
+    margin-left: 0.5em;
+}
+.search-top-box div button{
+    border: 1px solid rgba(0, 0, 0, 0.153);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 46px;
+    height: 46px;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: transparent;
+}
+.search-top-box div button:hover{
+    background-color: #dbeafe;
+}
+.search-top-box a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    text-decoration: none;
+    color: #fff;
+    background-color: rgba(0, 0, 255, 0.736);
+    font-size: 1em;
+    font-weight: 500;
+    padding: 0.7em 0.9em;
+    border-radius: 5px;
+    margin-bottom: 0.5em;
+}
+.search-top-box a:hover{
+    background-color: blue;
 }
