@@ -283,6 +283,29 @@ const TokenOverview = () => {
 
           </div>
 
+          <div className="bottom-last-container">
+            <div className="bottom-box1">
+              <span>1 to <span>5</span> of 7 results</span>
+            </div>
+
+            <div className="bottom-box2">
+              <p>Rows</p>
+              <select>
+                <option value="5">5</option>
+                <option value="10">10</option>
+                <option value="20">20</option>
+              </select>
+              <div>
+              <button><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="16" width="16" xmlns="http://www.w3.org/2000/svg"><path d="M10.8284 12.0007L15.7782 16.9504L14.364 18.3646L8 12.0007L14.364 5.63672L15.7782 7.05093L10.8284 12.0007Z"></path></svg></button>
+              <div className='span'>
+                <span >Page 1/1</span>
+                </div>
+              <button><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="16" width="16" xmlns="http://www.w3.org/2000/svg"><path d="M13.1717 12.0007L8.22192 7.05093L9.63614 5.63672L16.0001 12.0007L9.63614 18.3646L8.22192 16.9504L13.1717 12.0007Z"></path></svg></button>
+              </div>
+            </div>
+          </div>
+
+
         </div>
       </div>
     </>
