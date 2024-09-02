@@ -791,9 +791,9 @@
 
     .level-bar-column{
         position: relative;
-        width: 20px;
-        margin-top: 12em;
-        margin-bottom: 3em;
+        margin-left: -180px;
+        margin-top: 12.5em;
+        margin-bottom: 1em;
     }
     .securty-level-bar-container {
         width: 100%;
@@ -807,7 +807,7 @@
         display: flex;
         position: absolute;
         top: 50%;
-        left: 50%;
+        left: 10%;
         transform: translate(-50%,-50%);
     }
 
@@ -855,6 +855,10 @@
 
     .level-heading-column .first-box1 p {
         font-size: 1em;
+        position: absolute;
+        width: 40%;
+        left: 50%;
+        top: 170%;
     }
 
     .circle-heading-top {

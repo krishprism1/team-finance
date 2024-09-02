@@ -3,6 +3,8 @@ import "../../styles/mint.css"
 import "../../styles/Staking.css"
 import "../../styles/multisender.css"
 import "../../styles/info/tokenOverview.css"
+import "../../styles/info/tokenOverviewResponsive.css"
+
 
 const TokenOverview = () => {
   return (
@@ -38,7 +40,17 @@ const TokenOverview = () => {
             <h2>My team token locks total</h2>
             <div>
               <p>Your tokens</p>
-              <input type="text" placeholder='Lap' />
+              <select name="Select token" id='select token'>
+                <option value="Select Token">Select Token</option>
+                <option value="Lap">Lap</option>
+                <option value="OOE">OOE</option>
+                <option value="factorytest">factorytest</option>
+                <option value="TestToken">TestToken</option>
+                <option value="Candes">Candes</option>
+              </select>
+              <label htmlFor='select token' className='select-token-btn'>
+              <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24"  aria-hidden="true"  height="1.3em" width="1.3em" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M11.47 4.72a.75.75 0 0 1 1.06 0l3.75 3.75a.75.75 0 0 1-1.06 1.06L12 6.31 8.78 9.53a.75.75 0 0 1-1.06-1.06l3.75-3.75Zm-3.75 9.75a.75.75 0 0 1 1.06 0L12 17.69l3.22-3.22a.75.75 0 1 1 1.06 1.06l-3.75 3.75a.75.75 0 0 1-1.06 0l-3.75-3.75a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd"></path></svg>
+              </label>
             </div>
           </div>
           <div className="second-box">
@@ -91,6 +103,51 @@ const TokenOverview = () => {
           </div>
         </div>
       </div>
+
+      {/* filter box code here */}
+      <div className="filter-box-container">
+          <div className="filter-box-column">
+            <div className="filter-row1">
+              <h2>Filter</h2>
+              <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24"  aria-hidden="true" height="2em" width="2em" xmlns="http://www.w3.org/2000/svg"><path d="m16.192 6.344-4.243 4.242-4.242-4.242-1.414 1.414L10.535 12l-4.242 4.242 1.414 1.414 4.242-4.242 4.243 4.242 1.414-1.414L13.364 12l4.242-4.242z"></path></svg>
+            </div>
+            <div className="filter-row2">
+              <span>Locked token</span>
+              <div>
+                <input type="text" placeholder='Start typing or select from the list'/>
+                <svg height="20" width="20" viewBox="0 0 20 20" aria-hidden="true" focusable="false" ><path d="M4.516 7.548c0.436-0.446 1.043-0.481 1.576 0l3.908 3.747 3.908-3.747c0.533-0.481 1.141-0.446 1.574 0 0.436 0.445 0.408 1.197 0 1.615-0.406 0.418-4.695 4.502-4.695 4.502-0.217 0.223-0.502 0.335-0.787 0.335s-0.57-0.112-0.789-0.335c0 0-4.287-4.084-4.695-4.502s-0.436-1.17 0-1.615z"></path></svg>
+                </div>
+            </div>
+            <div className="filter-row2">
+              <span>Lock start period</span>
+              <div>
+                <input type="datetime-local" placeholder='Start'/>
+                </div>
+            </div>
+            <div className="filter-row2">
+              <span>Lock end period</span>
+              <div>
+                <input type="datetime-local" placeholder='Start'/>
+                </div>
+            </div>
+            <div className="filter-row2">
+              <span>Status</span>
+              <div>
+                <select name="Status">
+                  <option value="All">All</option>
+                  <option value="Unlocked">Unlocked</option>
+                  <option value="Locked">Locked</option>
+                </select>
+                </div>
+            </div>
+            <div className="filter-last-row">
+              <a href="#">Cancel</a>
+              <a href="#">Clear all</a>
+              <a href="#">Apply</a>
+            </div>
+          </div>
+      </div>
+
 
       <div className="token-overview-container4">
         <div className="token-details-container">
@@ -305,9 +362,58 @@ const TokenOverview = () => {
             </div>
           </div>
 
-
         </div>
       </div>
+
+{/* team token lock datails box here */}
+      <div className="team-token-lock-details-container">
+        <div className="team-token-lock-column">
+
+        <div className="team-token-row1">
+              <h2>Team token lock details</h2>
+              <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24"  aria-hidden="true" height="2em" width="2em" xmlns="http://www.w3.org/2000/svg"><path d="m16.192 6.344-4.243 4.242-4.242-4.242-1.414 1.414L10.535 12l-4.242 4.242 1.414 1.414 4.242-4.242 4.243 4.242 1.414-1.414L13.364 12l4.242-4.242z"></path></svg>
+          </div>
+
+            <div className="team-token-row2">
+              <div>
+                <span>Token address</span>
+                <p>0x7aE5DF7f030fF1AEFc542240E56900CF3d1Dc911</p>
+              </div>
+              <div>
+                <span>Amount locked</span>
+                <p>100 ft</p>
+              </div>
+              <div>
+                <span>Start date</span>
+                <p>29 Aug 2024 01:10 PM UTC+5.5</p>
+              </div>
+              <div>
+                <span>End date </span>
+                <p>Invalid dateUTC+5.5</p>
+              </div>
+              <div>
+                <span>Status</span>
+                <h4>Unlocked</h4>
+              </div>
+            </div>
+
+            <div className="team-token-row3">
+
+            </div>
+
+            <div className="team-token-row4">
+              <div>
+                <p>Available for withdrawal</p>
+                <span>100 ft</span>
+              </div>
+             <div>
+               <a href="#">Switch Network</a>
+               </div>
+            </div>
+        </div>
+      </div>
+
+ 
     </>
   )
 }

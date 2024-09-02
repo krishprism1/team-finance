@@ -193,8 +193,8 @@
     .side-container{
         position: fixed;
         left: 0;
-        width: 60%;
-        height: 100vh;
+        width: 50%;
+        height: 100%;
         background-color:#f3f7fa;
         display: none;
         overflow-y: scroll;
@@ -206,11 +206,12 @@
     .close-icon-box .close-icon{
         position: absolute;
         right:0;
-        top:14%;
-        width: 2em;
-        height: 2em;
+        top:10%;
+        width: 3em;
+        height: 3em;
         z-index: 199;
         color: #63676d;
+        cursor: pointer;
     }
     .link-box1 ul,.link-box2 ul{
         margin-left: 2.5em;
@@ -259,5 +260,18 @@
         border-radius: 6px;
         opacity: 1;
         z-index: 1;
+    }
+    .team-finance{
+        width: 100%;
+        height: 7.7vh;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        border-bottom: .02px solid rgba(0, 0, 0, 0.322);
+        padding: 0 1em;
+    }
+    .team-finance img{
+        width: 6em;
+        height: 3em;
     }
 }
