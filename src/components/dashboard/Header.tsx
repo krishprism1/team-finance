@@ -49,7 +49,7 @@ const Header = () => {
       </div>
       <nav>
         <div className='nav-div'>
-          <div><img src="https://app.team.finance/icons/wizard/ethereum.svg" alt="ig" />
+          <div><img src="https://app.team.finance/icons/wizard/binance.svg" alt="ig" />
           </div>
         <div>
           <a href="#" onClick={() => connect()}>{address ? formatEthAddr(address) : "connect wallet"}</a>
