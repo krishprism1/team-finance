@@ -429,6 +429,7 @@
     display: flex;
     justify-content: flex-end;
     align-items: flex-end;
+    position: relative;
 }
 .token-overview-container4 .token-details-container{
     width: 78%;
@@ -440,6 +441,7 @@
     flex-direction: column;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
+    position: relative;
 }
 .token-details-container .top-heading-box{
     border-top: 1px solid rgba(0, 0, 0, 0.127);
@@ -472,6 +474,7 @@
     display: flex;
     justify-content: space-between;
     flex-direction: column;
+    position: relative;
 }
 
 .borad-chart-column .board-chart-row1 .board-chart-box1{

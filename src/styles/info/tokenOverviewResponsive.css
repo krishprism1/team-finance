@@ -1,10 +1,384 @@
 @media only screen and (max-width:766px){
-
+    .token-overview-column1 .tk-view-row{
+        padding: 1em;
+        width: 100%;
+    }
+    .token-overview-column1 .tk-view-row p{
+        width: 95%;
+        word-spacing: 4px;
+        margin-left: 2px;
+    }
+    .token-overview-container .token-overview-column2{
+        width: 93%;
+        height: 100%;
+        margin-right: 1em;
+        display: flex;
+        padding: 0em 1em;
+        flex-direction: column;
+        flex-wrap: wrap;
+        background-color: #fff;
+        border-radius: 5px;
+    }
+    .token-overview-container2 .token-column1 .first-box div .select-token-btn{
+        display: none;
+    }
+    .token-overview-container2 .token-column1 .first-box div{
+        align-items: flex-start;;
+        flex-direction: column;
+    }
+    .token-overview-container2 .token-column1 .first-box div select{
+        width: 100%;
+        cursor: pointer;
+        margin-left: 0;
+    }
+    .token-overview-container2 .token-column1 .first-box div select option{
+        width: 100%;
+        height: 100%;
+    }
+    .token-overview-column2 .tk-view-box{
+        width: 100%;
+        height: 65px;
+        align-items: center;
+        padding: 1.5em 0em;
+        background-color: #fff;
+    }
+    .token-overview-column2 .tk-view-box{
+        border-bottom: 1px solid rgba(0, 0, 0, 0.223) ;
+    }
+    .token-overview-column2 .tk-view-box:nth-child(1){
+        border-right: none;
+    }
+    .token-overview-column2 .tk-view-box:nth-child(2){
+        border-right: none;
+    }
+    .token-overview-container2 .token-column1{
+        width: 93%;
+        margin-right: 1em;
+        height: 100%;
+        border-radius: 5px;
+        margin-top: 1em;
+        background-color: #fff;
+        display: flex;
+        flex-direction: column;
+        padding: 1em;
+    }
+    .token-overview-container2 .token-column1 .second-box{
+        width: 100%;
+        display: flex;
+        gap: 1em;
+        margin-bottom: 1em;
+        flex-direction: column;
+    }
+    .token-overview-container2 .token-column1 .second-box .row2{
+        margin-top: 1.5em;
+        align-items: center;
+        gap: 6px;
+        display: flex;
+        flex-direction: column;
+    }
+    .token-overview-container2 .token-column1 .second-box .row2 a{
+        font-size: 1em;
+        width: 100%;
+        text-align: center;
+    }
+    .my-team-token-lock-container{
+        width: 93%;
+        margin-right: 1em;
+        height: 100%;
+        border-radius: 5px;
+        margin-top: 1em;
+        background-color: #fff;
+        display: flex;
+        flex-direction: column;
+        padding: 1em;
+    }
+    .search-top-box{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        margin-top: 0.5em;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        gap: 1em;
+        margin-bottom: 0.5em;
+    }
+    .search-top-box div{
+        display: flex;
+        width: 100%;
+        align-items: center;
+    }
+    .search-top-box div .input-box{
+        width: 300px;
+        height: 46px;
+    }
+    .search-top-box div .input-box input{
+        width: 240px;
+        height: 40px;
+        right: 3px;
+    }
+    .token-overview-container4 .token-details-container{
+        width: 93vw;
+        margin-right: 1em;
+        overflow-x: scroll;
+        margin-top: -3px;
+        height: 100%;
+        background-color: #fff;
+        display: flex;
+        flex-direction: column;
+    }
+    .token-details-container .top-heading-box{
+        border-top: 1px solid rgba(0, 0, 0, 0.127);
+        border-bottom:1px solid rgba(0, 0, 0, 0.119); ;
+        width: 250%;
+        display: flex;
+        align-items: center;
+    }
+    .token-details-container .top-heading-box p{
+        font-size: 0.7em;
+        margin-right: 70px;
+        margin-left: 1em;
+        color: gray;
+        cursor: default;
+    }
+    .token-details-container .top-heading-box p:last-child{
+        margin-left: 5em;
+    }
+    .borad-chart-column .board-chart-row1{
+        width: 200%;
+        height: 100%;
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+    }
+    .token-details-container .borad-chart-column{
+        width: 200%;
+        display: flex;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.21);
+    }
+    .borad-chart-column .board-chart-row1 .board-chart-box1 .div1{
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        width: 120px;
+    }
+    .borad-chart-column .board-chart-row1 .board-chart-box1 .div2{
+        width: 130px;
+        padding-left: 0.5em;
+    }
+    .borad-chart-column .board-chart-row1 .board-chart-box1 .div3{
+        width: 130px;
+    }
+    .borad-chart-column .board-chart-row1 .board-chart-box1 .div4{
+        width: 130px;
+        padding-left: 1em;
+    }
+    .borad-chart-column .board-chart-row1 .board-chart-box1 .div5{
+        width: 130px;
+        display: flex;
+        align-items: center;
+        background-color: #dbeafe;
+        padding:0.4em 0.8em ;
+        border-radius: 50px;
+        gap: 4px;
+    }
+    .borad-chart-column .board-chart-row2{
+        width: 20vh;
+        height: 100%;
+    }
+    .borad-chart-column .board-chart-row2 .box11{
+        width: 25vh;
+        display: flex;
+        align-items: center;
+        padding:1em;
+        padding-left: 1.5em;
+    }
+    .bottom-last-container{
+        width: 105%;
+        flex-direction: column;
+        gap: 4px;
+        padding: 1.3em;
+    }
+    
 }
 
 
 
 
 @media only screen and (min-width: 768px) and (max-width:1023px){
+    .token-overview-column1 .tk-view-row{
+        padding: 1em;
+        width: 95%;
+    }
+    .token-overview-column1 .tk-view-row p{
+        width: 80%;
+    }
+    .token-overview-container .token-overview-column2{
+        width: 95%;
+        margin-right: 1em;
+        height: 100%;
+        display: flex;
+        padding: 0.1em 1em;
+        flex-direction: column;
+        flex-wrap: wrap;
+        background-color: #fff;
+        border-radius: 5px;
+    }
+    .token-overview-container2 .token-column1 .first-box div .select-token-btn{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #fff;
+        padding: 2px;
+        padding-right: 1em;
+        left: 41.5%;
+    }
+    .token-overview-column2 .tk-view-box{
+        width: 100%;
+        height: 65px;
+        align-items: center;
+        padding: 1.5em 0em;
+        background-color: #fff;
+    }
+    .token-overview-column2 .tk-view-box{
+        border-bottom: 1px solid rgba(0, 0, 0, 0.223) ;
+    }
+    .token-overview-column2 .tk-view-box:nth-child(1){
+        border-right: none;
+    }
+    .token-overview-column2 .tk-view-box:nth-child(2){
+        border-right: none;
+    }
+    .token-overview-container2 .token-column1{
+        width: 95%;
+        margin-right: 1em;
+        height: 100%;
+        border-radius: 5px;
+        margin-top: 1em;
+        background-color: #fff;
+        display: flex;
+        flex-direction: column;
+        padding: 1em;
+    }
+    .token-overview-container2 .token-column1 .second-box{
+        width: 100%;
+        display: flex;
+        gap: 1em;
+        margin-bottom: 1em;
+        flex-direction: column;
+    }
+    .token-overview-container2 .token-column1 .second-box .row2{
+        margin-top: 1.5em;
+        align-items: center;
+        gap: 6px;
+        display: flex;
+        flex-direction: column;
+    }
+    .token-overview-container2 .token-column1 .second-box .row2 a{
+        font-size: 1em;
+        width: 100%;
+        text-align: center;
+    }
+    .my-team-token-lock-container{
+        width: 95%;
+        margin-right: 1em;
+        height: 100%;
+        border-radius: 5px;
+        margin-top: 1em;
+        background-color: #fff;
+        display: flex;
+        flex-direction: column;
+        padding: 1em;
+    }
+    .search-top-box{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        margin-top: 0.5em;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        gap: 1em;
+        margin-bottom: 0.5em;
+    }
+    .search-top-box div{
+        display: flex;
+        width: 64%;
+        align-items: center;
+    }
+    .token-overview-container4 .token-details-container{
+        width: 95vw;
+        margin-right: 1em;
+        overflow-x: scroll;
+        margin-top: -3px;
+        height: 100%;
+        background-color: #fff;
+        display: flex;
+        flex-direction: column;
+    }
+    .token-details-container .top-heading-box{
+        border-top: 1px solid rgba(0, 0, 0, 0.127);
+        border-bottom:1px solid rgba(0, 0, 0, 0.119); ;
+        width: 130%;
+        display: flex;
+        align-items: center;
+    }
+    .token-details-container .top-heading-box p{
+        font-size: 0.7em;
+        margin-right: 70px;
+        margin-left: 1em;
+        color: gray;
+        cursor: default;
+    }
+    .token-details-container .top-heading-box p:last-child{
+        margin-left: 5em;
+    }
+    .borad-chart-column .board-chart-row1{
+        width: 110%;
+        height: 100%;
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+    }
+    .borad-chart-column .board-chart-row1 .board-chart-box1 .div1{
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        width: 120px;
+    }
+    .borad-chart-column .board-chart-row1 .board-chart-box1 .div2{
+        width: 130px;
+        padding-left: 0.5em;
+    }
+    .borad-chart-column .board-chart-row1 .board-chart-box1 .div3{
+        width: 130px;
+    }
+    .borad-chart-column .board-chart-row1 .board-chart-box1 .div4{
+        width: 130px;
+        padding-left: 1em;
+    }
+    .borad-chart-column .board-chart-row1 .board-chart-box1 .div5{
+        width: 130px;
+        display: flex;
+        align-items: center;
+        background-color: #dbeafe;
+        padding:0.4em 0.8em ;
+        border-radius: 50px;
+        gap: 4px;
+    }
+    .borad-chart-column .board-chart-row2{
+        width: 20vh;
+        height: 100%;
+    }
+    .borad-chart-column .board-chart-row2 .box11{
+        width: 20vh;
+        display: flex;
+        align-items: center;
+        padding:1em;
+        padding-left: 1.5em;
+    }
+    .bottom-last-container{
+        width: 100%;
+        padding: 1.3em;
+    }
+    
 
 }
