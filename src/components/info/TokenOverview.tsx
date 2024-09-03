@@ -182,7 +182,7 @@ const TokenOverview = () => {
                   <p>29 Nov 2024</p>
                 </div>
                 <div className="div5">
-                  <svg viewBox="0 0 100 100" width='1.1em' height='1.1em' data-test-id="CircularProgressbar"><path d="M 50,50 m 0,-44 a 44,44 0 1 1 0,88 a 44,44 0 1 1 0,-88 " stroke-width="12" fill-opacity="0" style={{ stroke: 'rgb(191, 219, 254)', strokeLinecap: ' round', strokeDasharray: '276.46px, 276.46px', strokeDashoffset: ' 0px' }}></path><path d=" M 50,50 m 0,-44 a 44,44 0 1 1 0,88 a 44,44 0 1 1 0,-88 " stroke-width="12" fill-opacity="0" style={{ stroke: 'rgb(37, 99, 235)', strokeLinecap: 'round', strokeDasharray: '276.46px, 276.46px', strokeDashoffset: '16.031px' }}></path></svg>
+                  <svg viewBox="0 0 100 100" width='1.1em' height='1.1em' data-test-id="CircularProgressbar"><path d="M 50,50 m 0,-44 a 44,44 0 1 1 0,88 a 44,44 0 1 1 0,-88 " stroke-width="12" fill-opacity="0" style={{ stroke: 'rgb(191, 219, 254)', strokeLinecap: ' round', strokeDasharray: '276.46px, 276.46px', strokeDashoffset: ' 0px' }}></path><path d=" M 50,50 m 0,-44 a 44,44 0 1 1 0,88 a 44,44 0 1 1 0,-88 " stroke-width="12" fill-opacity="0" style={{ stroke: 'rgb(37, 99, 235)', strokeDasharray: '276.46px, 276.46px', strokeDashoffset: '16.031px' }}></path></svg>
                   <h6>Locked</h6>
                 </div>
               </div>
@@ -218,7 +218,7 @@ const TokenOverview = () => {
                   <p>15 Nov 2024</p>
                 </div>
                 <div className="div5">
-                  <svg viewBox="0 0 100 100" width='1.1em' height='1.1em' data-test-id="CircularProgressbar"><path d="M 50,50 m 0,-44 a 44,44 0 1 1 0,88 a 44,44 0 1 1 0,-88 " stroke-width="12" fill-opacity="0" style={{ stroke: 'rgb(191, 219, 254)', strokeLinecap: ' round', strokeDasharray: '276.46px, 276.46px', strokeDashoffset: ' 0px' }}></path><path d=" M 50,50 m 0,-44 a 44,44 0 1 1 0,88 a 44,44 0 1 1 0,-88 " stroke-width="12" fill-opacity="0" style={{ stroke: 'rgb(37, 99, 235)', strokeLinecap: 'round', strokeDasharray: '276.46px, 276.46px', strokeDashoffset: '90.031px' }}></path></svg>
+                  <svg viewBox="0 0 100 100" width='1.1em' height='1.1em' data-test-id="CircularProgressbar"><path d="M 50,50 m 0,-44 a 44,44 0 1 1 0,88 a 44,44 0 1 1 0,-88 " stroke-width="12" fill-opacity="0" style={{ stroke: 'rgb(191, 219, 254)', strokeLinecap: ' round', strokeDasharray: '276.46px, 276.46px', strokeDashoffset: ' 0px' }}></path><path d=" M 50,50 m 0,-44 a 44,44 0 1 1 0,88 a 44,44 0 1 1 0,-88 " stroke-width="12" fill-opacity="0" style={{ stroke: 'rgb(37, 99, 235)', strokeDasharray: '276.46px, 276.46px', strokeDashoffset: '90.031px' }}></path></svg>
                   <h6>Locked</h6>
                 </div>
               </div>
@@ -254,7 +254,7 @@ const TokenOverview = () => {
                   <p>15 Nov 2024</p>
                 </div>
                 <div className="div5">
-                  <svg viewBox="0 0 100 100" width='1.1em' height='1.1em' data-test-id="CircularProgressbar"><path d="M 50,50 m 0,-44 a 44,44 0 1 1 0,88 a 44,44 0 1 1 0,-88 " stroke-width="12" fill-opacity="0" style={{ stroke: 'rgb(191, 219, 254)', strokeLinecap: ' round', strokeDasharray: '276.46px, 276.46px', strokeDashoffset: ' 0px' }}></path><path d=" M 50,50 m 0,-44 a 44,44 0 1 1 0,88 a 44,44 0 1 1 0,-88 " stroke-width="12" fill-opacity="0" style={{ stroke: 'rgb(37, 99, 235)', strokeLinecap: 'round', strokeDasharray: '276.46px, 276.46px', strokeDashoffset: '0px' }}></path></svg>
+                  <svg viewBox="0 0 100 100" width='1.1em' height='1.1em' data-test-id="CircularProgressbar"><path d="M 50,50 m 0,-44 a 44,44 0 1 1 0,88 a 44,44 0 1 1 0,-88 " stroke-width="12" fill-opacity="0" style={{ stroke: 'rgb(191, 219, 254)', strokeLinecap: ' round', strokeDasharray: '276.46px, 276.46px', strokeDashoffset: ' 0px' }}></path><path d=" M 50,50 m 0,-44 a 44,44 0 1 1 0,88 a 44,44 0 1 1 0,-88 " stroke-width="12" fill-opacity="0" style={{ stroke: 'rgb(37, 99, 235)', strokeDasharray: '276.46px, 276.46px', strokeDashoffset: '0px' }}></path></svg>
                   <h6>Locked</h6>
                 </div>
               </div>
@@ -290,7 +290,7 @@ const TokenOverview = () => {
                   <p>15 Nov 2024</p>
                 </div>
                 <div className="div5" style={{ backgroundColor: '#dcfce7' }}>
-                  <svg viewBox="0 0 100 100" width='1.1em' height='1.1em' data-test-id="CircularProgressbar"><path d="M 50,50 m 0,-44 a 44,44 0 1 1 0,88 a 44,44 0 1 1 0,-88 " stroke-width="12" fill-opacity="0" style={{ stroke: 'rgb(191, 219, 254)', strokeLinecap: ' round', strokeDasharray: '276.46px, 276.46px', strokeDashoffset: ' 0px' }}></path><path d=" M 50,50 m 0,-44 a 44,44 0 1 1 0,88 a 44,44 0 1 1 0,-88 " stroke-width="12" fill-opacity="0" style={{ stroke: '#16a34a', strokeLinecap: 'round', strokeDasharray: '276.46px, 276.46px', strokeDashoffset: '0px' }}></path></svg>
+                  <svg viewBox="0 0 100 100" width='1.1em' height='1.1em' data-test-id="CircularProgressbar"><path d="M 50,50 m 0,-44 a 44,44 0 1 1 0,88 a 44,44 0 1 1 0,-88 " stroke-width="12" fill-opacity="0" style={{ stroke: 'rgb(191, 219, 254)', strokeLinecap: ' round', strokeDasharray: '276.46px, 276.46px', strokeDashoffset: ' 0px' }}></path><path d=" M 50,50 m 0,-44 a 44,44 0 1 1 0,88 a 44,44 0 1 1 0,-88 " stroke-width="12" fill-opacity="0" style={{ stroke: '#16a34a', strokeDasharray: '276.46px, 276.46px', strokeDashoffset: '0px' }}></path></svg>
                   <h6 style={{ color: '#166534' }}>Unlocked</h6>
                 </div>
               </div>
@@ -326,7 +326,7 @@ const TokenOverview = () => {
                   <p>15 Nov 2024</p>
                 </div>
                 <div className="div5">
-                  <svg viewBox="0 0 100 100" width='1.1em' height='1.1em' data-test-id="CircularProgressbar"><path d="M 50,50 m 0,-44 a 44,44 0 1 1 0,88 a 44,44 0 1 1 0,-88 " stroke-width="12" fill-opacity="0" style={{ stroke: 'rgb(191, 219, 254)', strokeLinecap: ' round', strokeDasharray: '276.46px, 276.46px', strokeDashoffset: ' 0px' }}></path><path d=" M 50,50 m 0,-44 a 44,44 0 1 1 0,88 a 44,44 0 1 1 0,-88 " stroke-width="12" fill-opacity="0" style={{ stroke: 'rgb(37, 99, 235)', strokeLinecap: 'round', strokeDasharray: '276.46px, 276.46px', strokeDashoffset: '0px' }}></path></svg>
+                  <svg viewBox="0 0 100 100" width='1.1em' height='1.1em' data-test-id="CircularProgressbar"><path d="M 50,50 m 0,-44 a 44,44 0 1 1 0,88 a 44,44 0 1 1 0,-88 " stroke-width="12" fill-opacity="0" style={{ stroke: 'rgb(191, 219, 254)', strokeLinecap: ' round', strokeDasharray: '276.46px, 276.46px', strokeDashoffset: ' 0px' }}></path><path d=" M 50,50 m 0,-44 a 44,44 0 1 1 0,88 a 44,44 0 1 1 0,-88 " stroke-width="12" fill-opacity="0" style={{ stroke: 'rgb(37, 99, 235)', strokeDasharray: '276.46px, 276.46px', strokeDashoffset: '0px' }}></path></svg>
                   <h6>Locked</h6>
                 </div>
               </div>
