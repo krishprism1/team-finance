@@ -144,7 +144,7 @@
     }
     
     .link-box1 ul li:first-child{
-        margin-top: 1em;
+        margin-top: 0em;
         width: 55%;
     }
     .link-box1 ul li a,.link-box2 ul li a{
@@ -184,6 +184,19 @@
         border-radius: 6px;
         opacity: 1;
         z-index: 1;
+    }
+    .team-finance{
+        width: 100%;
+        height: 8vh;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        border-bottom: .02px solid rgba(0, 0, 0, 0.322);
+        padding: 0 1.5em;
+    }
+    .team-finance img{
+        width: 6em;
+        height: 3em;
     }
 }
 
