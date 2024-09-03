@@ -20,6 +20,7 @@ export interface IMultisent {
   wallet: string;
   chainId: number;
   token: string;
+  symbol: string;
   recipients: string[];
   amounts: number[];
   txhash: string;

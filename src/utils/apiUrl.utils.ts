@@ -9,7 +9,6 @@ export const tokenMintUrl = {
 
 export const multiSentUrl = {
     send : "/api/multisender/send",
-    list: "/api/token/list?wallet="
 }
 
 export const tokenLockUrl = {

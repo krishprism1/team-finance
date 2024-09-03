@@ -16,6 +16,10 @@ const multisentSchema: Schema<IMultisentDocument> = new Schema({
       type: String,
       required: true,
     },
+    symbol: {
+      type: String,
+      required: true,
+    },
     recipients: {
       type: [String], 
       required: true,

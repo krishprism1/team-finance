@@ -1,4 +1,5 @@
 import connect from "@/connection/db.config";
+import Multisent from "@/models/multiSentModel";
 import Token from "@/models/tokenModel";
 import { NextRequest, NextResponse } from "next/server";
 
@@ -26,6 +27,10 @@ export async function GET(request: NextRequest) {
         const tokensCount = await Token.countDocuments({ wallet: wallet?.toLocaleLowerCase() })
         stats.mintCount = tokensCount;
         stats.arr[0] = stats.mintCount ? false : true
+
+        const multisentCount = await Multisent.countDocuments({ wallet: wallet?.toLocaleLowerCase() })
+        stats.multisenderCount = multisentCount;
+        stats.arr[5] = stats.multisenderCount ? false : true
 
         stats.totalServicesCount = stats.mintCount + stats.multisenderCount + stats.vestingCount + stats.stakingCount + stats.locksInfo.tokenCount
         return NextResponse.json({ message: "user stats", success: true, data: stats })

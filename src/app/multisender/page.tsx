@@ -201,8 +201,9 @@ export default function MultiSender() {
 
                 await axios.post(multiSentUrl.send, {
                     wallet: address,
-                    chainId: 22,
+                    chainId: 97,
                     token: selectedToken.token,
+                    symbol: selectedToken.symbol,
                     recipients: recipients,
                     amounts: normalAmount,
                     txhash: receipt.hash,

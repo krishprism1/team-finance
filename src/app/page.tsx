@@ -43,8 +43,10 @@ export default function Home() {
       console.log(error, "++++")
     }
   }
-  console.log(userInfo, "jj")
+
   let mint = userInfo?.data?.mint
+  let multisent = userInfo?.data?.multisent
+  console.log(userInfo, "jj", mint)
 
   return (
     <>
@@ -54,28 +56,35 @@ export default function Home() {
             <div className="heading">
               <h2>Dashboard</h2>
             </div>
+            {address ? <ProgressLevelCard stats={stats} /> : <WalletOverviewCard />}
+
+
             {stats && stats?.data?.totalServicesCount > 0 ? <>
-              <ProgressLevelCard />
-
-              <InProgressCard />
+              {/* <InProgressCard /> */}
               <InProgressCard />
               <InProgressCard />
 
-              {stats?.data?.mintCount &&
+              {stats?.data?.mintCount ?
                 <RecentTokenCard
                   tokenLogo={mint?.tokenLogo}
                   name={mint?.name}
                   symbol={mint?.symbol}
-                  supply={mint?.supply} />
+                  supply={mint?.supply} /> : ""
               }
 
-              {stats?.data?.multisenderCount ? <RecentMultisentCard tokenLogo="ls" symbol="CDS" amount={1000} recipients={10} /> :""}
-            </> :
-              <WalletOverviewCard />
+              {stats?.data?.multisenderCount ?
+                <RecentMultisentCard
+                  tokenLogo=""
+                  symbol={multisent?.symbol}
+                  amount={multisent?.totalAmount}
+                  recipients={multisent?.totalRecipients}
+                />
+                : ""}
+            </> : ""
             }
 
             <div className="column2-container">
-              {featureProps && stats?.data && featureProps.map((item: any, index: number) => (
+              {stats?.data ? featureProps.map((item: any, index: number) => (
                 stats?.data?.arr[index] &&
                 <FeatureCard
                   key={index}
@@ -84,7 +93,18 @@ export default function Home() {
                   btnOne={item.btnOne}
                   btnTwo={item.btnTwo}
                   routeOne={item.routeOne} />
-              ))}
+              )) :
+
+                featureProps.map((item: any, index: number) => (
+                  <FeatureCard
+                    key={index}
+                    title={item.title}
+                    description={item.description}
+                    btnOne={item.btnOne}
+                    btnTwo={item.btnTwo}
+                    routeOne={item.routeOne} />
+                ))
+              }
 
             </div>
           </div>
