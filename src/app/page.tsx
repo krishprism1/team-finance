@@ -1,7 +1,7 @@
 "use client"
 import "../styles/Dashboard.css"
 import FeatureCard from "@/components/dashboard/FeatureCard";
-import InProgressCard from "@/components/dashboard/InProgressCard";
+import VestingCard from "@/components/dashboard/VestingCard";
 import ProgressLevelCard from "@/components/dashboard/ProgressLevelCard";
 import RecentMultisentCard from "@/components/dashboard/RecentMultisentCard";
 import RecentTokenCard from "@/components/dashboard/RecentTokenCard";
@@ -12,6 +12,8 @@ import { useEffect, useState } from "react";
 import { useAccount } from "wagmi";
 import axios from 'axios'
 import { userUrl } from "@/utils/apiUrl.utils";
+import NFTLockCard from "@/components/dashboard/NFTLockCard";
+import TeamTokenLockCard from "@/components/dashboard/TeamTokenLockCard";
 
 
 export default function Home() {
@@ -46,7 +48,10 @@ export default function Home() {
 
   let mint = userInfo?.data?.mint
   let multisent = userInfo?.data?.multisent
-  console.log(userInfo, "jj", mint)
+  let tokenLock = userInfo?.data?.tokenlock
+  let nftLock = userInfo?.data?.nftlock
+
+  console.log(stats, "jj", userInfo)
 
   return (
     <>
@@ -60,9 +65,27 @@ export default function Home() {
 
 
             {stats && stats?.data?.totalServicesCount > 0 ? <>
-              {/* <InProgressCard /> */}
-              <InProgressCard />
-              <InProgressCard />
+              {stats?.data?.vestingCount ?
+                <VestingCard /> : ""
+              }
+
+              {stats?.data?.locksInfo?.tokenCount ?
+                <TeamTokenLockCard
+                  stats={stats?.data}
+                  asset={tokenLock?.token}
+                  amount={tokenLock?.amount}
+                  unlockTime={tokenLock?.unlockTime}
+                /> : ""
+              }
+
+              {stats?.data?.locksInfo?.nftCount ?
+                <NFTLockCard
+                  stats={stats?.data}
+                  asset={nftLock?.nftAddr}
+                  tokenId={nftLock?.tokenId}
+                  unlockTime={nftLock?.unlockTime}
+                /> : ""
+              }
 
               {stats?.data?.mintCount ?
                 <RecentTokenCard

@@ -18,7 +18,6 @@ interface ProgressLevelCardProps {
 }
 
 const ProgressLevelCard: React.FC<ProgressLevelCardProps> = (props) => {
-    console.log(props.stats, "stats")
     const data = props.stats?.data;
     const percentage = data?.totalServicesCount ? Math.ceil((data?.totalServicesCount / 7) * 100) : 0
     return (
