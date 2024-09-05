@@ -113,12 +113,13 @@
 @media only screen and (max-width:766px){
     .side-container{
         position: fixed;
-        display: none;
         top: 0;
         width: 90%;
         height: 100vh;
         background-color:#f3f7fa;
         z-index: 99;
+        transform: translateX(-100%);
+        transition: all 0.5s ease;
     }
     .close-icon-box{
         display: block;
@@ -205,12 +206,13 @@
 @media only screen and (min-width: 768px) and (max-width:1023px){
     .side-container{
         position: fixed;
-        left: 0;
-        width: 50%;
-        height: 100%;
+        top: 0;
+        width: 60%;
+        height: 100vh;
         background-color:#f3f7fa;
-        display: none;
-        overflow-y: scroll;
+        z-index: 99;
+        transform: translateX(-100%);
+        transition: all 0.5s ease;
     }
     .close-icon-box{
         display: block;
