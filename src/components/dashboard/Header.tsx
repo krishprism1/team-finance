@@ -15,7 +15,9 @@ const Header = () => {
   // nav open code
   function openIcon(){
     let sidebox= document.querySelector('.side-container');
-     sidebox.style.transform = "translateX(0%)"
+    if (sidebox) {
+      (sidebox as HTMLElement).style.transform = "translateX(0%)";
+    }
    }
  
 

@@ -3,22 +3,24 @@ import React from 'react'
 import "../../styles/Sidebar.css"
 
 const Sidebar = () => {
-  function close(){
-   let sidebox= document.querySelector('.side-container');
-    sidebox.style.transform = "translateX(-100%)"
+  function close() {
+    let sidebox = document.querySelector('.side-container');
+    if (sidebox) {
+      (sidebox as HTMLElement).style.transform = "translateX(-100%)"
+    }
   }
 
   return (
     <>
-    
+
       <div className="side-container">
         <div className="link-box1">
-            <div className='close-icon-box'>
-                <svg stroke="currentColor" fill="currentColor" onClick={close} stroke-width="0" viewBox="0 0 24 24" className='close-icon' aria-hidden="true" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="m16.192 6.344-4.243 4.242-4.242-4.242-1.414 1.414L10.535 12l-4.242 4.242 1.414 1.414 4.242-4.242 4.243 4.242 1.414-1.414L13.364 12l4.242-4.242z"></path></svg>
-            </div>
-            <div className='team-finance'>
+          <div className='close-icon-box'>
+            <svg stroke="currentColor" fill="currentColor" onClick={close} stroke-width="0" viewBox="0 0 24 24" className='close-icon' aria-hidden="true" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="m16.192 6.344-4.243 4.242-4.242-4.242-1.414 1.414L10.535 12l-4.242 4.242 1.414 1.414 4.242-4.242 4.243 4.242 1.414-1.414L13.364 12l4.242-4.242z"></path></svg>
+          </div>
+          <div className='team-finance'>
             <img src="https://app.team.finance/Blue_TF_Logotype.svg" alt="" />
-            </div>
+          </div>
           <ul>
             <li><span></span>
               <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" className="icon" aria-hidden="true" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
@@ -26,7 +28,7 @@ const Sidebar = () => {
               </svg>
               <Link href="/">Dashboard</Link></li>
             <li><span></span>
-            <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" className="icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><path d="M12 22c3.976 0 8-1.374 8-4V6c0-2.626-4.024-4-8-4S4 3.374 4 6v12c0 2.626 4.024 4 8 4zm0-2c-3.722 0-6-1.295-6-2v-1.268C7.541 17.57 9.777 18 12 18s4.459-.43 6-1.268V18c0 .705-2.278 2-6 2zm0-16c3.722 0 6 1.295 6 2s-2.278 2-6 2-6-1.295-6-2 2.278-2 6-2zM6 8.732C7.541 9.57 9.777 10 12 10s4.459-.43 6-1.268V10c0 .705-2.278 2-6 2s-6-1.295-6-2V8.732zm0 4C7.541 13.57 9.777 14 12 14s4.459-.43 6-1.268V14c0 .705-2.278 2-6 2s-6-1.295-6-2v-1.268z"></path></svg>
+              <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" className="icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><path d="M12 22c3.976 0 8-1.374 8-4V6c0-2.626-4.024-4-8-4S4 3.374 4 6v12c0 2.626 4.024 4 8 4zm0-2c-3.722 0-6-1.295-6-2v-1.268C7.541 17.57 9.777 18 12 18s4.459-.43 6-1.268V18c0 .705-2.278 2-6 2zm0-16c3.722 0 6 1.295 6 2s-2.278 2-6 2-6-1.295-6-2 2.278-2 6-2zM6 8.732C7.541 9.57 9.777 10 12 10s4.459-.43 6-1.268V10c0 .705-2.278 2-6 2s-6-1.295-6-2V8.732zm0 4C7.541 13.57 9.777 14 12 14s4.459-.43 6-1.268V14c0 .705-2.278 2-6 2s-6-1.295-6-2v-1.268z"></path></svg>
               <Link href="/token-creation">Token creation</Link>
             </li>
             <li><span></span>
@@ -40,7 +42,7 @@ const Sidebar = () => {
             <li><span></span>
               <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" className="icon" xmlns="http://www.w3.org/2000/svg"><path d="m21.406 6.086-9-4a1.001 1.001 0 0 0-.813 0l-9 4c-.02.009-.034.024-.054.035-.028.014-.058.023-.084.04-.022.015-.039.034-.06.05a.87.87 0 0 0-.19.194c-.02.028-.041.053-.059.081a1.119 1.119 0 0 0-.076.165c-.009.027-.023.052-.031.079A1.013 1.013 0 0 0 2 7v10c0 .396.232.753.594.914l9 4c.13.058.268.086.406.086a.997.997 0 0 0 .402-.096l.004.01 9-4A.999.999 0 0 0 22 17V7a.999.999 0 0 0-.594-.914zM12 4.095 18.538 7 12 9.905l-1.308-.581L5.463 7 12 4.095zM4 16.351V8.539l7 3.111v7.811l-7-3.11zm9 3.11V11.65l7-3.111v7.812l-7 3.11z"></path></svg>
               <Link href="/nft-locks">NFT locks</Link>
-            </li>           
+            </li>
             <li><span></span>
               <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" className="icon" xmlns="http://www.w3.org/2000/svg"><path d="M4 6h2v2H4zm0 5h2v2H4zm0 5h2v2H4zm16-8V6H8.023v2H18.8zM8 11h12v2H8zm0 5h12v2H8z"></path></svg>
               <Link href="/token-multisender">Multisender</Link>
