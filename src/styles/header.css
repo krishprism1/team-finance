@@ -14,7 +14,7 @@
     border-radius: 6px;
     background-color: #fff;
     margin-right: 1vw;
-    border: .03px solid rgba(0, 0, 0, 0.141);
+    border: .03px solid rgba(0, 0, 0, 0.063);
     z-index: 99;
 }
 .header-container nav .nav-div img{
@@ -64,23 +64,26 @@
         justify-content: space-between;
         align-items: center;
         width: 100%;
-        height: 8vh;
+        height: 7vh;
+    }
+    .header-container nav .nav-div div:first-child{
+        width: 30%;
     }
     header{
         margin-bottom: 8vh;
     }
     .nav-open-container h2{
-        font-size: 1.3em;
+        font-size: 1.1em;
         font-weight: 500;
     }
 
     .nav-open-container{
         display: flex;
-        width: 100%;
+        width: 40%;
         height: 100%;
         justify-content: center;
         align-items: center;
-        gap: 10px;
+        gap: 20px;
     }
     .nav-open-container button{
         outline: none;
@@ -88,15 +91,16 @@
         margin: 0;
         padding: 0;
         height: 100%;
-        width: 100%;
-        border-right: 1px solid rgba(0, 0, 0, 0.204);
+        width: 0%;
+        border-right: 1px solid rgba(0, 0, 0, 0.095);
         background-color: transparent;
+        padding-right: 0.6em;
     }
     .nav-open-icon{
-        margin-top: 1em;
-        width: 2.5em;
-        height: 2.5em;
-        margin-left: -4em;
+        margin-top: 0.5em;
+        width: 1.8em;
+        height: 2em;
+        margin-left: -2.5em;
         cursor: pointer;
     }
     .heading-box img{
@@ -106,16 +110,21 @@
         cursor: pointer;
     }
     .header-container nav .nav-div{
-        width: 140px;
+        width: 70%;
+        overflow: hidden;
         border-radius: 6px;
         z-index: 99;
         margin-right: -2em;
+        height: 38px;
     }
     .header-container nav a{
-        font-size: 0.8em;
+        font-size: 0.9em;
         padding: 0;
+        width: 80%;
         font-weight: 600;
-        padding: 1.7vw 1vw;
+        /* padding: 1.7vw 1vw; */
+        line-height: 14px;
+        padding-top: 3px;
         position: relative;
     }
 }
@@ -186,4 +195,64 @@
         position: relative;
     }
 
+}
+
+@media only screen and (max-width:380px){
+    .header-container{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        height: 9vh;
+    }
+    .nav-open-icon{
+        margin-top: 0.5em;
+        width: 1.8em;
+        height: 2em;
+        margin-left: -0.5em;
+        cursor: pointer;
+    }
+    .nav-open-container h2{
+        font-size: 1em;
+        font-weight: 500;
+    }
+
+    .nav-open-container{
+        display: flex;
+        width: 39%;
+        height: 100%;
+        justify-content: center;
+        align-items: center;
+        gap: 4;
+    }
+    .nav-open-container button{
+        width: 30%;
+        height: 100%;
+        outline: none;
+        border: none;
+        margin: 0;
+        padding: 0;
+        margin-left: -3em;
+        border-right: 1px solid rgba(0, 0, 0, 0.145);
+        padding-right: 5px;
+        background-color: transparent;
+    }
+    .header-container nav .nav-div{
+        width: 80%;
+        overflow: hidden;
+        border-radius: 6px;
+        z-index: 99;
+        margin-right: -2em;
+        height: 35px;
+    }
+    .header-container nav a{
+        font-size: 0.7em;
+        padding: 0;
+        width: 80%;
+        font-weight: 600;
+        /* padding: 1.7vw 1vw; */
+        line-height: 14px;
+        padding-top: 3px;
+        position: relative;
+    }
 }
