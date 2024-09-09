@@ -114,12 +114,19 @@
     .side-container{
         position: fixed;
         top: 0;
-        width: 90%;
+        width: 100%;
         height: 100vh;
-        background-color:#f3f7fa;
+        background-color:#000000b7;
         z-index: 99;
         transform: translateX(-100%);
         transition: all 0.5s ease;
+        display: flex;
+
+    }
+    .side-container2{
+        width: 77%;
+        background-color: #fff;
+        height: 100%;
     }
     .close-icon-box{
         display: block;
@@ -127,19 +134,19 @@
     }
     .close-icon-box .close-icon{
         position: absolute;
-        right:0;
-        top:14%;
-        width: 2em;
+        right:12%;
+        top:2%;
+        width: 1.6em;
         height: 2em;
         z-index: 199;
-        color: #63676d;
+        color: #fff;
     }
     .link-box1 ul,.link-box2 ul{
         margin-left: 2.5em;
         margin-top: 1em;
     }
     .link-box1 ul li,.link-box2 ul li{
-        padding: 1em 1.2em;
+        padding: 0.8em 1.2em;
         list-style-type: none;
         position: relative;
     }
@@ -148,8 +155,18 @@
         margin-top: 0em;
         width: 55%;
     }
-    .link-box1 ul li a,.link-box2 ul li a{
+    .link-box1 ul li a{
         font-size: 0.9em;
+        margin-left: -9px;
+    }
+    .link-box2 ul li a{
+        margin-left: -15px;
+        font-size: 0.9em;
+    }
+    .link-box1 ul li:first-child:before{
+        content: '';
+        position: relative;
+        margin-left: -1em;
     }
     .link-box1 ul li .icon{
        height: 2em;
@@ -160,9 +177,9 @@
     }
     .link-box2 ul li .icon{
        height: 2em;
-       width: 1.5em;
-       left: -3vw;
-       margin-right: -1vw;
+       width: 1.3em;
+       left: -1.5em;
+       margin-right:0;
        bottom: 20%;
        z-index: 99;
     }
@@ -188,16 +205,23 @@
     }
     .team-finance{
         width: 100%;
-        height: 8vh;
+        height: 7vh;
         display: flex;
         justify-content: flex-start;
         align-items: center;
         border-bottom: .02px solid rgba(0, 0, 0, 0.322);
-        padding: 0 1.5em;
+        padding: 0 .5em;
     }
     .team-finance img{
         width: 6em;
         height: 3em;
+    }
+    .link-box2{
+        margin-top: 1em;
+        border-top: 1px solid rgba(0, 0, 0, 0.273);
+    }
+    .link-box1 ul li .icon{
+       width: 1.3em;
     }
 }
 

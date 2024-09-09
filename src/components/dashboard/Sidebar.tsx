@@ -14,10 +14,8 @@ const Sidebar = () => {
     <>
 
       <div className="side-container">
+        <div className='side-container2'>
         <div className="link-box1">
-          <div className='close-icon-box'>
-            <svg stroke="currentColor" fill="currentColor" onClick={close} stroke-width="0" viewBox="0 0 24 24" className='close-icon' aria-hidden="true" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="m16.192 6.344-4.243 4.242-4.242-4.242-1.414 1.414L10.535 12l-4.242 4.242 1.414 1.414 4.242-4.242 4.243 4.242 1.414-1.414L13.364 12l4.242-4.242z"></path></svg>
-          </div>
           <div className='team-finance'>
             <img src="https://app.team.finance/Blue_TF_Logotype.svg" alt="" />
           </div>
@@ -70,6 +68,11 @@ const Sidebar = () => {
               <a href="#">Docs <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" className="second-icon" xmlns="http://www.w3.org/2000/svg"><path d="m13 3 3.293 3.293-7 7 1.414 1.414 7-7L21 11V3z"></path><path d="M19 19H5V5h7l-2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2v-5l-2-2v7z"></path></svg></a></li>
           </ul>
         </div>
+        </div>
+
+        <div className='close-icon-box'>
+            <svg stroke="currentColor" fill="currentColor" onClick={close} stroke-width="0" viewBox="0 0 24 24" className='close-icon' aria-hidden="true" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="m16.192 6.344-4.243 4.242-4.242-4.242-1.414 1.414L10.535 12l-4.242 4.242 1.414 1.414 4.242-4.242 4.243 4.242 1.414-1.414L13.364 12l4.242-4.242z"></path></svg>
+          </div>
       </div>
     </>
   )
