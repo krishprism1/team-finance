@@ -123,7 +123,7 @@ export default function TokenLock() {
                 await _tx.wait()
                 const lockInstance = new ethers.Contract(networks.Binance.lockToken, lockAbi, await signer);
                 const fee = await lockInstance.getFeesInETH(selectedToken.token)
-                const tx = await lockInstance.lockToken(selectedToken.token, address, intToBig(formInput.amount, 18), intToBig(formInput.timestamp, 18), _mintNFT, referr, {
+                const tx = await lockInstance.lockToken(selectedToken.token, address, intToBig(formInput.amount, 18), formInput.timestamp, _mintNFT, referr, {
                     value: fee
                 });
                 const receipt = await tx.wait();

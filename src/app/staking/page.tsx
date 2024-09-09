@@ -114,7 +114,7 @@ export default function Staking() {
                 await _tx.wait()
                 const stakeInstance = new ethers.Contract(networks.Binance.stakeContract, stakeAbi, await signer);
                 // const fee = await stakeInstance.getFeesInETH(token)
-                const tx = await stakeInstance.addPool(selectedToken.token, formData.rewardToken, formData.startTime, formData.endTime, formData.precision, intToBig(formData.totalReward, 18));
+                const tx = await stakeInstance.addPool(selectedToken.token, formData.rewardToken, formData.startTime /1000, formData.endTime/1000, formData.precision, intToBig(formData.totalReward, 18));
                 const receipt = await tx.wait();
                 console.log("__________")
                 await axios.post(poolUrl.pool, {
