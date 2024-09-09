@@ -1,5 +1,5 @@
 import React from 'react'
-import { useAccount } from 'wagmi'
+import { useAccount, useBalance } from 'wagmi'
 import { useWeb3Modal } from '@web3modal/wagmi/react'
 import { formatEthAddr } from '@/utils/math.utils'
 import useFormStore from '@/store/stepStore'
@@ -12,7 +12,11 @@ const ConnectWallet = () => {
     const connect = async () => {
         await open()
     }
+    const { data, isError, isLoading } = useBalance({
+        address
+    });
 
+    let _balance = data?.formatted;
     return (
         <div className="select-wallet-box">
             {step == 0 && (
@@ -27,7 +31,7 @@ const ConnectWallet = () => {
                                 <img src="https://app.team.finance/_next/image?url=%2Fassets%2Fwallet%2FmetaMask%403x.png&w=96&q=75" alt="logo" />
                             </div>
                             <div>
-                                <h3>0 ETH</h3>
+                                <h3>{_balance ? parseFloat(_balance).toFixed(3) : 0} {data?.symbol}</h3>
                                 <p>{address ? formatEthAddr(address) : ""}</p>
                             </div>
                             <div className='ds-box'>

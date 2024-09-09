@@ -661,20 +661,12 @@ export default function MultiSender() {
                                 <div className="tk-informantion">
                                     <p>Blockchain</p>
                                     <div>
-                                        <img
-                                            src="https://app.team.finance/icons/wizard/ethereum.svg"
-                                            alt="l"
-                                        />
-                                        <span>Bsc Testnet</span>
+                                    <img src="https://app.team.finance/icons/wizard/binance.svg" alt="l" /><span>Binance</span>
                                     </div>
                                 </div>
                                 <div className="tk-informantion">
                                     <p>Token</p>
                                     <div>
-                                        <img
-                                            src="https://app.team.finance/tokens/ethereum-token.webp"
-                                            alt="l"
-                                        />
                                         <span>{selectedToken?.symbol}</span>
                                     </div>
                                 </div>
