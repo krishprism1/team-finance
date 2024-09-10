@@ -226,7 +226,7 @@
 
     .nav-open-container{
         display: flex;
-        width: 39%;
+        width: 80%;
         height: 100%;
         justify-content: center;
         align-items: center;
@@ -250,16 +250,17 @@
         border-radius: 6px;
         z-index: 99;
         margin-right: -2em;
-        height: 35px;
+        height: 30px;
     }
     .header-container nav a{
-        font-size: 0.7em;
+        font-size: 12px;
         padding: 0;
         width: 80%;
+        font-family: sans-serif;
         font-weight: 600;
         /* padding: 1.7vw 1vw; */
-        line-height: 14px;
-        padding-top: 3px;
+        line-height: 12px;
+        padding-top: 1px;
         position: relative;
     }
 }
