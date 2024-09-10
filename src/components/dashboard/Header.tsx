@@ -33,7 +33,7 @@ const Header = () => {
           <div><img src="https://app.team.finance/icons/wizard/binance.svg" alt="ig" />
           </div>
         <div>
-          <a href="#" onClick={() => connect()}>{address ? formatEthAddr(address) : "connect wallet"}</a>
+          <a href="#" onClick={() => connect()}>{address ? formatEthAddr(address) : "Connect wallet"}</a>
         </div>
         </div>
       </nav>

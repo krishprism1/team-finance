@@ -27,7 +27,7 @@
     align-items: center;
     width: 20%;
     height: 100%;
-    border-right: 1px solid rgba(0, 0, 0, 0.24);
+    border-right: 1px solid rgba(0, 0, 0, 0.102);
 }
 .header-container nav .nav-div div:nth-child(2){
     display: flex;
@@ -64,26 +64,32 @@
         justify-content: space-between;
         align-items: center;
         width: 100%;
-        height: 7vh;
+        height: 8.5vh;
     }
     .header-container nav .nav-div div:first-child{
-        width: 30%;
+        width: 21%;
+    }
+    .header-container nav .nav-div div:first-child img{
+        width: 1em;
+        height: 1.5em;
+
     }
     header{
-        margin-bottom: 8vh;
+        margin-bottom: 8.5vh;
     }
     .nav-open-container h2{
-        font-size: 1.1em;
+        font-size: 1.2em;
         font-weight: 500;
+        letter-spacing: 0px;
     }
 
     .nav-open-container{
         display: flex;
-        width: 40%;
+        width: 54%;
         height: 100%;
         justify-content: center;
         align-items: center;
-        gap: 20px;
+        gap: 16px;
     }
     .nav-open-container button{
         outline: none;
@@ -92,9 +98,9 @@
         padding: 0;
         height: 100%;
         width: 0%;
-        border-right: 1px solid rgba(0, 0, 0, 0.095);
+        border-right: 1px solid rgba(0, 0, 0, 0.059);
         background-color: transparent;
-        padding-right: 0.6em;
+        padding-right: 0.8em;
     }
     .nav-open-icon{
         margin-top: 0.5em;
@@ -102,29 +108,30 @@
         height: 2em;
         margin-left: -2.5em;
         cursor: pointer;
+        color: gray;
     }
-    .heading-box img{
-        width: 9.2em;
-        padding: 6px;
-        margin: 0;
-        cursor: pointer;
-    }
+
     .header-container nav .nav-div{
-        width: 70%;
+        width: 80%;
         overflow: hidden;
         border-radius: 6px;
         z-index: 99;
         margin-right: -2em;
-        height: 38px;
+        height: 36.8px;
+        border: 1px solid rgba(0, 0, 0, 0.102);
     }
     .header-container nav a{
-        font-size: 0.9em;
+        font-size: 15px;
+        word-spacing: 0;
         padding: 0;
         width: 80%;
         font-weight: 600;
+        letter-spacing: 0.3px;
+        color: black;
+        font-family: sans-serif;
         /* padding: 1.7vw 1vw; */
-        line-height: 14px;
-        padding-top: 3px;
+        line-height: 16px;
+        padding-top: 1px;
         position: relative;
     }
 }
