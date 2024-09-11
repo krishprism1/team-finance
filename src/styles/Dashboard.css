@@ -617,15 +617,17 @@
     }
 
     .dashboard-container .column1 h3 {
-        font-size: 1.3em;
-        color: #fff;
-        font-weight: 500;
+        font-size: 20px;
+        color: rgb(255, 255, 255);
+        line-height: 24px;
+        font-weight: 600;
     }
 
     .dashboard-container .column1 p {
-        font-size: 0.9em;
-        color: #fff;
-        margin-top: 0.5vw;
+        font-size: 16px;
+        color: rgb(255, 255, 255);
+        font-weight: 400;
+        line-height: 24px;
     }
 
     /*  */
@@ -642,17 +644,19 @@
     }
 
     .dashboard-container .column2 .content h3 {
-        margin-top: 0.1em;
-        font-size: 1.3em;
-        font-weight: 400;
-        padding-bottom: 0.1em;
+        font-size: 18px;
+        font-weight: 500;
+        line-height: 24px;
+        color: rgb(34,34,34);
+
     }
 
     .dashboard-container .column2 .content p {
-        font-size: 0.9em;
+        font-size: 14px;
         line-height: 20px;
-        word-spacing: 0px;
         width: 100%;
+        font-weight: 400;
+        color: rgb(34,34,34);
     }
 
     .dashboard-container .column2 .links {
@@ -666,13 +670,17 @@
     .dashboard-container .column2 .links div:nth-child(1) a {
         width: 88vw;
         height: 44px;
-        font-size: 1.1em;
-        border: 0.1px solid rgba(0, 0, 255, 0.43);
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 20px;
+        color: rgb(31, 74,233 );
+        border: 0.1px solid rgba(0, 0, 255, 0.173);
     }
 
     .dashboard-container .column2 .links div:nth-child(2) a {
-        border-radius: 5px;
-        font-size: 1.1em;
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 20px;
         width: 300px;
         height: 44px;
         border: none;
