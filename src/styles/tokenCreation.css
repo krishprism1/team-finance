@@ -88,6 +88,8 @@
     width: 100%;
     height: 100%;
     margin-top: 2.2vw;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.096);
+    padding-bottom: 1em;
 }
 .box1 .help-heading{
     display: flex;
@@ -95,29 +97,39 @@
     align-items: center;
 }
 .box1 .help-heading h3{
-    font-size: 1.5vw;
-    font-weight: 500;
+    font-size: 16px;
+    font-weight: 600;
+    color: rgb(34, 34, 34);
+    line-height: 20px;
     padding-bottom: 0.2vw;
 }
 .box1 .help-praragraph1{
     width: 90%;
-    font-size: 1.2vw;
-    color: rgba(0, 0, 0, 0.726);
+    font-size: 16px;
+    font-weight: 400;
+    color: rgb(34, 34, 34);
+    line-height: 24px;
     /* display: none; */
 }
 .box1 .help-praragraph1 a,.box1 .help-praragraph3 a{
-    font-size: 1.3vw;
-    color: rgb(0, 0, 0);
+    font-size: 16px;
+    font-weight: 400;
+    color: rgb(34, 34, 34);
+    line-height: 24px;
 }
 .box1 .help-praragraph2{
     width: 90%;
-    font-size: 1.2vw;
-    color: rgba(0, 0, 0, 0.726);
+    font-size: 16px;
+    font-weight: 400;
+    color: rgb(34, 34, 34);
+    line-height: 24px;
 }
 .box1 .help-praragraph3{
     width: 90%;
-    font-size: 1.2vw;
-    color: rgba(0, 0, 0, 0.726);
+    font-size: 16px;
+    font-weight: 400;
+    color: rgb(34, 34, 34);
+    line-height: 24px;
 }
 .up-down-arrow{
     color: gray;
@@ -133,20 +145,22 @@
 .box2 a{
     text-decoration: none;
     padding: 0.8vw 2vw;
-    border: 0.1px solid rgba(0, 0, 0, 0.153);
     text-align: center;
-    font-size: 1.4vw;
-    font-weight: 500;
-    color: blue;
+    font-size: 16px;
+    font-weight: 600;
+    color: rgb(31, 74, 233);
     border-radius: 7px;
+    display: flex;
+    align-items: center;
 }
 .box2 a:hover{
     background-color: rgb(219 234 254 )
 }
 .box2 .token-icon{
-    width: 1em;
-    height: 1em;
-    color: blue;
+    width: 16px;
+    height: 16px;
+    font-weight: 600;
+    color: rgb(61, 61, 255);
     margin-left: 0.4vw;
 }
 
@@ -436,23 +450,32 @@
     padding: 0 1.5vw;
 }
 .creat-token-box .logo-heading h3{
-    font-size: 1.6vw;
+    font-size: 20px;
+    color: rgb(34, 34, 34);
+    line-height: 24px;
     font-weight: 600;
 }
 .creat-token-box .logo-heading p{
-    font-size: 1.2vw;
-    padding-top: 0.2vw;
+    font-size: 16px;
+    font-weight: 400;
+    color: rgb(34, 34, 34);
+    line-height: 24px;
+    width: 120%;
     padding-bottom: 1em;
 }
 .creat-token-box .creat-token-links{
     width: 47%;
     padding:  0 1.5vw;
+    flex-direction: column;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
 }
 .creat-token-box .creat-token-links div{
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%;
+    width: 70%;
     height: 44px;
     border-radius: 6px;
     border: 0.1px solid rgba(0, 0, 0, 0.153);
@@ -462,21 +485,20 @@
 }
 .creat-token-box .creat-token-links div a{
     text-decoration: none;
-    font-size: 1.3vw;
+    font-size: 16px;
     font-weight: 600;
+    line-height: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 3px;
-    color: blue;
+    color: rgb(31, 74, 233);
 }
 .creat-token-box .creat-token-links p{
-    text-align: center;
-    font-size: 1.1;
-    color: rgba(0, 0, 0, 0.607);
-    padding-top: 0vw;
+    font-size: 16px;
+    color: rgb(34, 34, 34,0.6);
+    padding-top: 0.3vw;
     padding-bottom: 0em;
-    width: 100%;
 }
 .token-icon{
     width: 19px;
