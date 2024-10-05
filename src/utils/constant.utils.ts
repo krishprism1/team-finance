@@ -109,8 +109,8 @@ export const featureProps = [
     teamLockCard,
     nftLockCard,
     stakingCard,
-    multisenderCard,
-    liquidityLockCard
+    multisenderCard
+    // liquidityLockCard
 ]
 
 const main = [{ name: "BSC Mainnet", chain: "binance", chainId: 56, logo: "https://app.team.finance/icons/wizard/binance.svg", status: false }]

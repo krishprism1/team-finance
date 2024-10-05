@@ -43,7 +43,7 @@ const ProgressLevelCard: React.FC<ProgressLevelCardProps> = (props) => {
                     </div>
                     <div className="small-box">
                         {data?.locksInfo?.nftCount ? <ActiveCard title='NFT locks' /> : <ExploreCard title='NFT locks' path='/nft-locks' />}
-                        {data?.locksInfo?.lpCount ? <ActiveCard title='Liquidity Locks' /> : <ExploreCard title='Liquidity Locks' path='/' />}
+                        {/* {data?.locksInfo?.lpCount ? <ActiveCard title='Liquidity Locks' /> : <ExploreCard title='Liquidity Locks' path='/' />} */}
                         {data?.multisenderCount ? <ActiveCard title='Multisender' /> : <ExploreCard title='Multisender' path='/token-multisender' />}
                     </div>
                 </div>
