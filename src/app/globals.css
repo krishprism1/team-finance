@@ -78,7 +78,7 @@ header{
     height: 45px;
     margin-right: 1vw;
     padding-right: 1vw;
-    border-right: 1px solid rgba(0, 0, 0, 0.379);
+    border-right: 1px solid rgba(0, 0, 0, 0.186);
 }
 
 .back-home-box .image-container{
@@ -97,8 +97,9 @@ header{
 }
 
 .back-home-box .image-container a span{
-    font-size: 1.2em;
-    font-weight: 500;
+    font-size: 16px;
+    font-weight: 600;
+    color: rgb(31, 74, 233);
     margin-left: 2.5vw;
 }
 .back-home-box .left-icon{
@@ -113,8 +114,12 @@ header{
 /* back home css for media query  */
 @media only screen and (max-width:766px){
     .back-home-box .image-container{
-        width: 90%;
-        justify-content: space-around;
+        width: 99%;
+        /* justify-content: space-around; */
+        gap: 6px;
+    }
+    .back-home-box img{
+        margin-left: 5px;
     }
     .back-home-box .image-container a{
         display: flex;
@@ -123,16 +128,18 @@ header{
         position: relative;
     }
     .back-home-box .left-icon{
-        left: -10%;
+        left: 0%;
         top: 50%;
         transform: translate(-50%,-50%);
         height: 1.3em;
         width: 1.3em;
     }
     .back-home-box .image-container a span{
-        font-size: 0.8em;
-        font-weight: 500;
-        margin-left:0vw;
+        font-size: 16px;
+        line-height: 24px;
+        font-weight: 600;
+        color: rgba(31, 74, 233);
+        /* margin-left:1em; */
     }
 }
 

@@ -22,8 +22,11 @@
     }
 
     .creat-token-column .content1 h1 {
-        font-size: 1.6em;
+        font-size: 24px;
         width: 80%;
+        line-height: 32px;
+        font-weight: 600;
+        color: rgb(34, 34, 34);
         /* margin-left: -1em; */
     }
 
@@ -140,13 +143,18 @@
     }
 
     .select-wallet h1 {
-        font-size: 1.4em;
+        font-size: 20px;
         font-weight: 600;
-        padding-bottom: 0.4em;
+        line-height: 28px;
+        color:rgb(34, 34, 34) ;
     }
 
     .select-wallet p {
-        font-size: 1.1em;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 24px;
+        color:rgb(34, 34, 34) ;
+        margin-bottom: 1em;
     }
 
     .select-wallet div {
@@ -158,8 +166,11 @@
 
     .select-wallet a {
         padding: 0.7em 1.5em;
-        font-size: 1em;
+        font-size: 16px;
         border-radius: 8px;
+        font-weight: 600;
+        color: rgb(255,255 ,255 );
+        line-height: 20px;
     }
 
     .token-creation-container {

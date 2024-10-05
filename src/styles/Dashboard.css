@@ -6,8 +6,9 @@
 
 .dashboard-container .heading h2 {
     padding-top: 0.4vw;
-    font-size: 1.5vw;
+    font-size: 20px;
     font-weight: 600;
+    color: rgb(34,34,34);
 }
 
 .dashboard-container .column1 {
@@ -31,14 +32,16 @@
 }
 
 .dashboard-container .column1 h3 {
-    font-size: 1.7vw;
-    color: #fff;
-    font-weight: 500;
+    font-size: 20px;
+    color: rgb(255, 255, 255);
+    line-height: 24px;
+    font-weight: 600;
 }
 
 .dashboard-container .column1 p {
-    font-size: 1.2vw;
-    color: #fff;
+    font-size: 16px;
+    font-weight: 400;
+    color: rgb(255, 255, 255);
     margin-top: 0.5vw;
 }
 
@@ -87,16 +90,19 @@
 }
 
 .dashboard-container .column2 .content h3 {
-    font-size: 1.5vw;
+    font-size: 18px;
     font-weight: 500;
     padding-bottom: 0.1vw;
+    color: rgb(34,34,34);
+    line-height: 24px;
 }
 
 .dashboard-container .column2 .content p {
-    font-size: 1.1vw;
+    font-size: 14px;
     width: 80%;
+    font-weight: 400;
+    color: rgb(34,34,34);
     line-height: 20px;
-    word-spacing: 2px;
 }
 
 .dashboard-container .column2 .links {
@@ -113,13 +119,14 @@
 
 .dashboard-container .column2 .links div:nth-child(1) a {
     text-decoration: none;
-    color: blue;
+    color: rgb(31, 74,233 );
     width: 300px;
     height: 44px;
     border: 0.1px solid rgba(0, 0, 255, 0.205);
     border-radius: 5px;
-    font-size: 1.3vw;
-    font-weight: 500;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -127,12 +134,13 @@
 
 .dashboard-container .column2 .links div:nth-child(2) a {
     text-decoration: none;
-    color: blue;
+    color: rgb(31, 74,233 );
     padding: 0.8vw 2vw;
     border: 0.1px solid rgba(0, 0, 255, 0.205);
     border-radius: 8px;
-    font-size: 1.3vw;
-    font-weight: 500;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -353,6 +361,7 @@
 
 .token-vesting-column1,
 .token-vesting-column2 {
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -438,9 +447,9 @@
     text-decoration: none;
     color: blue;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-left: 10em;
+    align-items: flex-end;
+    justify-content: flex-end;
+    width: 100%;
     margin-bottom: 1em;
 }
 
@@ -617,20 +626,22 @@
     }
 
     .dashboard-container .column1 h3 {
-        font-size: 1.3em;
-        color: #fff;
-        font-weight: 500;
+        font-size: 20px;
+        color: rgb(255, 255, 255);
+        line-height: 24px;
+        font-weight: 600;
     }
 
     .dashboard-container .column1 p {
-        font-size: 0.9em;
-        color: #fff;
-        margin-top: 0.5vw;
+        font-size: 16px;
+        color: rgb(255, 255, 255);
+        font-weight: 400;
+        line-height: 24px;
     }
 
     /*  */
     .dashboard-container .column2 {
-        padding: 0.2em 1.5em;
+        padding: 0em 0.7em;
         padding-bottom: 1em;
         border-radius: 7px;
         margin-top: 1em;
@@ -642,17 +653,19 @@
     }
 
     .dashboard-container .column2 .content h3 {
-        margin-top: 0.1em;
-        font-size: 1.3em;
-        font-weight: 400;
-        padding-bottom: 0.1em;
+        font-size: 18px;
+        font-weight: 500;
+        line-height: 24px;
+        color: rgb(34,34,34);
+
     }
 
     .dashboard-container .column2 .content p {
-        font-size: 0.9em;
+        font-size: 14px;
         line-height: 20px;
-        word-spacing: 0px;
         width: 100%;
+        font-weight: 400;
+        color: rgb(34,34,34);
     }
 
     .dashboard-container .column2 .links {
@@ -666,16 +679,21 @@
     .dashboard-container .column2 .links div:nth-child(1) a {
         width: 88vw;
         height: 44px;
-        font-size: 1.1em;
-        border: 0.1px solid rgba(0, 0, 255, 0.43);
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 20px;
+        color: rgb(31, 74,233 );
+        border: 0.1px solid rgba(0, 0, 255, 0.173);
     }
 
     .dashboard-container .column2 .links div:nth-child(2) a {
-        border-radius: 5px;
-        font-size: 1.1em;
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 20px;
         width: 300px;
         height: 44px;
         border: none;
+        color: rgb(31, 74,233 );
     }
 
     .circle1 {
@@ -919,9 +937,10 @@
     }
 
     .liquid-locks-box1 p {
-        font-size: 0.9em;
-        font-weight: 500;
-        color: rgb(43, 24, 93);
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 16px;
+        color: rgb(34, 34, 34);
     }
 
 
@@ -1054,6 +1073,7 @@
         height: 44px;
         font-size: 1.1em;
         border: 0.1px solid rgba(0, 0, 255, 0.43);
+        color: rgb(31, 74,233 );
     }
 
     .dashboard-container .column2 .links div:nth-child(2) a {
@@ -1062,6 +1082,7 @@
         font-size: 1.1em;
         width: 300px;
         height: 44px;
+        color: rgb(31, 74,233 );
     }
 
     .circle1 {
@@ -1107,7 +1128,7 @@
     }
 
     .column2-container .column2 {
-        width: 48%;
+        width: 49.4%;
     }
     .dashboard-container .column2 .links {
         display: flex;
@@ -1190,11 +1211,11 @@
     }
 
     .dashboard-container .column2 .content p {
-        font-size: 1.1vw;
+        font-size: 14px;
         margin-top: 0.3em;
         width: 98%;
-        line-height: 18px;
-        word-spacing: 2px;
+        line-height: 20px;
+        color: rgb(34,34,34);
     }
     
 
